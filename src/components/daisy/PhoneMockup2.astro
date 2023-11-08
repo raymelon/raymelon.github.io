@@ -1,0 +1,55 @@
+---
+import Hi from "./Hi.astro";
+interface Props {
+  image: string;
+  orientation: string;
+  classes: string;
+  wh: string;
+}
+const { orientation, classes, wh } = Astro.props;
+// w-[272px] h-[572px]
+// h-[600px] w-[300px]
+
+const orientationSwitcher = (h, w) =>
+  orientation === "landscape" ? w + " " + h : h + " " + w;
+---
+
+<div class=`col-span-2 p-2 rounded row-span-1 ${classes} ${wh}`>
+  <!-- <PhoneMockup orientation="landscape" /> -->
+  <div
+    class=`relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] ${wh}`
+  >
+    <div
+      class=`${orientationSwitcher("h-[32px]", "w-[3px]")} bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg`
+    >
+    </div>
+    <div
+      class=`${orientationSwitcher("h-[46px]", "w-[3px]")} bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg`
+    >
+    </div>
+    <!-- <div
+      class=`${orientationSwitcher("h-[46px]", "w-[3px]")} bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg`
+    >
+    </div> -->
+    <div
+      class=`${orientationSwitcher("h-[64px]", "w-[3px]")} bg-gray-800 dark:bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg`
+    >
+    </div>
+    <!-- screenshot and container -->
+    <div class=`rounded-[2rem] overflow-hidden ${wh} bg-slate-50`>
+      <!-- <img
+        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-light.png"
+        class=`dark:hidden ${wh}`
+        alt=""
+      />
+      <img
+        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-dark.png"
+        class=`hidden dark:block ${wh}`
+        alt=""
+      /> -->
+      <div class="grid place-content-center h-full">
+        <Hi />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+---
+import Hi from "./Hi.astro";
+interface Props {
+  image: string;
+  orientation: string;
+  classes: string;
+  wh: string;
+}
+
+const { orientation, classes, wh } = Astro.props;
+
+const isLandscape = orientation === "landscape";
+const top_ifLandscape = isLandscape ? "40%" : "";
+const left_ifLandscape = isLandscape ? "48%" : "";
+
+const orientationSwitcher = (h, w) => (isLandscape ? w + " " + h : h + " " + w);
+---
+
+<div class=`${classes} ${wh}`>
+  <div class=`mockup-phone phone-1 p-2 bg-gray-800 ${wh}`>
+    <div
+      class:list={[
+        "camera",
+        "bg-gray-800",
+        {
+          "rotate-90": isLandscape,
+        },
+      ]}
+    >
+    </div>
+    <div class=`display ${wh}`>
+      <div class=`bg-slate-50 ${wh} "phone-1"`>
+        <div class="grid place-content-center h-full">
+          <Hi />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style define:vars={{ top_ifLandscape, left_ifLandscape }}>
+  .mockup-phone .camera {
+    top: var(--top_ifLandscape);
+    left: var(--left_ifLandscape);
+  }
+</style>

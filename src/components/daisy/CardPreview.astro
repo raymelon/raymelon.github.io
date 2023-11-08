@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  href: string;
+  group: string;
+  tags: Array<string>;
+}
+
+const { href, title, body, group, tags } = Astro.props;
+---
+
+<div class="card w-96 bg-base-100 shadow-xl">
+  <figure>
+    <img
+      src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+      alt="Shoes"
+    />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">
+      {title}
+      <div class="badge badge-secondary">{group}</div>
+    </h2>
+    <p>{body}</p>
+    <div class="card-actions justify-end">
+      {
+        tags &&
+          tags.map((tag) => {
+            return <div class="badge badge-outline">{tag}</div>;
+          })
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+---
+interface Props {
+  heading: string;
+  colors: Array<string>;
+}
+
+const { heading, colors } = Astro.props;
+---
+
+<div class="stack">
+  <div
+    class=`grid w-96 h-96 rounded-lg ${colors[0]} text-primary-content place-content-start`
+  >
+    <h2 class="text-6xl font-medium mt-20 ml-3">{heading}</h2>
+  </div>
+  <div
+    class=`grid w-96 h-96 rounded-lg ${colors[0]} text-accent-content place-content-start`
+  >
+    2
+  </div>
+  <div
+    class=`grid w-96 h-96 rounded-lg ${colors[0]} text-secondary-content place-content-start`
+  >
+    3
+  </div>
+</div>
+
+<style>
+  .stack > *:nth-child(2) {
+    transform: translateX(4%);
+    opacity: calc(50%);
+  }
+
+  .stack > *:nth-child(3) {
+    transform: translateX(8%);
+    opacity: calc(25%);
+  }
+</style>
