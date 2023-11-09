@@ -1,0 +1,47 @@
+---
+import Hi from "./daisy/Hi.astro";
+import { Image } from "astro:assets";
+
+import matigsalugThumb from "../assets/matigsalug-thumb.jpg";
+import taallamThumb from "../assets/taallam-thumb.jpg";
+import kaalamThumb from "../assets/kaalam-thumb.jpg";
+import sanutIlokanoThumb from "../assets/sanut-ilokano-thumb.jpg";
+import educoThumb from "../assets/educo-thumb.webp";
+import katataganThumb from "../assets/katatagan-thumb.webp";
+
+interface Props {
+  imgKey: String;
+}
+
+const { imgKey } = Astro.props;
+
+let imgMetadata: ImageMetadata = imgKeyToMetadata(imgKey);
+
+function imgKeyToMetadata(imgKey) {
+  let imgMetadata: ImageMetadata;
+
+  switch (imgKey) {
+    case "matigsalug-thumb.jpg":
+      imgMetadata = matigsalugThumb;
+      break;
+    case "taallam-thumb.jpg":
+      imgMetadata = taallamThumb;
+      break;
+    case "kaalam-thumb.jpg":
+      imgMetadata = kaalamThumb;
+      break;
+    case "sanut-ilokano-thumb.jpg":
+      imgMetadata = sanutIlokanoThumb;
+      break;
+    case "educo-thumb.webp":
+      imgMetadata = educoThumb;
+      break;
+    case "katatagan-thumb.webp":
+      imgMetadata = katataganThumb;
+      break;
+  }
+  return imgMetadata;
+}
+---
+
+{imgMetadata ? <Image src={imgMetadata} alt={imgKey} /> : <Hi />}

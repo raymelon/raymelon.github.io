@@ -1,12 +1,15 @@
 ---
+import ImageImporter from "../ImageImporter.astro";
 import Hi from "./Hi.astro";
+
 interface Props {
   image: string;
   orientation: string;
   classes: string;
   wh: string;
+  imgKey: string;
 }
-const { orientation, classes, wh } = Astro.props;
+const { orientation, classes, wh, imgKey } = Astro.props;
 // w-[272px] h-[572px]
 // h-[600px] w-[300px]
 
@@ -48,7 +51,7 @@ const orientationSwitcher = (h, w) =>
         alt=""
       /> -->
       <div class="grid place-content-center h-full">
-        <Hi />
+        <ImageImporter imgKey={imgKey} />
       </div>
     </div>
   </div>

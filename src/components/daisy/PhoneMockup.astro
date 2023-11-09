@@ -1,13 +1,15 @@
 ---
-import Hi from "./Hi.astro";
+import ImageImporter from "../ImageImporter.astro";
+
 interface Props {
   image: string;
   orientation: string;
   classes: string;
   wh: string;
+  imgKey: string;
 }
 
-const { orientation, classes, wh } = Astro.props;
+const { orientation, classes, wh, imgKey } = Astro.props;
 
 const isLandscape = orientation === "landscape";
 const top_ifLandscape = isLandscape ? "40%" : "";
@@ -31,7 +33,7 @@ const orientationSwitcher = (h, w) => (isLandscape ? w + " " + h : h + " " + w);
     <div class=`display ${wh}`>
       <div class=`bg-slate-50 ${wh} "phone-1"`>
         <div class="grid place-content-center h-full">
-          <Hi />
+          <ImageImporter imgKey={imgKey} />
         </div>
       </div>
     </div>

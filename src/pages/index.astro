@@ -9,6 +9,7 @@ import BrowserMockup from "../components/daisy/BrowserMockup.astro";
 import WindowMockup from "../components/daisy/WindowMockup.astro";
 import OldGrid from "../components/daisy/OldGrid.astro";
 import Navbar from "../components/daisy/NavBar.astro";
+import ImageImporter from "../components/ImageImporter.astro";
 ---
 
 <meta charset="UTF-8" />
@@ -206,7 +207,12 @@ import Navbar from "../components/daisy/NavBar.astro";
       </div>
     </div>
     <div id="tile2" class="itemCust item2 itemCustMockup shadow-lg">
-      <PhoneMockup classes="relative" wh="w-full h-full" />
+      <PhoneMockup2
+        imgKey="sanut-ilokano-thumb.jpg"
+        classes="relative"
+        wh="w-full h-full"
+        orientation="landscape"
+      />
     </div>
     <!-- <div class="itemCust item3">
 		<div class="relative w-[100%] h-[100%]">3</div>
@@ -214,6 +220,7 @@ import Navbar from "../components/daisy/NavBar.astro";
     <div class="itemCust item4 itemCustMockup shadow-lg">
       <!-- <div class="relative w-[100%] h-[100%]">4</div> -->
       <PhoneMockup
+        imgKey="matigsalug-thumb.jpg"
         classes="relative"
         wh="w-full h-full"
         orientation="landscape"
@@ -222,6 +229,7 @@ import Navbar from "../components/daisy/NavBar.astro";
     <div class="itemCust item5 itemCustMockup shadow-l shadow-lg">
       <!-- <div class="relative w-[100%] h-[100%]">5</div> -->
       <PhoneMockup2
+        imgKey="taallam-thumb.jpg"
         classes="relative"
         wh="w-full h-full"
         orientation="landscape"
@@ -234,15 +242,21 @@ import Navbar from "../components/daisy/NavBar.astro";
       <div class="relative w-[100%] h-[100%]">
         <!-- <BrowserMockup classes="relative w-full h-full" /> -->
         <div class="flex justify-center text-slate-50 window-content">
-          <div class="absolute top-[40%]">
+          <!-- <div class="absolute top-[40%]">
+            
             <span class="font-black text-6xl subpixel-antialiased">Hi 👋</span>
-          </div>
+          </div> -->
+          <ImageImporter imgKey="educo-thumb.webp" />
         </div>
       </div>
     </div>
     <div class="itemCust item8 itemCustMockup shadow-lg">
       <div class="relative w-[100%] h-[100%]">
-        <PhoneMockup2 classes="relative" wh="w-full h-full" />
+        <PhoneMockup2
+          imgKey="kaalam-thumb.jpg"
+          classes="relative"
+          wh="w-full h-full"
+        />
       </div>
     </div>
     <div class="itemCust item9">
@@ -250,14 +264,21 @@ import Navbar from "../components/daisy/NavBar.astro";
     </div>
     <div class="itemCust item10 itemCustMockup shadow-lg">
       <div class="relative w-[100%] h-[100%]">
-        <WindowMockup classes="relative w-full h-full" />
+        <WindowMockup imgKey="" classes="relative w-full h-full" />
       </div>
     </div>
     <div class="itemCust item11">
       <div class="relative w-[100%] h-[100%]">11</div>
     </div>
     <div class="itemCust item12">
-      <div class="relative w-[100%] h-[100%]">12</div>
+      <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
+      <div class="relative w-[100%] h-[100%]">
+        <PhoneMockup
+          imgKey="katatagan-thumb.webp"
+          classes="relative"
+          wh="w-full h-full"
+        />
+      </div>
     </div>
     <div class="itemCust item13">
       <div class="relative w-[100%] h-[100%]">13</div>
@@ -359,6 +380,10 @@ import Navbar from "../components/daisy/NavBar.astro";
     height: 200px;
     width: 350px;
   }
+  .containerCust .item2 {
+    width: 600px;
+    height: 300px;
+  }
   .containerCust .item4 {
     width: 600px;
     height: 300px;
@@ -366,7 +391,7 @@ import Navbar from "../components/daisy/NavBar.astro";
 
   .containerCust .item5 {
     width: 600px;
-    height: 300px;
+    height: 600px;
   }
   .containerCust .item6 {
     height: 600px;
@@ -374,11 +399,13 @@ import Navbar from "../components/daisy/NavBar.astro";
 
   .containerCust .item8 {
     width: 600px;
-    height: 400px;
+    height: 600px;
   }
 
   .containerCust .item7 {
-    width: 600px;
+    /* width: 600px; */
+    height: 275px;
+    width: 300px;
   }
 
   .containerCust .item10 {
