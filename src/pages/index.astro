@@ -13,35 +13,16 @@ import Navbar from "../components/daisy/NavBar.astro";
 
 <meta charset="UTF-8" />
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"
-></script> -->
 <script>
-  // import MagicGrid from "magic-grid";
-  // let magicGrid = new MagicGrid({
-  // 	container: ".containerCust",
-  // 	animate: true,
-  // 	gutter: 30,
-  // 	static: true,
-  // 	useMin: true,
-  // 	center: true,
-  // 	useMin: true,
-  // 	useTransform: true,
-  // 	maxColumns: 5,
-  // });
-
-  // magicGrid.listen();
-
-  // setTimeout(() => {
-  // 	magicGrid.positionItems();
-  // }, 2000);
-
   import Muuri from "muuri";
 
   var dragSortOptions = {
-    action: "swap",
+    action: "move",
     threshold: 50,
   };
   var grid = new Muuri(".containerCust", {
+    // showDuration: 0,
+    // showEasing: "linear",
     dragEnabled: false,
     layout: {
       fillGaps: false,
@@ -50,7 +31,7 @@ import Navbar from "../components/daisy/NavBar.astro";
       // rounding: true,
     },
     dragStartPredicate: function (item, event) {
-      // Prevent first item from being dragged.
+      // Prevent an item from being dragged.
       if (grid.getItems().indexOf(item) === 5) {
         return false;
       }
@@ -61,7 +42,33 @@ import Navbar from "../components/daisy/NavBar.astro";
       var result = Muuri.ItemDrag.defaultSortPredicate(item, dragSortOptions);
       return result && result.index === 5 ? false : result;
     },
+    dragSort: function () {
+      // Change the duration and easing for the drag animation
+      return {
+        duration: 800, // Set the duration in milliseconds (default is 300)
+        easing: "cubic-bezier(0.55, 0.055, 0.675, 0.19)", // Set the easing function (default is 'cubic-bezier(0.2, 0, 0.2, 1)')
+      };
+    },
   });
+
+  setTimeout(() => {
+    // shuffle
+    let randomNum = Math.floor(Math.random() * 12);
+    const seed = Math.floor(Math.random() * 3);
+
+    if (randomNum + seed > 12) {
+      randomNum = 1;
+    }
+
+    if (randomNum === 0) {
+      randomNum = 1;
+    }
+
+    grid.move(0 + randomNum, -1, { action: "move" });
+    grid.synchronize();
+
+    document.querySelector(".containerCust").style.visibility = "visible";
+  }, 1500);
 
   addEventListener("dragover", (event) => {
     console.log({ event });
@@ -101,51 +108,20 @@ import Navbar from "../components/daisy/NavBar.astro";
     });
   });
 
-  setInterval(() => {
-    // const elemA = document.createElement("div");
-    // elemA.classList.add("itemCust");
-    // elemA.classList.add("item14");
-    // elemA.innerHTML = `<div class="relative w-[100%] h-[100%]">13</div>`;
-    // grid.add([elemA], { index: 5 });
+  let shuffleCtr = 1;
 
+  setInterval(() => {
     const gridShuffle = localStorage.getItem("gridShuffle");
 
     if (gridShuffle === "on") {
-      let randomNum = Math.floor(Math.random() * 12);
-      const seed = Math.floor(Math.random() * 3);
-
-      if (randomNum + seed > 12) {
-        // randomNum = 1;
-        randomNum = 0;
+      if (shuffleCtr + 1 > 12) {
+        shuffleCtr = 1;
       }
 
-      if (randomNum === 0) {
-        // randomNum = 1;
-        randomNum = 1;
-      }
+      grid.move(shuffleCtr, shuffleCtr + 1, { action: "swap" });
+      shuffleCtr++;
 
-      grid.move(0 + randomNum, -1, { action: "move" });
       grid.synchronize();
-
-      // switch (randomNum) {
-      //   case 1:
-      //     grid.sort(grid.getItems().reverse());
-      //     break;
-      //   case 2:
-      //     grid.move(0, -1, { action: "move" });
-      //     break;
-      //   case 3:
-      //     grid.sort(grid.getItems());
-      //     break;
-      //   default:
-      //     grid.move(0 + randomNum, -1, { action: "move" });
-      //     break;
-      // }
-
-      //
-
-      // grid.refreshItems();
-      // grid.layout();
     }
   }, 2000);
 </script>
@@ -341,6 +317,7 @@ import Navbar from "../components/daisy/NavBar.astro";
 
   .containerCust {
     position: relative;
+    visibility: hidden;
   }
   .itemCust {
     position: absolute;
