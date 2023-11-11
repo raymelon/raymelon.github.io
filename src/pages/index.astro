@@ -32,7 +32,7 @@ import ImageImporter from "../components/ImageImporter.astro";
     },
     dragStartPredicate: function (item, event) {
       // Prevent an item from being dragged.
-      if (grid.getItems().indexOf(item) === 5) {
+      if (grid.getItems().indexOf(item) === 1) {
         return false;
       }
       // For other items use the default drag start predicate.
@@ -40,7 +40,7 @@ import ImageImporter from "../components/ImageImporter.astro";
     },
     dragSortPredicate: function (item) {
       var result = Muuri.ItemDrag.defaultSortPredicate(item, dragSortOptions);
-      return result && result.index === 5 ? false : result;
+      return result && result.index === 1 ? false : result;
     },
     dragSort: function () {
       // Change the duration and easing for the drag animation
@@ -113,20 +113,21 @@ import ImageImporter from "../components/ImageImporter.astro";
   setInterval(() => {
     const gridShuffle = localStorage.getItem("gridShuffle");
 
-    if (gridShuffle === "on") {
-      if (shuffleCtr + 1 > 12) {
-        shuffleCtr = 1;
-      }
+    // if (gridShuffle === "on") {
+    //   if (shuffleCtr + 1 > 12) {
+    //     shuffleCtr = 1;
+    //   }
 
-      grid.move(shuffleCtr, shuffleCtr + 1, { action: "swap" });
-      shuffleCtr++;
+    //   grid.move(shuffleCtr, shuffleCtr + 1, { action: "swap" });
+    //   shuffleCtr++;
 
-      grid.synchronize();
-    }
+    //   grid.synchronize();
+    // }
   }, 2000);
 </script>
 
-<div class="bg-gradient-to-r from-blue-500 to-blue-400">
+<!-- <div class="bg-gradient-to-r from-blue-500 to-blue-400"> -->
+<div class="bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark">
   <!-- <span
     class="box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ..."
   >
@@ -207,7 +208,7 @@ import ImageImporter from "../components/ImageImporter.astro";
     </div>
     <div id="tile2" class="itemCust item2 itemCustMockup shadow-lg">
       <PhoneMockup2
-        imgKey="sanut-ilokano-thumb.jpg"
+        imgKeys={["sanut-ilokano-thumb.jpg"]}
         classes="relative"
         wh="w-full h-full"
         orientation="landscape"
@@ -219,7 +220,7 @@ import ImageImporter from "../components/ImageImporter.astro";
     <div class="itemCust item4 itemCustMockup shadow-lg">
       <!-- <div class="relative w-[100%] h-[100%]">4</div> -->
       <PhoneMockup
-        imgKey="matigsalug-thumb.jpg"
+        imgKeys={["matigsalug-thumb.jpg"]}
         classes="relative"
         wh="w-full h-full"
         orientation="landscape"
@@ -228,7 +229,7 @@ import ImageImporter from "../components/ImageImporter.astro";
     <div class="itemCust item5 itemCustMockup shadow-l shadow-lg">
       <!-- <div class="relative w-[100%] h-[100%]">5</div> -->
       <PhoneMockup2
-        imgKey="taallam-thumb.jpg"
+        imgKeys={["taallam-thumb.jpg"]}
         classes="relative"
         wh="w-full h-full"
         orientation="landscape"
@@ -245,14 +246,14 @@ import ImageImporter from "../components/ImageImporter.astro";
             
             <span class="font-black text-6xl subpixel-antialiased">Hi 👋</span>
           </div> -->
-          <ImageImporter imgKey="educo-thumb.webp" />
+          <ImageImporter imgKeys={["educo-thumb.webp"]} />
         </div>
       </div>
     </div>
     <div class="itemCust item8 itemCustMockup shadow-lg">
       <div class="relative w-[100%] h-[100%]">
         <PhoneMockup2
-          imgKey="kaalam-thumb.jpg"
+          imgKeys={["kaalam-thumb.jpg"]}
           classes="relative"
           wh="w-full h-full"
         />
@@ -263,17 +264,20 @@ import ImageImporter from "../components/ImageImporter.astro";
     </div>
     <div class="itemCust item10 itemCustMockup shadow-lg">
       <div class="relative w-[100%] h-[100%]">
-        <WindowMockup imgKey="" classes="relative w-full h-full" />
+        <WindowMockup
+          imgKeys={["educo-screenshot-branding.png", "educo-screenshot.png"]}
+          classes="relative w-full h-full"
+        />
       </div>
     </div>
     <div class="itemCust item11">
       <div class="relative w-[100%] h-[100%]">11</div>
     </div>
-    <div class="itemCust item12">
+    <div class="itemCust item12 itemCustMockup">
       <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
       <div class="relative w-[100%] h-[100%]">
         <PhoneMockup
-          imgKey="katatagan-thumb.webp"
+          imgKeys={["katatagan-thumb.webp"]}
           classes="relative"
           wh="w-full h-full"
         />
@@ -409,6 +413,7 @@ import ImageImporter from "../components/ImageImporter.astro";
 
   .containerCust .item10 {
     width: 600px;
+    height: 380px;
   }
 
   .containerCust .item11 {

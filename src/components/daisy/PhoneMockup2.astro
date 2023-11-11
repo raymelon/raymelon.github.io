@@ -7,9 +7,9 @@ interface Props {
   orientation: string;
   classes: string;
   wh: string;
-  imgKey: string;
+  imgKeys: Array<String>;
 }
-const { orientation, classes, wh, imgKey } = Astro.props;
+const { orientation, classes, wh, imgKeys } = Astro.props;
 // w-[272px] h-[572px]
 // h-[600px] w-[300px]
 
@@ -51,7 +51,7 @@ const orientationSwitcher = (h, w) =>
         alt=""
       /> -->
       <div class="grid place-content-center h-full">
-        <ImageImporter imgKey={imgKey} />
+        <ImageImporter imgKeys={imgKeys} />
       </div>
     </div>
   </div>

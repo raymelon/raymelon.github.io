@@ -2,7 +2,12 @@
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "cust-indigo-dark": "#3D348B",
+        "cust-indigo-light": "#7678ED"
+      }
+    },
   },
   plugins: [require('@tailwindcss/typography'), require("daisyui")],
   daisyui: {
@@ -18,7 +23,7 @@ module.exports = {
           "info": "#3abff8",
           "success": "#36d399",
           "warning": "#fbbd23",
-          "error": "#f87272",
+          "error": "#f87272"
         },
       },
     ]

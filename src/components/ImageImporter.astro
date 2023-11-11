@@ -1,21 +1,28 @@
 ---
 import Hi from "./daisy/Hi.astro";
 import { Image } from "astro:assets";
+import ImageImporterCarousel from "./daisy/ImageImporterCarousel.jsx";
 
 import matigsalugThumb from "../assets/matigsalug-thumb.jpg";
 import taallamThumb from "../assets/taallam-thumb.jpg";
 import kaalamThumb from "../assets/kaalam-thumb.jpg";
 import sanutIlokanoThumb from "../assets/sanut-ilokano-thumb.jpg";
 import educoThumb from "../assets/educo-thumb.webp";
+import educoScreenshot from "../assets/educo-screenshot.png";
+import educoScreenshotBranding from "../assets/educo-screenshot-branding.png";
 import katataganThumb from "../assets/katatagan-thumb.webp";
+import { imageMetadata } from "astro/assets/utils";
 
 interface Props {
-  imgKey: String;
+  imgKeys: Array<String>;
 }
 
-const { imgKey } = Astro.props;
+const { imgKeys } = Astro.props;
 
-let imgMetadata: ImageMetadata = imgKeyToMetadata(imgKey);
+let imgMetadataArray: Array<ImageMetadata> =
+  Array.isArray(imgKeys) && imgKeys.length > 0
+    ? imgKeys.map((imgKey) => imgKeyToMetadata(imgKey))
+    : [];
 
 function imgKeyToMetadata(imgKey) {
   let imgMetadata: ImageMetadata;
@@ -36,6 +43,12 @@ function imgKeyToMetadata(imgKey) {
     case "educo-thumb.webp":
       imgMetadata = educoThumb;
       break;
+    case "educo-screenshot.png":
+      imgMetadata = educoScreenshot;
+      break;
+    case "educo-screenshot-branding.png":
+      imgMetadata = educoScreenshotBranding;
+      break;
     case "katatagan-thumb.webp":
       imgMetadata = katataganThumb;
       break;
@@ -44,4 +57,10 @@ function imgKeyToMetadata(imgKey) {
 }
 ---
 
-{imgMetadata ? <Image src={imgMetadata} alt={imgKey} /> : <Hi />}
+{
+  Array.isArray(imgMetadataArray) && imgMetadataArray.length > 0 ? (
+    <ImageImporterCarousel client:load imgs={imgMetadataArray} />
+  ) : (
+    <Hi />
+  )
+}

@@ -1,18 +1,19 @@
 ---
 import ImageImporter from "../ImageImporter.astro";
 import Hi from "./Hi.astro";
+
 interface Props {
   classes: string;
-  imgKey: string;
+  imgKeys: Array<String>;
 }
 
-const { classes, imgKey } = Astro.props;
+const { classes, imgKeys } = Astro.props;
 ---
 
 <div class=`mockup-window border bg-slate-50 ${classes}`>
   <div class="flex justify-center border-t border-base-300">
-    <div class="absolute top-[50%]">
-      <ImageImporter imgKey={imgKey} />
-    </div>
+    <!-- <div class="absolute top-[50%]"> -->
+    <ImageImporter imgKeys={imgKeys} />
+    <!-- </div> -->
   </div>
 </div>
