@@ -25,7 +25,7 @@ import ImageImporter from "../components/ImageImporter.astro";
     // showEasing: "linear",
     dragEnabled: false,
     layout: {
-      fillGaps: false,
+      fillGaps: true,
       // alignRight: true,
       // alignBottom: true,
       // rounding: true,
@@ -113,16 +113,16 @@ import ImageImporter from "../components/ImageImporter.astro";
   setInterval(() => {
     const gridShuffle = localStorage.getItem("gridShuffle");
 
-    // if (gridShuffle === "on") {
-    //   if (shuffleCtr + 1 > 12) {
-    //     shuffleCtr = 1;
-    //   }
+    if (gridShuffle === "on") {
+      if (shuffleCtr + 1 > 12) {
+        shuffleCtr = 1;
+      }
 
-    //   grid.move(shuffleCtr, shuffleCtr + 1, { action: "swap" });
-    //   shuffleCtr++;
+      grid.move(shuffleCtr, shuffleCtr + 1, { action: "swap" });
+      shuffleCtr++;
 
-    //   grid.synchronize();
-    // }
+      grid.synchronize();
+    }
   }, 2000);
 </script>
 
