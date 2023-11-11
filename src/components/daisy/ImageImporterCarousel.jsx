@@ -6,8 +6,6 @@ const ImageImporterCarousel = ({ imgs, autoPlayMilliseconds = 5000 }) => {
 
   useEffect(() => {
 
-    let imgsDuplicate = [];
-
     const intervalId = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % imgs.length);
     }, autoPlayMilliseconds);
@@ -21,8 +19,8 @@ const ImageImporterCarousel = ({ imgs, autoPlayMilliseconds = 5000 }) => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
-          duration: 0.4,
-          delay: 0.7,
+          duration: 1.4,
+          delay: 0.0,
           ease: [0, 0.71, 0.2, 1.01]
         }}
         exit={{ opacity: 0, scale: 0.9 }}
