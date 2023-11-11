@@ -111,7 +111,7 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
     });
   });
 
-  let shuffleCtr = 1;
+  let shuffleCtr = 12;
 
   setInterval(() => {
     const gridShuffle = localStorage.getItem("gridShuffle");
@@ -121,7 +121,15 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
         shuffleCtr = 1;
       }
 
-      grid.move(shuffleCtr, shuffleCtr + 1, { action: "swap" });
+      // alternative
+
+      // let itemToShow = grid.getItems()[shuffleCtr - 1];
+      // let itemToHide = grid.getItems()[shuffleCtr];
+
+      // grid.show([itemToShow], { instant: false });
+      // grid.hide([itemToHide], { instant: false });
+
+      grid.move(shuffleCtr, shuffleCtr + 1, { action: "move" });
       shuffleCtr++;
 
       grid.synchronize();
@@ -385,18 +393,22 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
     height: 600px;
   }
   .containerCust .item6 {
-    height: 600px;
+    height: 300px;
+  }
+
+  .containerCust .item7 {
+    /* width: 600px; */
+    height: 300px;
+    width: 300px;
+    padding-top: 25px;
   }
 
   .containerCust .item8 {
     width: 600px;
     height: 600px;
   }
-
-  .containerCust .item7 {
-    /* width: 600px; */
-    height: 275px;
-    width: 300px;
+  .containerCust .item9 {
+    height: 300px;
   }
 
   .containerCust .item10 {
@@ -405,6 +417,10 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
   }
 
   .containerCust .item11 {
-    height: 400px;
+    height: 300px;
+  }
+
+  .containerCust .item13 {
+    height: 300px;
   }
 </style>
