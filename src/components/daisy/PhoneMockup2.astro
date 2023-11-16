@@ -13,8 +13,8 @@ const { orientation, classes, wh, imgKeys } = Astro.props;
 // w-[272px] h-[572px]
 // h-[600px] w-[300px]
 
-const orientationSwitcher = (h, w) =>
-  orientation === "landscape" ? w + " " + h : h + " " + w;
+const orientationAwareValues = ({ landscapeValues, portraitValues }) =>
+  orientation === "landscape" ? landscapeValues : portraitValues;
 ---
 
 <div class=`col-span-2 p-2 rounded row-span-1 ${classes} ${wh}`>
@@ -23,19 +23,19 @@ const orientationSwitcher = (h, w) =>
     class=`relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] ${wh}`
   >
     <div
-      class=`${orientationSwitcher("h-[32px]", "w-[3px]")} bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg`
+      class=`${orientationAwareValues({ landscapeValues: "h-[3px] w-[32px]", portraitValues: "h-[32px] w-[3px]" })} bg-gray-800 dark:bg-gray-800 absolute ${orientationAwareValues({ landscapeValues: "left-[2rem] -top-[1.02rem]", portraitValues: "-left-[1.02rem] top-[40%]" })} rounded-l-lg`
     >
     </div>
     <div
-      class=`${orientationSwitcher("h-[46px]", "w-[3px]")} bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg`
+      class=`${orientationAwareValues({ landscapeValues: "h-[3px] w-[46px]", portraitValues: "h-[46px] w-[3px]" })} bg-gray-800 dark:bg-gray-800 absolute ${orientationAwareValues({ landscapeValues: "left-[5rem] -top-[1.02rem]", portraitValues: "-right-[1.02rem] top-[40%]" })} rounded-l-lg`
     >
     </div>
     <!-- <div
-      class=`${orientationSwitcher("h-[46px]", "w-[3px]")} bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg`
+      class=`h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg`
     >
     </div> -->
     <div
-      class=`${orientationSwitcher("h-[64px]", "w-[3px]")} bg-gray-800 dark:bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg`
+      class=`${orientationAwareValues({ landscapeValues: "h-[3px] w-[64px]", portraitValues: "h-[64px] w-[3px]" })} bg-gray-800 dark:bg-gray-800 absolute ${orientationAwareValues({ landscapeValues: "left-[2rem] top-[108%]", portraitValues: "-right-[1.02rem] top-[40%]" })} rounded-r-lg`
     >
     </div>
     <!-- screenshot and container -->

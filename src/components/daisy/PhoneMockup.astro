@@ -14,16 +14,13 @@ const { orientation, classes, wh, imgKeys } = Astro.props;
 const isLandscape = orientation === "landscape";
 const top_ifLandscape = isLandscape ? "40%" : "";
 const left_ifLandscape = isLandscape ? "48%" : "";
-
-const orientationSwitcher = (h, w) => (isLandscape ? w + " " + h : h + " " + w);
 ---
 
 <div class=`${classes} ${wh}`>
-  <div class=`mockup-phone phone-1 p-2 bg-gray-800 ${wh}`>
+  <div class=`mockup-phone phone-1 p-2 bg-gray-900 border-gray-900 ${wh}`>
     <div
       class:list={[
         "camera",
-        "bg-gray-800",
         {
           "rotate-90": isLandscape,
         },
@@ -31,7 +28,7 @@ const orientationSwitcher = (h, w) => (isLandscape ? w + " " + h : h + " " + w);
     >
     </div>
     <div class=`display ${wh}`>
-      <div class=`bg-slate-50 ${wh} "phone-1"`>
+      <div class=`bg-white ${wh} phone-1"`>
         <div class="grid place-content-center h-full">
           <ImageImporter imgKeys={imgKeys} />
         </div>
@@ -44,5 +41,12 @@ const orientationSwitcher = (h, w) => (isLandscape ? w + " " + h : h + " " + w);
   .mockup-phone .camera {
     top: var(--top_ifLandscape);
     left: var(--left_ifLandscape);
+    background: inherit;
+  }
+  .mockup-phone .camera:before {
+    @apply bg-gray-800;
+  }
+  .mockup-phone .camera:after {
+    @apply bg-gray-800;
   }
 </style>

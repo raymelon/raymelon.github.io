@@ -55,17 +55,6 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
   });
 
   setTimeout(() => {
-    // shuffle
-    // let randomNum = Math.floor(Math.random() * 12);
-    // const seed = Math.floor(Math.random() * 3);
-    // if (randomNum + seed > 12) {
-    //   randomNum = 1;
-    // }
-    // if (randomNum === 0) {
-    //   randomNum = 1;
-    // }
-    // grid.move(0 + randomNum, -1, { action: "move" });
-    // grid.synchronize();
     document.querySelector(".containerCust").style.visibility = "visible";
   }, 1500);
 
@@ -90,49 +79,12 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
   itemCustMockups.forEach((itemCustMockup) => {
     itemCustMockup.addEventListener("mouseover", (event) => {
       localStorage.setItem("gridShuffle", "off");
-      document.getElementById("gridShuffleAlertContainer").style.visibility =
-        "visible";
-      document.getElementById("gridShuffleAlert").textContent = "❚❚ Paused";
     });
 
     itemCustMockup.addEventListener("mouseleave", (event) => {
       localStorage.setItem("gridShuffle", "on");
-      document.getElementById("gridShuffleAlertContainer").style.visibility =
-        "visible";
-      document.getElementById("gridShuffleAlert").textContent = "⏵ Resumed";
-      setTimeout(() => {
-        document.getElementById("gridShuffleAlertContainer").style.visibility =
-          "hidden";
-      }, 2500);
     });
   });
-
-  let shuffleCtr = 12;
-
-  setInterval(() => {
-    const gridShuffle = localStorage.getItem("gridShuffle");
-
-    if (gridShuffle === "on") {
-      if (shuffleCtr + 1 > 12) {
-        shuffleCtr = 1;
-      }
-
-      // alternative shuffling
-
-      // let itemToShow = grid.getItems()[shuffleCtr - 1];
-      // let itemToHide = grid.getItems()[shuffleCtr];
-
-      // grid.show([itemToShow], { instant: false });
-      // grid.hide([itemToHide], { instant: false });
-
-      // main shuffling
-
-      // grid.move(shuffleCtr, shuffleCtr + 1, { action: "move" });
-      // shuffleCtr++;
-
-      // grid.synchronize();
-    }
-  }, 2000);
 </script>
 
 <!-- <div class="bg-gradient-to-r from-blue-500 to-blue-400"> -->
@@ -250,6 +202,7 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
           imgKeys={["kaalam-thumb.jpg"]}
           classes="relative"
           wh="w-full h-full"
+          orientation="landscape"
         />
       </div>
     </div>
@@ -339,8 +292,8 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
   }
   .itemCust {
     position: absolute;
-    width: 300px;
-    height: 500px;
+    width: 250px;
+    height: 400px;
     background-color: rgb(250, 235, 215, 0.2);
     display: flex;
     justify-content: center;
@@ -351,7 +304,8 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
     z-index: 1;
     padding: 5px;
     margin: 5px;
-    opacity: 0.25;
+    opacity: 0.7;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .itemCustMockup:hover {
@@ -374,51 +328,49 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
   }
 
   .containerCust .item1 {
-    height: 300px;
-    width: 300px;
+    width: 250px;
+    height: 250px;
   }
   .containerCust .item2 {
-    width: 600px;
-    height: 300px;
+    width: 450px;
+    height: 250px;
   }
   .containerCust .item4 {
-    width: 600px;
-    height: 300px;
+    width: 450px;
+    height: 250px;
   }
 
   .containerCust .item5 {
-    width: 600px;
-    height: 600px;
+    width: 450px;
+    height: 250px;
   }
   .containerCust .item6 {
-    height: 300px;
+    height: 250px;
   }
 
   .containerCust .item7 {
-    /* width: 600px; */
-    height: 300px;
-    width: 300px;
-    padding-top: 25px;
+    width: 250px;
+    height: 250px;
   }
 
   .containerCust .item8 {
-    width: 600px;
-    height: 600px;
+    width: 450px;
+    height: 250px;
   }
   .containerCust .item9 {
-    height: 300px;
+    height: 250px;
   }
 
   .containerCust .item10 {
-    width: 600px;
+    width: 450px;
     height: 380px;
   }
 
   .containerCust .item11 {
-    height: 300px;
+    height: 250px;
   }
 
   .containerCust .item13 {
-    height: 300px;
+    height: 250px;
   }
 </style>
