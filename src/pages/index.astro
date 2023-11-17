@@ -9,6 +9,9 @@ import BrowserMockup from "../components/daisy/BrowserMockup.astro";
 import WindowMockup from "../components/daisy/WindowMockup.astro";
 import OldGrid from "../components/daisy/OldGrid.astro";
 import ImageImporter from "../components/ImageImporter.astro";
+import LottieImporter, {
+  lottieAnimations,
+} from "../components/LottieImporter.js";
 import SearchBarFloatingCenter from "../components/daisy/SearchBarFloatingCenter.astro";
 import HiFloating from "../components/daisy/HiFloating.astro";
 import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloatingAndSearchBarFloatingShadow.astro";
@@ -175,6 +178,8 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
     <div class="itemCust item5 itemCustMockup shadow-l shadow-lg">
       <!-- <div class="relative w-[100%] h-[100%]">5</div> -->
       <PhoneMockup2
+        viewType="lottie"
+        lottieAnimationData={lottieAnimations?.testLottie}
         imgKeys={["taallam-thumb.jpg"]}
         classes="relative"
         wh="w-full h-full"
@@ -192,7 +197,7 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
             
             <span class="font-black text-6xl subpixel-antialiased">Hi 👋</span>
           </div> -->
-          <ImageImporter imgKeys={["educo-thumb.webp"]} />
+          <!-- <ImageImporter imgKeys={["educo-thumb.webp"]} /> -->
         </div>
       </div>
     </div>
@@ -212,7 +217,11 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
     <div class="itemCust item10 itemCustMockup shadow-lg">
       <div class="relative w-[100%] h-[100%]">
         <WindowMockup
-          imgKeys={["educo-screenshot-branding.png", "educo-screenshot.png"]}
+          imgKeys={[
+            "educo-thumb.webp",
+            "educo-screenshot.png",
+            "educo-screenshot-branding.png",
+          ]}
           classes="relative w-full h-full"
         />
       </div>
@@ -374,3 +383,4 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
     height: 250px;
   }
 </style>
+ ../components/LottieImporter.js

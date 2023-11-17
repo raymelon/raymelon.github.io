@@ -1,15 +1,19 @@
 ---
 import ImageImporter from "../ImageImporter.astro";
+import LottieView from "../LottieView.jsx";
 import Hi from "./Hi.astro";
 
 interface Props {
+  viewType: string;
   image: string;
   orientation: string;
   classes: string;
   wh: string;
   imgKeys: Array<String>;
+  lottieAnimationData: any;
 }
-const { orientation, classes, wh, imgKeys } = Astro.props;
+const { viewType, orientation, classes, wh, imgKeys, lottieAnimationData } =
+  Astro.props;
 // w-[272px] h-[572px]
 // h-[600px] w-[300px]
 
@@ -51,7 +55,13 @@ const orientationAwareValues = ({ landscapeValues, portraitValues }) =>
         alt=""
       /> -->
       <div class="grid place-content-center h-full">
-        <ImageImporter imgKeys={imgKeys} />
+        {
+          viewType === "lottie" ? (
+            <LottieView client:load animationData={lottieAnimationData} />
+          ) : (
+            <ImageImporter imgKeys={imgKeys} />
+          )
+        }
       </div>
     </div>
   </div>
