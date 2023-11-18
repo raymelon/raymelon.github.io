@@ -12,8 +12,10 @@
   "dependencies": {
     "@astrojs/react": "^3.0.4",
     "@astrojs/tailwind": "^5.0.0",
+    "@nanostores/react": "^0.7.1",
     "astro": "^3.1.4",
     "framer-motion": "^10.16.4",
+    "html-react-parser": "^5.0.6",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.12.2",
     "magic-grid": "^3.2.4",

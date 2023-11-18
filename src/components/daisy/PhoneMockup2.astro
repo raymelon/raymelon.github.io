@@ -2,6 +2,8 @@
 import ImageImporter from "../ImageImporter.astro";
 import LottieView from "../LottieView.jsx";
 import Hi from "./Hi.astro";
+import SlideshowForTiles from "../SlideshowForTiles.jsx";
+// import SanutIlokanoTracing from "../assets/sanut-ilokano-tracing.mp4";
 
 interface Props {
   viewType: string;
@@ -20,6 +22,24 @@ const { viewType, orientation, classes, wh, imgKeys, lottieAnimationData } =
 const orientationAwareValues = ({ landscapeValues, portraitValues }) =>
   orientation === "landscape" ? landscapeValues : portraitValues;
 ---
+
+<script>
+  import { comboViewerCounter, comboViewerInterval } from "../../store.js";
+
+  document.getElementById("slideshow-0").style.display = "inherit";
+  document.getElementById("slideshow-1").style.display = "none";
+
+  setInterval(() => {
+    document.getElementById(
+      "slideshow-" + comboViewerCounter.get()
+    ).style.display = "inherit";
+    comboViewerCounter.set((comboViewerCounter.get() + 1) % 2);
+
+    document.getElementById(
+      "slideshow-" + comboViewerCounter.get()
+    ).style.display = "none";
+  }, comboViewerInterval.get()); // Change view every 5 seconds
+</script>
 
 <div class=`col-span-2 p-2 rounded row-span-1 ${classes} ${wh}`>
   <!-- <PhoneMockup orientation="landscape" /> -->
@@ -56,6 +76,39 @@ const orientationAwareValues = ({ landscapeValues, portraitValues }) =>
       /> -->
       <div class="grid place-content-center h-full">
         {
+          viewType === "combo:lottie-img" ? (
+            <>
+              <div id="slideshow-0">
+                <LottieView client:load animationData={lottieAnimationData} />
+              </div>
+              <div id="slideshow-1">
+                <video autoplay muted playsinline loop>
+                  <source src={"sanut-ilokano-tracing.mp4"} type="video/mp4" />
+                </video>
+              </div>
+            </>
+          ) : // <>
+          //   {[
+          //     {
+          //       child: (
+          //         <LottieView
+          //           client:load
+          //           animationData={lottieAnimationData}
+          //         />
+          //       ),
+          //       duration: 12000,
+          //     },
+          //     { child: <ImageImporter imgKeys={imgKeys} />, duration: 12000 },
+          //   ].map((childObject, childIndex) => (
+          //     <SlideshowForTiles
+          //       client:load
+          //       childIndex={childIndex}
+          //       duration={childObject?.duration}
+          //     >
+          //       {childObject?.child}
+          //     </SlideshowForTiles>
+          //   ))}
+          // </>
           viewType === "lottie" ? (
             <LottieView client:load animationData={lottieAnimationData} />
           ) : (

@@ -1,11 +1,11 @@
 
 import testLottie from "../assets/test-lottie.json";
-import animation2 from "../assets/test-lottie.json";
+import sanutIlokano from "../assets/sanut-ilokano.json";
 // import other animations as needed...
 
 const lottieAnimations = {
   testLottie,
-  animation2,
+  sanutIlokano,
   // add other animations as needed...
 };
 
