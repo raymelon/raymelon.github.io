@@ -24,21 +24,63 @@ const orientationAwareValues = ({ landscapeValues, portraitValues }) =>
 ---
 
 <script>
+  import "@dotlottie/player-component";
   import { comboViewerCounter, comboViewerInterval } from "../../store.js";
 
-  document.getElementById("slideshow-0").style.display = "inherit";
-  document.getElementById("slideshow-1").style.display = "none";
+  const element1 = document.getElementById("slideshow-0");
+  const element2 = document.getElementById("slideshow-1");
 
-  setInterval(() => {
-    document.getElementById(
+  const classList = element1.classList;
+  const classList2 = element2.classList;
+
+  const parseClassFunction = (classNameRegex, classNamePrefix) => {
+    const matchedClass = Array.from(classList).find((className) =>
+      classNameRegex.test(className)
+    );
+    if (matchedClass) {
+      return parseInt(matchedClass.replace(classNamePrefix, ""), 10);
+    }
+    return null;
+  };
+
+  element1.style.display = "inherit";
+  element2.style.display = "none";
+
+  function slideshowPlayer() {
+    // element.style.display = "inherit";
+
+    const itemInterval = parseClassFunction(
+      /slideshow-item-interval-\d+/,
+      "slideshow-item-interval-"
+    );
+
+    console.log({ itemInterval });
+
+    const element = document.getElementById(
       "slideshow-" + comboViewerCounter.get()
-    ).style.display = "inherit";
+    );
+    element.style.display = "inherit";
+
+    console.log("element.nodeName", element.nodeName);
+
+    if (element.nodeName === "VIDEO") {
+      element.play();
+    }
+
+    // if (element.nodeName === "DOTLOTTIE-PLAYER") {
+    //   element.play();
+    // }
+
     comboViewerCounter.set((comboViewerCounter.get() + 1) % 2);
 
     document.getElementById(
       "slideshow-" + comboViewerCounter.get()
     ).style.display = "none";
-  }, comboViewerInterval.get()); // Change view every 5 seconds
+
+    setTimeout(slideshowPlayer, itemInterval); // Change view every 5 seconds
+  }
+
+  slideshowPlayer();
 </script>
 
 <div class=`col-span-2 p-2 rounded row-span-1 ${classes} ${wh}`>
@@ -78,14 +120,28 @@ const orientationAwareValues = ({ landscapeValues, portraitValues }) =>
         {
           viewType === "combo:lottie-img" ? (
             <>
-              <div id="slideshow-0">
-                <LottieView client:load animationData={lottieAnimationData} />
-              </div>
-              <div id="slideshow-1">
-                <video autoplay muted playsinline loop>
-                  <source src={"sanut-ilokano-tracing.mp4"} type="video/mp4" />
-                </video>
-              </div>
+              <dotlottie-player
+                id="slideshow-0"
+                class="slideshow-item-interval-12000"
+                src={JSON.stringify(lottieAnimationData)}
+                background="transparent"
+                speed="1"
+                direction="1"
+                mode="normal"
+                autoplay
+                webworker
+                loop
+                intermission="10"
+              />
+              <video
+                id="slideshow-1"
+                class="slideshow-item-interval-10000"
+                muted
+                playsinline
+                loop
+              >
+                <source src={"sanut-ilokano-tracing.mp4"} type="video/mp4" />
+              </video>
             </>
           ) : // <>
           //   {[
