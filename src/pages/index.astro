@@ -58,7 +58,7 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
   });
 
   setTimeout(() => {
-    document.querySelector(".containerCust").style.visibility = "visible";
+    // document.querySelector(".containerCust").style.visibility = "visible";
   }, 1500);
 
   addEventListener("dragover", (event) => {
@@ -91,7 +91,7 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 </script>
 
 <!-- <div class="bg-gradient-to-r from-blue-500 to-blue-400"> -->
-<div class="bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark">
+<div class="">
   <!-- <HiFloatingAndSearchBarFloatingShadow /> -->
   <!-- <HiFloating /> -->
   <!-- <SearchBarFloatingCenter /> -->
@@ -281,6 +281,9 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+
+    @apply bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark;
+    min-height: 100vh;
   }
 
   body::-webkit-scrollbar {
@@ -298,8 +301,8 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
   }
 
   .containerCust {
-    position: relative;
-    visibility: hidden;
+    /* position: relative; */
+    /* visibility: hidden; */
   }
   .itemCust {
     position: absolute;
