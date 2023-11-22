@@ -19,104 +19,109 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 
 <meta charset="UTF-8" />
 
-<script>
-  import Muuri from "muuri";
+<body data-theme="dark">
+  <script>
+    import Muuri from "muuri";
 
-  var dragSortOptions = {
-    action: "move",
-    threshold: 50,
-  };
-  var grid = new Muuri(".containerCust", {
-    // showDuration: 0,
-    // showEasing: "linear",
-    dragEnabled: false,
-    layout: {
-      fillGaps: true,
-      // alignRight: true,
-      // alignBottom: true,
-      // rounding: true,
-    },
-    dragStartPredicate: function (item, event) {
-      // Prevent an item from being dragged.
-      if (grid.getItems().indexOf(item) === 1) {
-        return false;
-      }
-      // For other items use the default drag start predicate.
-      return Muuri.ItemDrag.defaultStartPredicate(item, event);
-    },
-    dragSortPredicate: function (item) {
-      var result = Muuri.ItemDrag.defaultSortPredicate(item, dragSortOptions);
-      return result && result.index === 1 ? false : result;
-    },
-    dragSort: function () {
-      // Change the duration and easing for the drag animation
-      return {
-        duration: 800, // Set the duration in milliseconds (default is 300)
-        easing: "cubic-bezier(0.55, 0.055, 0.675, 0.19)", // Set the easing function (default is 'cubic-bezier(0.2, 0, 0.2, 1)')
-      };
-    },
-  });
-
-  setTimeout(() => {
-    // document.querySelector(".containerCust").style.visibility = "visible";
-  }, 1500);
-
-  addEventListener("dragover", (event) => {
-    console.log({ event });
-  });
-
-  addEventListener("drop", (event) => {
-    console.log({ event });
-  });
-
-  addEventListener("dragend", (event) => {
-    console.log({ event });
-  });
-
-  addEventListener("click", (event) => {
-    console.log({ event });
-  });
-
-  const itemCustMockups = document.querySelectorAll(".itemCustMockup");
-
-  itemCustMockups.forEach((itemCustMockup) => {
-    itemCustMockup.addEventListener("mouseover", (event) => {
-      localStorage.setItem("gridShuffle", "off");
+    var dragSortOptions = {
+      action: "move",
+      threshold: 50,
+    };
+    var grid = new Muuri(".containerCust", {
+      // showDuration: 0,
+      // showEasing: "linear",
+      dragEnabled: false,
+      layout: {
+        fillGaps: true,
+        // alignRight: true,
+        // alignBottom: true,
+        // rounding: true,
+      },
+      dragStartPredicate: function (item, event) {
+        // Prevent an item from being dragged.
+        if (grid.getItems().indexOf(item) === 1) {
+          return false;
+        }
+        // For other items use the default drag start predicate.
+        return Muuri.ItemDrag.defaultStartPredicate(item, event);
+      },
+      dragSortPredicate: function (item) {
+        var result = Muuri.ItemDrag.defaultSortPredicate(item, dragSortOptions);
+        return result && result.index === 1 ? false : result;
+      },
+      dragSort: function () {
+        // Change the duration and easing for the drag animation
+        return {
+          duration: 800, // Set the duration in milliseconds (default is 300)
+          easing: "cubic-bezier(0.55, 0.055, 0.675, 0.19)", // Set the easing function (default is 'cubic-bezier(0.2, 0, 0.2, 1)')
+        };
+      },
     });
 
-    itemCustMockup.addEventListener("mouseleave", (event) => {
-      localStorage.setItem("gridShuffle", "on");
+    setTimeout(() => {
+      // document.querySelector(".containerCust").style.visibility = "visible";
+    }, 1500);
+
+    addEventListener("dragover", (event) => {
+      console.log({ event });
     });
-  });
-</script>
 
-<!-- <div class="bg-gradient-to-r from-blue-500 to-blue-400"> -->
-<div class="">
-  <!-- <HiFloatingAndSearchBarFloatingShadow /> -->
-  <!-- <HiFloating /> -->
-  <!-- <SearchBarFloatingCenter /> -->
+    addEventListener("drop", (event) => {
+      console.log({ event });
+    });
 
-  <!-- <Navbar /> -->
+    addEventListener("dragend", (event) => {
+      console.log({ event });
+    });
 
-  <div id="gridShuffleAlertContainer">
-    <div
-      class="gridShuffleAlert navbar bg-zinc-400 fixed z-50 mx-[70%] mt-[8rem] w-[33%] h-[10rem] rounded-2xl opacity-25 blur-2xl"
-    >
-    </div>
+    addEventListener("click", (event) => {
+      console.log({ event });
+    });
 
-    <div
-      class="gridShuffleAlert navbar fixed z-50 mx-[74%] mt-[10rem] w-[50%] rounded-2xl"
-    >
-      <span
-        id="gridShuffleAlert"
-        class="ml-[-11px] font-black text-zinc-100 text-6xl subpixel-antialiased drop-shadow-2xl"
+    const itemCustMockups = document.querySelectorAll(".itemCustMockup");
+
+    itemCustMockups.forEach((itemCustMockup) => {
+      itemCustMockup.addEventListener("mouseover", (event) => {
+        localStorage.setItem("gridShuffle", "off");
+      });
+
+      itemCustMockup.addEventListener("mouseleave", (event) => {
+        localStorage.setItem("gridShuffle", "on");
+      });
+    });
+  </script>
+
+  <!-- <div class="bg-gradient-to-r from-blue-500 to-blue-400"> -->
+  <div class="">
+    <!-- <HiFloatingAndSearchBarFloatingShadow /> -->
+    <!-- <HiFloating /> -->
+    <!-- <SearchBarFloatingCenter /> -->
+
+    <!-- <Navbar /> -->
+
+    <!-- <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+      Toggle Theme
+    </button> -->
+
+    <div id="gridShuffleAlertContainer">
+      <div
+        class="gridShuffleAlert navbar bg-zinc-400 fixed z-50 mx-[70%] mt-[8rem] w-[33%] h-[10rem] rounded-2xl opacity-25 blur-2xl"
       >
-        ✓ Resumed
-      </span>
-    </div>
-  </div>
+      </div>
 
-  <!-- <button class="btn" onclick="
+      <div
+        class="gridShuffleAlert navbar fixed z-50 mx-[74%] mt-[10rem] w-[50%] rounded-2xl"
+      >
+        <span
+          id="gridShuffleAlert"
+          class="ml-[-11px] font-black text-zinc-100 text-6xl subpixel-antialiased drop-shadow-2xl"
+        >
+          ✓ Resumed
+        </span>
+      </div>
+    </div>
+
+    <!-- <button class="btn" onclick="
   my_modal_1.showModal()
   ">open modal</button>
   <dialog id="my_modal_1" class="modal">
@@ -131,124 +136,124 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
     </div>
   </dialog> -->
 
-  <div class="containerCust text-blue-400">
-    <!-- <div class="itemCust item14">
+    <div class="containerCust text-blue-400">
+      <!-- <div class="itemCust item14">
 		<div class="relative w-[100%] h-[100%]">13</div>
 	</div> -->
-    <div id="tile1" class="itemCust item1">
-      <!-- <BrowserMockup classes="relative w-full h-full" /> -->
-      <div class="w-full h-full">
-        <div class="flex justify-center">
-          <span
-            class="absolute top-[20%] font-black text-4xl subpixel-antialiased text-zinc-200"
-            >Hover a tile.<br />Try it
-          </span>
-          <span
-            class="animate-bounce absolute ml-[3rem] top-[45%] font-black text-4xl subpixel-antialiased text-zinc-200"
-          >
-            👉</span
-          >
+      <div id="tile1" class="itemCust item1">
+        <!-- <BrowserMockup classes="relative w-full h-full" /> -->
+        <div class="w-full h-full">
+          <div class="flex justify-center">
+            <span
+              class="absolute top-[20%] font-black text-4xl subpixel-antialiased text-zinc-200"
+              >Hover a tile.<br />Try it
+            </span>
+            <span
+              class="animate-bounce absolute ml-[3rem] top-[45%] font-black text-4xl subpixel-antialiased text-zinc-200"
+            >
+              👉</span
+            >
 
-          <!-- <div class="font-black text-2xl subpixel-antialiased mt-10">
+            <!-- <div class="font-black text-2xl subpixel-antialiased mt-10">
           Drag each item
         </div> -->
+          </div>
         </div>
       </div>
-    </div>
-    <div id="tile2" class="itemCust item2 itemCustMockup shadow-lg">
-      <PhoneMockup2
-        viewType="combo:lottie-img"
-        lottieAnimationData={lottieAnimations?.sanutIlokano}
-        imgKeys={["sanut-ilokano-thumb.jpg"]}
-        classes="relative"
-        wh="w-full h-full"
-        orientation="landscape"
-      />
-    </div>
-    <!-- <div class="itemCust item3">
-		<div class="relative w-[100%] h-[100%]">3</div>
-	</div> -->
-    <div class="itemCust item4 itemCustMockup shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">4</div> -->
-      <PhoneMockup
-        imgKeys={["matigsalug-thumb.jpg"]}
-        classes="relative"
-        wh="w-full h-full"
-        orientation="landscape"
-      />
-    </div>
-    <div class="itemCust item5 itemCustMockup shadow-l shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">5</div> -->
-      <PhoneMockup2
-        viewType="lottie"
-        lottieAnimationData={lottieAnimations?.testLottie}
-        imgKeys={["taallam-thumb.jpg"]}
-        classes="relative"
-        wh="w-full h-full"
-        orientation="landscape"
-      />
-    </div>
-    <div class="itemCust item6">
-      <div class="relative w-[100%] h-[100%]">6</div>
-    </div>
-    <div class="itemCust item7 itemCustMockup shadow-lg">
-      <div class="relative w-[100%] h-[100%]">
-        <!-- <BrowserMockup classes="relative w-full h-full" /> -->
-        <div class="flex justify-center text-slate-50 window-content">
-          <!-- <div class="absolute top-[40%]">
-            
-            <span class="font-black text-6xl subpixel-antialiased">Hi 👋</span>
-          </div> -->
-          <!-- <ImageImporter imgKeys={["educo-thumb.webp"]} /> -->
-        </div>
-      </div>
-    </div>
-    <div class="itemCust item8 itemCustMockup shadow-lg">
-      <div class="relative w-[100%] h-[100%]">
+      <div id="tile2" class="itemCust item2 itemCustMockup shadow-lg">
         <PhoneMockup2
-          imgKeys={["kaalam-thumb.jpg"]}
+          viewType="combo:lottie-img"
+          lottieAnimationData={lottieAnimations?.sanutIlokano}
+          imgKeys={["sanut-ilokano-thumb.jpg"]}
           classes="relative"
           wh="w-full h-full"
           orientation="landscape"
         />
       </div>
-    </div>
-    <div class="itemCust item9">
-      <div class="relative w-[100%] h-[100%]">9</div>
-    </div>
-    <div class="itemCust item10 itemCustMockup shadow-lg">
-      <div class="relative w-[100%] h-[100%]">
-        <WindowMockup
-          imgKeys={[
-            "educo-thumb.webp",
-            "educo-screenshot.png",
-            "educo-screenshot-branding.png",
-          ]}
-          classes="relative w-full h-full"
-        />
-      </div>
-    </div>
-    <div class="itemCust item11">
-      <div class="relative w-[100%] h-[100%]">11</div>
-    </div>
-    <div class="itemCust item12 itemCustMockup">
-      <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
-      <div class="relative w-[100%] h-[100%]">
+      <!-- <div class="itemCust item3">
+		<div class="relative w-[100%] h-[100%]">3</div>
+	</div> -->
+      <div class="itemCust item4 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">4</div> -->
         <PhoneMockup
-          imgKeys={["katatagan-thumb.webp"]}
+          imgKeys={["matigsalug-thumb.jpg"]}
           classes="relative"
           wh="w-full h-full"
+          orientation="landscape"
         />
       </div>
-    </div>
-    <div class="itemCust item13">
-      <div class="relative w-[100%] h-[100%]">13</div>
+      <div class="itemCust item5 itemCustMockup shadow-l shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">5</div> -->
+        <PhoneMockup2
+          viewType="lottie"
+          lottieAnimationData={lottieAnimations?.testLottie}
+          imgKeys={["taallam-thumb.jpg"]}
+          classes="relative"
+          wh="w-full h-full"
+          orientation="landscape"
+        />
+      </div>
+      <div class="itemCust item6">
+        <div class="relative w-[100%] h-[100%]">6</div>
+      </div>
+      <div class="itemCust item7 itemCustMockup shadow-lg">
+        <div class="relative w-[100%] h-[100%]">
+          <!-- <BrowserMockup classes="relative w-full h-full" /> -->
+          <div class="flex justify-center text-slate-50 window-content">
+            <!-- <div class="absolute top-[40%]">
+            
+            <span class="font-black text-6xl subpixel-antialiased">Hi 👋</span>
+          </div> -->
+            <!-- <ImageImporter imgKeys={["educo-thumb.webp"]} /> -->
+          </div>
+        </div>
+      </div>
+      <div class="itemCust item8 itemCustMockup shadow-lg">
+        <div class="relative w-[100%] h-[100%]">
+          <PhoneMockup2
+            imgKeys={["kaalam-thumb.jpg"]}
+            classes="relative"
+            wh="w-full h-full"
+            orientation="landscape"
+          />
+        </div>
+      </div>
+      <div class="itemCust item9">
+        <div class="relative w-[100%] h-[100%]">9</div>
+      </div>
+      <div class="itemCust item10 itemCustMockup shadow-lg">
+        <div class="relative w-[100%] h-[100%]">
+          <WindowMockup
+            imgKeys={[
+              "educo-thumb.webp",
+              "educo-screenshot.png",
+              "educo-screenshot-branding.png",
+            ]}
+            classes="relative w-full h-full"
+          />
+        </div>
+      </div>
+      <div class="itemCust item11">
+        <div class="relative w-[100%] h-[100%]">11</div>
+      </div>
+      <div class="itemCust item12 itemCustMockup">
+        <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
+        <div class="relative w-[100%] h-[100%]">
+          <PhoneMockup
+            imgKeys={["katatagan-thumb.webp"]}
+            classes="relative"
+            wh="w-full h-full"
+          />
+        </div>
+      </div>
+      <div class="itemCust item13">
+        <div class="relative w-[100%] h-[100%]">13</div>
+      </div>
     </div>
   </div>
-</div>
-<!-- <OldGrid /> -->
+  <!-- <OldGrid /> -->
 
-<!-- <NavBar /> --><!-- <CardPreview
+  <!-- <NavBar /> --><!-- <CardPreview
 	href="https://docs.astro.build/"
 	title="Documentation"
 	body="Learn how Astro works and explore the official API docs."
@@ -274,117 +279,118 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 		/>
 	</div>
 </div> --><!-- <Footer /> -->
-<style>
-  body {
-    /* overflow: hidden; */
-    overflow-y: auto;
+  <style>
+    body {
+      /* overflow: hidden; */
+      overflow-y: auto;
 
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
 
-    @apply bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark;
-    min-height: 100vh;
-  }
+      @apply bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark;
+      min-height: 100vh;
+    }
 
-  body::-webkit-scrollbar {
-    display: none;
-  }
+    body::-webkit-scrollbar {
+      display: none;
+    }
 
-  #tile1 {
-    opacity: 1;
-    background-color: transparent;
-    border: 0;
-  }
+    #tile1 {
+      opacity: 1;
+      background-color: transparent;
+      border: 0;
+    }
 
-  #gridShuffleAlertContainer {
-    visibility: hidden;
-  }
+    #gridShuffleAlertContainer {
+      visibility: hidden;
+    }
 
-  .containerCust {
-    /* position: relative; */
-    /* visibility: hidden; */
-  }
-  .itemCust {
-    position: absolute;
-    width: 250px;
-    height: 400px;
-    background-color: rgb(250, 235, 215, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 10px solid rgb(250, 235, 215, 0);
-    border-radius: 8px;
-    /* color: antiquewhite; */
-    z-index: 1;
-    padding: 5px;
-    margin: 5px;
-    opacity: 0.7;
-    transition: opacity 0.5s ease-in-out;
-  }
+    .containerCust {
+      /* position: relative; */
+      /* visibility: hidden; */
+    }
+    .itemCust {
+      position: absolute;
+      width: 250px;
+      height: 400px;
+      background-color: rgb(250, 235, 215, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 10px solid rgb(250, 235, 215, 0);
+      border-radius: 8px;
+      /* color: antiquewhite; */
+      z-index: 1;
+      padding: 5px;
+      margin: 5px;
+      opacity: 0.7;
+      transition: opacity 0.5s ease-in-out;
+    }
 
-  .itemCustMockup:hover {
-    opacity: 1;
-  }
+    .itemCustMockup:hover {
+      opacity: 1;
+    }
 
-  .itemCust.muuri-item-hidden {
-    z-index: 0;
-  }
+    .itemCust.muuri-item-hidden {
+      z-index: 0;
+    }
 
-  .itemCust.muuri-item-positioning {
-    z-index: 2;
-  }
+    .itemCust.muuri-item-positioning {
+      z-index: 2;
+    }
 
-  .itemCust.muuri-item-releasing {
-    z-index: 3;
-  }
-  .itemCust.muuri-item-dragging {
-    z-index: 4;
-  }
+    .itemCust.muuri-item-releasing {
+      z-index: 3;
+    }
+    .itemCust.muuri-item-dragging {
+      z-index: 4;
+    }
 
-  .containerCust .item1 {
-    width: 250px;
-    height: 250px;
-  }
-  .containerCust .item2 {
-    width: 450px;
-    height: 250px;
-  }
-  .containerCust .item4 {
-    width: 450px;
-    height: 250px;
-  }
+    .containerCust .item1 {
+      width: 250px;
+      height: 250px;
+    }
+    .containerCust .item2 {
+      width: 450px;
+      height: 250px;
+    }
+    .containerCust .item4 {
+      width: 450px;
+      height: 250px;
+    }
 
-  .containerCust .item5 {
-    width: 450px;
-    height: 250px;
-  }
-  .containerCust .item6 {
-    height: 250px;
-  }
+    .containerCust .item5 {
+      width: 450px;
+      height: 250px;
+    }
+    .containerCust .item6 {
+      height: 250px;
+    }
 
-  .containerCust .item7 {
-    width: 250px;
-    height: 250px;
-  }
+    .containerCust .item7 {
+      width: 250px;
+      height: 250px;
+    }
 
-  .containerCust .item8 {
-    width: 450px;
-    height: 250px;
-  }
-  .containerCust .item9 {
-    height: 250px;
-  }
+    .containerCust .item8 {
+      width: 450px;
+      height: 250px;
+    }
+    .containerCust .item9 {
+      height: 250px;
+    }
 
-  .containerCust .item10 {
-    width: 450px;
-    height: 380px;
-  }
+    .containerCust .item10 {
+      width: 450px;
+      height: 380px;
+    }
 
-  .containerCust .item11 {
-    height: 250px;
-  }
+    .containerCust .item11 {
+      height: 250px;
+    }
 
-  .containerCust .item13 {
-    height: 250px;
-  }
-</style>
+    .containerCust .item13 {
+      height: 250px;
+    }
+  </style>
+</body>
