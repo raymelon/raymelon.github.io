@@ -15,6 +15,7 @@ import LottieImporter, {
 import SearchBarFloatingCenter from "../components/daisy/SearchBarFloatingCenter.astro";
 import HiFloating from "../components/daisy/HiFloating.astro";
 import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloatingAndSearchBarFloatingShadow.astro";
+import DarkLightMode from "../components/daisy/DarkLightMode.astro";
 ---
 
 <meta charset="UTF-8" />
@@ -22,34 +23,6 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 <body data-theme="dracula">
   <script>
     import Muuri from "muuri";
-
-    const themeSwitcher = document.getElementById("theme-switcher");
-
-    function loadThemeFromSystemPreference() {
-      // Load theme from system preference
-      const storedTheme = localStorage.getItem("theme");
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dracula"
-        : "retro";
-      document.body.setAttribute("data-theme", storedTheme || systemTheme);
-    }
-
-    window.matchMedia("(prefers-color-scheme: dark)").addListener(function (e) {
-      console.log(`system changed to ${e.matches ? "dark" : "light"} mode`);
-      loadThemeFromSystemPreference();
-    });
-
-    // Load theme from localStorage
-    themeSwitcher.addEventListener("click", () => {
-      console.log("theme-switcher CLICK");
-      const currentTheme = document.body.getAttribute("data-theme");
-      const newTheme = currentTheme === "dracula" ? "retro" : "dracula";
-      document.body.setAttribute("data-theme", newTheme);
-
-      // Save theme to localStorage
-      localStorage.setItem("theme", newTheme);
-    });
 
     var dragSortOptions = {
       action: "move",
@@ -126,8 +99,7 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
     <!-- <SearchBarFloatingCenter /> -->
 
     <!-- <Navbar /> -->
-
-    <button id="theme-switcher">Switch Theme</button>
+    <DarkLightMode />
 
     <div id="gridShuffleAlertContainer">
       <div

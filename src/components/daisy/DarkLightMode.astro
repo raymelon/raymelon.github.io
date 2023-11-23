@@ -1,9 +1,40 @@
 ---
+
 ---
 
-<label class="swap swap-rotate">
+<script>
+  const themeSwitcher = document.getElementById("theme-switcher");
+
+  function loadThemeFromSystemPreference() {
+    // Load theme from system preference
+    const storedTheme = localStorage.getItem("theme");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dracula"
+      : "retro";
+    document.body.setAttribute("data-theme", storedTheme || systemTheme);
+  }
+
+  window.matchMedia("(prefers-color-scheme: dark)").addListener(function (e) {
+    console.log(`system changed to ${e.matches ? "dark" : "light"} mode`);
+    loadThemeFromSystemPreference();
+  });
+
+  // Load theme from localStorage
+  themeSwitcher.addEventListener("click", () => {
+    console.log("theme-switcher CLICK");
+    const currentTheme = document.body.getAttribute("data-theme");
+    const newTheme = currentTheme === "dracula" ? "retro" : "dracula";
+    document.body.setAttribute("data-theme", newTheme);
+
+    // Save theme to localStorage
+    localStorage.setItem("theme", newTheme);
+  });
+</script>
+
+<label class="fixed z-50 swap swap-rotate m-3">
   <!-- this hidden checkbox controls the state -->
-  <input type="checkbox" />
+  <input id="theme-switcher" type="checkbox" />
 
   <!-- sun icon -->
   <svg
