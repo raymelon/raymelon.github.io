@@ -25,14 +25,22 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 
     const themeSwitcher = document.getElementById("theme-switcher");
 
-    // Load theme from localStorage or use system preference
-    const storedTheme = localStorage.getItem("theme");
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dracula"
-      : "retro";
-    document.body.setAttribute("data-theme", storedTheme || systemTheme);
+    function loadThemeFromSystemPreference() {
+      // Load theme from system preference
+      const storedTheme = localStorage.getItem("theme");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dracula"
+        : "retro";
+      document.body.setAttribute("data-theme", storedTheme || systemTheme);
+    }
 
+    window.matchMedia("(prefers-color-scheme: dark)").addListener(function (e) {
+      console.log(`system changed to ${e.matches ? "dark" : "light"} mode`);
+      loadThemeFromSystemPreference();
+    });
+
+    // Load theme from localStorage
     themeSwitcher.addEventListener("click", () => {
       console.log("theme-switcher CLICK");
       const currentTheme = document.body.getAttribute("data-theme");
