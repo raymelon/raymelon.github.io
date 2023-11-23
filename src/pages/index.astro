@@ -19,9 +19,29 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 
 <meta charset="UTF-8" />
 
-<body data-theme="night">
+<body data-theme="dracula">
   <script>
     import Muuri from "muuri";
+
+    const themeSwitcher = document.getElementById("theme-switcher");
+
+    // Load theme from localStorage or use system preference
+    const storedTheme = localStorage.getItem("theme");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dracula"
+      : "retro";
+    document.body.setAttribute("data-theme", storedTheme || systemTheme);
+
+    themeSwitcher.addEventListener("click", () => {
+      console.log("theme-switcher CLICK");
+      const currentTheme = document.body.getAttribute("data-theme");
+      const newTheme = currentTheme === "dracula" ? "retro" : "dracula";
+      document.body.setAttribute("data-theme", newTheme);
+
+      // Save theme to localStorage
+      localStorage.setItem("theme", newTheme);
+    });
 
     var dragSortOptions = {
       action: "move",
@@ -99,9 +119,7 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 
     <!-- <Navbar /> -->
 
-    <!-- <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-      Toggle Theme
-    </button> -->
+    <button id="theme-switcher">Switch Theme</button>
 
     <div id="gridShuffleAlertContainer">
       <div
