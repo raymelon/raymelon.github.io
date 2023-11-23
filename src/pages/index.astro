@@ -20,7 +20,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
 
 <meta charset="UTF-8" />
 
-<body data-theme="dracula">
+<body>
   <script>
     import Muuri from "muuri";
 
@@ -192,7 +192,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
         />
       </div>
       <div class="itemCust item6">
-        <div class="relative w-[100%] h-[100%]">6</div>
+        <div class="itemNum relative w-[100%] h-[100%]">6</div>
       </div>
       <div class="itemCust item7 itemCustMockup shadow-lg">
         <div class="relative w-[100%] h-[100%]">
@@ -217,7 +217,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
         </div>
       </div>
       <div class="itemCust item9">
-        <div class="relative w-[100%] h-[100%]">9</div>
+        <div class="itemNum relative w-[100%] h-[100%]">9</div>
       </div>
       <div class="itemCust item10 itemCustMockup shadow-lg">
         <div class="relative w-[100%] h-[100%]">
@@ -232,7 +232,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
         </div>
       </div>
       <div class="itemCust item11">
-        <div class="relative w-[100%] h-[100%]">11</div>
+        <div class="itemNum relative w-[100%] h-[100%]">11</div>
       </div>
       <div class="itemCust item12 itemCustMockup">
         <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
@@ -245,7 +245,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
         </div>
       </div>
       <div class="itemCust item13">
-        <div class="relative w-[100%] h-[100%]">13</div>
+        <div class="itemNum relative w-[100%] h-[100%]">13</div>
       </div>
     </div>
   </div>
@@ -315,18 +315,22 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 10px solid rgb(250, 235, 215, 0);
-      border-radius: 8px;
+      /* border: 1px solid rgb(250, 235, 215, 0); */
+      border-radius: 1rem;
       /* color: antiquewhite; */
       z-index: 1;
-      padding: 5px;
-      margin: 5px;
+      padding: 10px;
+      margin: 0.4rem;
       opacity: 0.7;
       transition: opacity 0.5s ease-in-out;
     }
 
     .itemCustMockup:hover {
       opacity: 1;
+    }
+
+    .itemCust .itemNum {
+      display: none;
     }
 
     .itemCust.muuri-item-hidden {

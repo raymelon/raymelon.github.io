@@ -3,6 +3,11 @@
 ---
 
 <script>
+  const theme = {
+    dark: "dracula",
+    light: "emerald",
+  };
+
   const themeSwitcher = document.getElementById("theme-switcher");
 
   function loadThemeFromSystemPreference() {
@@ -10,8 +15,8 @@
     const storedTheme = localStorage.getItem("theme");
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
       .matches
-      ? "dracula"
-      : "retro";
+      ? theme.dark
+      : theme.light;
     document.body.setAttribute("data-theme", storedTheme || systemTheme);
   }
 
@@ -24,7 +29,7 @@
   themeSwitcher.addEventListener("click", () => {
     console.log("theme-switcher CLICK");
     const currentTheme = document.body.getAttribute("data-theme");
-    const newTheme = currentTheme === "dracula" ? "retro" : "dracula";
+    const newTheme = currentTheme === theme.dark ? theme.light : theme.dark;
     document.body.setAttribute("data-theme", newTheme);
 
     // Save theme to localStorage
