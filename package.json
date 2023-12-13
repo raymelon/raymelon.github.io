@@ -22,6 +22,7 @@
     "magic-grid": "^3.2.4",
     "muuri": "^0.9.5",
     "nanostores": "^0.9.5",
+    "pathfinding-fx.js": "^1.0.6",
     "tailwindcss": "^3.3.3",
     "web-animations-js": "^2.3.2"
   },

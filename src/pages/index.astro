@@ -16,6 +16,7 @@ import SearchBarFloatingCenter from "../components/daisy/SearchBarFloatingCenter
 import HiFloating from "../components/daisy/HiFloating.astro";
 import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloatingAndSearchBarFloatingShadow.astro";
 import DarkLightMode from "../components/daisy/DarkLightMode.astro";
+import PathfindingFxJs from "../components/PathfindingFxJs.astro";
 ---
 
 <meta charset="UTF-8" />
@@ -258,16 +259,29 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
         </div>
       </div>
       <div class="flex flex-col itemCust item9">
-        <!-- <div class="itemNum relative w-[100%] h-[100%]">9</div> -->
-        <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
+        <div class="itemNum relative w-[100%] h-[100%]">9</div>
+        <!-- <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
           >not<br />mine</span
         >
         <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[1rem]"
           >👉</span
-        >
+        > -->
       </div>
-      <div class="itemCust item11">
-        <div class="itemNum relative w-[100%] h-[100%]">11</div>
+      <div class="flex itemCust item11">
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">11</div> -->
+        <div class="">
+          <!-- <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
+            >not<br />mine</span
+          >
+          <br />
+          <span
+            class="font-black text-6xl subpixel-antialiased w-[90%] mt-[1rem]"
+            >👉</span
+          > -->
+        </div>
+        <div class="itemNum relative w-[100%]">
+          <PathfindingFxJs />
+        </div>
       </div>
       <div class="itemCust item10 itemCustMockup shadow-lg">
         <div class="relative w-[100%] h-[100%]">
@@ -479,6 +493,8 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
 
     .containerCust .item11 {
       height: 250px;
+      /* width: 450px;
+      height: 250px; */
     }
 
     .containerCust .item13 {

@@ -1,0 +1,129 @@
+---
+
+---
+
+<script>
+  import PathfindingFX from "pathfinding-fx.js/src/pathfinding-fx.js";
+
+  const SIZE = 20;
+  const COLORS_DATAFLOW = [
+    "#D9ED92",
+    "#B5E48C",
+    "#99D98C",
+    "#76C893",
+    "#52B69A",
+    "#34A0A4",
+    "#168AAD",
+    "#1A759F",
+    "#1E6091",
+    "#184E77",
+  ];
+  const COLORS_MAZERUNNERS = [
+    "#ff595e",
+    "#ffca3a",
+    "#8ac926",
+    "#1982c4",
+    "#6a4c93",
+  ];
+
+  var PFX = null;
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function findRandomNode(map) {
+    while (true) {
+      let checkY = getRandomInt(0, map.length - 1);
+      let checkX = getRandomInt(0, map[checkY].length - 1);
+      if (map[checkY][checkX]) {
+        return { pos: { x: checkX, y: checkY } };
+        break;
+      }
+    }
+  }
+
+  function loadExamplePathfinding() {
+    const canvas = document.getElementById("demo-examples");
+    let map = [];
+
+    for (let y = 0; y < Math.ceil(canvas.offsetWidth / SIZE); y++) {
+      map[y] = [];
+      for (let x = 0; x < Math.ceil(canvas.offsetWidth / SIZE); x++) {
+        map[y][x] = Math.random() > 0.6 ? 0 : 1;
+      }
+    }
+
+    const cbs = {
+      onNoPath: (node) => {
+        const accessablePositions = node.positions();
+        if (accessablePositions.length > 0)
+          node.to.pos =
+            accessablePositions[
+              Math.floor(Math.random() * accessablePositions.length)
+            ].pos;
+      },
+    };
+    PFX = new PathfindingFX(canvas, map)
+      .addNode({
+        ...findRandomNode(map),
+        ...{
+          to: {
+            ...findRandomNode(map),
+            ...{
+              style: {
+                size: { w: 0.5, h: 0.5 },
+                color: "#0a9396",
+                shape: "circle",
+              },
+            },
+          },
+          style: {
+            color: "#0a9396",
+            size: { w: 0.75, h: 0.75 },
+            shape: "circle",
+          },
+          speed: 100,
+        },
+        ...cbs,
+      })
+      .addNode({
+        ...findRandomNode(map),
+        ...{
+          to: {
+            ...findRandomNode(map),
+            ...{ style: { size: { w: 0.5, h: 0.5 }, color: "#9b2226" } },
+          },
+          style: { color: "#9b2226", size: { w: 0.75, h: 0.75 } },
+          speed: 50,
+        },
+        ...cbs,
+      })
+      .addNode({
+        ...findRandomNode(map),
+        ...{
+          to: {
+            ...findRandomNode(map),
+            ...{ style: { size: { w: 0.25, h: 0.25 }, color: "#ee9b00" } },
+          },
+          style: { color: "#ee9b00", size: { w: 0.5, h: 0.5 } },
+          speed: 200,
+        },
+        ...cbs,
+      });
+
+    PFX.play();
+  }
+
+  loadExamplePathfinding();
+</script>
+
+<div class="container max-w-8xl mx-auto my-2 flex flex-col gap-4">
+  <div class="flex flex-col lg:flex-row gap-4">
+    <div class="flex-none w-full mx-auto" style="max-width: 500px">
+      <div id="demo-examples" style="max-width: 500px"></div>
+    </div>
+  </div>
+</div>
