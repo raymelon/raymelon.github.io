@@ -20,7 +20,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
 
 <meta charset="UTF-8" />
 
-<body>
+<body data-theme="dracula">
   <script>
     import Muuri from "muuri";
 
@@ -101,6 +101,44 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
     <!-- <Navbar /> -->
     <DarkLightMode />
 
+    <div class="flex py-[10rem] pl-[10rem] pr-[6.5vw]">
+      <div class="flex-1">
+        <span class="font-black text-9xl subpixel-antialiased"
+          >I'm<br />Raymel
+        </span>
+      </div>
+      <div class="flex-2">
+        <span class="font-black text-7xl subpixel-antialiased"
+          >I code,<br />For fun.
+        </span>
+      </div>
+    </div>
+
+    <div class="flex justify-center px-[10rem] pb-[5rem]">
+      <div class="mx-[4rem]">
+        <span class="font-black text-6xl subpixel-antialiased text-center"
+          >Work</span
+        >
+      </div>
+      <div class="mx-[4rem]">
+        <span class="font-black text-2xl subpixel-antialiased text-center"
+          >Show Past</span
+        >
+        <pre></pre>
+        <span class="font-black text-2xl subpixel-antialiased text-center"
+          >Show Ongoing</span
+        >
+        <pre></pre>
+        <span class="font-black text-2xl subpixel-antialiased text-center"
+          >Shuffle</span
+        >
+        <pre></pre>
+        <span class="font-black text-2xl subpixel-antialiased text-center"
+          >Play</span
+        >
+      </div>
+    </div>
+
     <div id="gridShuffleAlertContainer">
       <div
         class="gridShuffleAlert navbar fixed z-50 mx-[70%] mt-[8rem] w-[33%] h-[10rem] rounded-2xl opacity-25 blur-2xl"
@@ -134,7 +172,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
     </div>
   </dialog> -->
 
-    <div class="containerCust">
+    <div class="relative containerCust ml-[10rem] mr-[5vw]">
       <!-- <div class="itemCust item14">
 		<div class="relative w-[100%] h-[100%]">13</div>
 	</div> -->
@@ -172,7 +210,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
 		<div class="relative w-[100%] h-[100%]">3</div>
 	</div> -->
       <div class="itemCust item4 itemCustMockup shadow-lg">
-        <!-- <div class="relative w-[100%] h-[100%]">4</div> -->
+        <!-- <div class="relative w-[100%] h-[100%]">Matigsalug</div> -->
         <PhoneMockup
           imgKeys={["matigsalug-thumb.jpg"]}
           classes="relative"
@@ -181,7 +219,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
         />
       </div>
       <div class="itemCust item5 itemCustMockup shadow-l shadow-lg">
-        <!-- <div class="relative w-[100%] h-[100%]">5</div> -->
+        <!-- <div class="relative w-[100%] h-[100%]">Lottie Lab</div> -->
         <PhoneMockup2
           viewType="lottie"
           lottieAnimationData={lottieAnimations?.testLottie}
@@ -191,20 +229,23 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
           orientation="landscape"
         />
       </div>
-      <div class="itemCust item6">
-        <div class="itemNum relative w-[100%] h-[100%]">6</div>
+      <div class="flex flex-col itemCust item6">
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">2024</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >milestones<br />from the ❤️</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[4rem]"
+          >Soon</span
+        >
       </div>
-      <div class="itemCust item7 itemCustMockup shadow-lg">
-        <div class="relative w-[100%] h-[100%]">
-          <!-- <BrowserMockup classes="relative w-full h-full" /> -->
-          <div class="flex justify-center window-content">
-            <!-- <div class="absolute top-[40%]">
-            
-            <span class="font-black text-6xl subpixel-antialiased">Hi 👋</span>
-          </div> -->
-            <!-- <ImageImporter imgKeys={["educo-thumb.webp"]} /> -->
-          </div>
-        </div>
+      <div class="flex flex-col itemCust item7 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >newsletters<br />worth reading?</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[4rem]"
+          >Boring</span
+        >
       </div>
       <div class="itemCust item8 itemCustMockup shadow-lg">
         <div class="relative w-[100%] h-[100%]">
@@ -216,8 +257,17 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
           />
         </div>
       </div>
-      <div class="itemCust item9">
-        <div class="itemNum relative w-[100%] h-[100%]">9</div>
+      <div class="flex flex-col itemCust item9">
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">9</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
+          >not<br />mine</span
+        >
+        <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[1rem]"
+          >👉</span
+        >
+      </div>
+      <div class="itemCust item11">
+        <div class="itemNum relative w-[100%] h-[100%]">11</div>
       </div>
       <div class="itemCust item10 itemCustMockup shadow-lg">
         <div class="relative w-[100%] h-[100%]">
@@ -231,9 +281,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
           />
         </div>
       </div>
-      <div class="itemCust item11">
-        <div class="itemNum relative w-[100%] h-[100%]">11</div>
-      </div>
+
       <div class="itemCust item12 itemCustMockup">
         <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
         <div class="relative w-[100%] h-[100%]">
@@ -244,8 +292,50 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
           />
         </div>
       </div>
-      <div class="itemCust item13">
-        <div class="itemNum relative w-[100%] h-[100%]">13</div>
+      <div class="flex flex-col itemCust item13">
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >website<br />navigator</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[7rem]"
+          >Chrome? Hell No</span
+        >
+      </div>
+      <div class="flex flex-col itemCust item15">
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >captions:<br />hello, hallo,<br />hola</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[2rem]"
+          >Delayed</span
+        >
+      </div>
+      <div class="flex flex-col itemCust item16 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >bento grids<br />like this</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
+          >I mean, this</span
+        >
+      </div>
+      <div class="flex flex-col itemCust item17 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >search<br />engine</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
+          >Boogling Soon</span
+        >
+      </div>
+      <div class="flex flex-col itemCust item18 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >atlas<br />app</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
+          >Sooner</span
+        >
       </div>
     </div>
   </div>
@@ -311,7 +401,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
       position: absolute;
       width: 250px;
       height: 400px;
-      background-color: rgb(250, 235, 215, 0.2);
+      background-color: rgb(250, 235, 215, 0.1);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -330,7 +420,7 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
     }
 
     .itemCust .itemNum {
-      display: none;
+      /* display: none; */
     }
 
     .itemCust.muuri-item-hidden {
@@ -392,6 +482,22 @@ import DarkLightMode from "../components/daisy/DarkLightMode.astro";
     }
 
     .containerCust .item13 {
+      height: 250px;
+    }
+
+    .containerCust .item15 {
+      height: 250px;
+    }
+
+    .containerCust .item16 {
+      height: 250px;
+    }
+
+    .containerCust .item17 {
+      height: 250px;
+    }
+
+    .containerCust .item18 {
       height: 250px;
     }
   </style>

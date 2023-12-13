@@ -67,9 +67,9 @@ const orientationAwareValues = ({ landscapeValues, portraitValues }) =>
       element.play();
     }
 
-    // if (element.nodeName === "DOTLOTTIE-PLAYER") {
-    //   element.play();
-    // }
+    if (element.nodeName === "DOTLOTTIE-PLAYER") {
+      element.play();
+    }
 
     comboViewerCounter.set((comboViewerCounter.get() + 1) % 2);
 
