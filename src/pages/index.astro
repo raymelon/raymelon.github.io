@@ -207,7 +207,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
         <span class="font-semibold text-1xl w-[93%]">
           Learn Ilokano Language</span
         >
-        <div class="h-[75%] mt-1">
+        <div class="h-[75%] mt-[1rem]">
           <PhoneMockup2
             viewType="combo:lottie-img"
             lottieAnimationData={lottieAnimations?.sanutIlokano}
@@ -224,30 +224,40 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
       <div class="flex flex-col itemCust item4 itemCustMockup shadow-lg">
         <!-- <div class="relative w-[100%] h-[100%]">Matigsalug</div> -->
         <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-          Sanut Ilokano
+          Matigsalug App
         </span>
         <span class="font-semibold text-1xl w-[93%]">
-          Learn Ilokano Language</span
+          Literacy app for Matigsalug learners</span
         >
-        <div class="h-[75%] mt-1">
+        <div class="h-[70%] mt-[1rem]">
           <PhoneMockup
             imgKeys={["matigsalug-thumb.jpg"]}
-            classes="relative"
+            classes="relative pb-0"
             wh="w-full h-full"
             orientation="landscape"
           />
         </div>
       </div>
-      <div class="itemCust item5 itemCustMockup shadow-l shadow-lg">
+      <div
+        class="flex flex-col itemCust item5 itemCustMockup shadow-l shadow-lg"
+      >
         <!-- <div class="relative w-[100%] h-[100%]">Lottie Lab</div> -->
-        <PhoneMockup2
-          viewType="lottie"
-          lottieAnimationData={lottieAnimations?.testLottie}
-          imgKeys={["taallam-thumb.jpg"]}
-          classes="relative"
-          wh="w-full h-full"
-          orientation="landscape"
-        />
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Lottie Animation
+        </span>
+        <span class="font-semibold text-1xl w-[93%]">
+          Test Lottie Animation</span
+        >
+        <div class="h-[75%] mt-1">
+          <PhoneMockup2
+            viewType="lottie"
+            lottieAnimationData={lottieAnimations?.testLottie}
+            imgKeys={["taallam-thumb.jpg"]}
+            classes="relative pb-0"
+            wh="w-full h-full"
+            orientation="landscape"
+          />
+        </div>
       </div>
       <div class="flex flex-col itemCust item6 itemCustMockup shadow-lg">
         <!-- <div class="itemNum relative w-[100%] h-[100%]">2024</div> -->
@@ -267,11 +277,15 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
           >Boring</span
         >
       </div>
-      <div class="itemCust item8 itemCustMockup shadow-lg">
-        <div class="relative w-[100%] h-[100%]">
+      <div class="flex flex-col itemCust item8 itemCustMockup shadow-lg">
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Kaalam
+        </span>
+        <span class="font-semibold text-1xl w-[93%]"> Learn Cebuano</span>
+        <div class="h-[75%] mt-[1rem]">
           <PhoneMockup2
             imgKeys={["kaalam-thumb.jpg"]}
-            classes="relative"
+            classes="relative pb-0"
             wh="w-full h-full"
             orientation="landscape"
           />
@@ -286,24 +300,22 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
           >👉</span
         > -->
       </div>
-      <div class="flex itemCust item11 itemCustMockup shadow-lg">
+      <div class="flex flex-col itemCust item11 itemCustMockup shadow-lg">
         <!-- <div class="itemNum relative w-[100%] h-[100%]">11</div> -->
-        <div class="">
-          <!-- <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
-            >not<br />mine</span
-          >
-          <br />
-          <span
-            class="font-black text-6xl subpixel-antialiased w-[90%] mt-[1rem]"
-            >👉</span
-          > -->
-        </div>
-        <div class="itemNum relative w-[100%]">
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Pathfinding FX JS
+        </span>
+        <span class="font-semibold text-1xl w-[93%]">by Marco Plain</span>
+        <div class="w-[98%]">
           <PathfindingFxJs />
         </div>
       </div>
-      <div class="itemCust item10 itemCustMockup shadow-lg">
-        <div class="relative w-[100%] h-[100%]">
+      <div class="flex flex-col itemCust item10 itemCustMockup shadow-lg">
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Educo
+        </span>
+        <span class="font-semibold text-1xl w-[93%]">Literacy App</span>
+        <div class="w-[95%] h-[70%] mt-[1rem]">
           <WindowMockup
             imgKeys={[
               "educo-thumb.webp",
@@ -315,9 +327,15 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
         </div>
       </div>
 
-      <div class="itemCust item12 itemCustMockup shadow-lg">
+      <div class="flex flex-col itemCust item12 itemCustMockup shadow-lg">
         <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
-        <div class="relative w-[100%] h-[100%]">
+        <span class="font-black text-2xl subpixel-antialiased w-[98%]">
+          Katatagan in a Box
+        </span>
+        <span class="font-semibold text-1xl w-[98%]"
+          >Business Continuity App</span
+        >
+        <div class="relative w-[100%] h-full mt-[1rem]">
           <PhoneMockup
             imgKeys={["katatagan-thumb.webp"]}
             classes="relative"
@@ -403,6 +421,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
   <style>
     :root {
       --containerCust-item-height: 300px;
+      --containerCust-item-width: 510px;
     }
     body {
       /* overflow: hidden; */
@@ -489,16 +508,16 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
       height: var(--containerCust-item-height);
     }
     .containerCust .item2 {
-      width: 450px;
+      width: var(--containerCust-item-width);
       height: var(--containerCust-item-height);
     }
     .containerCust .item4 {
-      width: 450px;
+      width: var(--containerCust-item-width);
       height: var(--containerCust-item-height);
     }
 
     .containerCust .item5 {
-      width: 450px;
+      width: var(--containerCust-item-width);
       height: var(--containerCust-item-height);
     }
     .containerCust .item6 {
@@ -511,7 +530,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     }
 
     .containerCust .item8 {
-      width: 450px;
+      width: var(--containerCust-item-width);
       height: var(--containerCust-item-height);
     }
     .containerCust .item9 {
@@ -519,14 +538,25 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     }
 
     .containerCust .item10 {
-      width: 450px;
-      height: 380px;
+      width: var(--containerCust-item-width);
+      /* height: 380px; */
+      height: var(--containerCust-item-height);
     }
 
     .containerCust .item11 {
       height: var(--containerCust-item-height);
-      /* width: 450px;
-      height: 250px; */
+      width: 250px;
+      /* width: var(--containerCust-item-width); */
+      /* height: 250px; */
+    }
+
+    .containerCust .item12 {
+      /* height: var(--containerCust-item-width) */
+      width: var(--containerCust-item-width);
+      /* height: calc(
+        var(--containerCust-item-height) + var(--containerCust-item-height)
+      ); */
+      height: 615px;
     }
 
     .containerCust .item13 {
