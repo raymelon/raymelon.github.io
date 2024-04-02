@@ -4,13 +4,39 @@ import { Image } from "astro:assets";
 import ImageImporterCarousel from "./daisy/ImageImporterCarousel.jsx";
 
 import matigsalugThumb from "../assets/matigsalug-thumb.jpg";
+import matigsalugLogo from "../assets/matigsalug-logo.webp";
+import matigsalug1 from "../assets/matigsalug-1.webp";
+import matigsalug2 from "../assets/matigsalug-2.webp";
+import matigsalug3 from "../assets/matigsalug-3.webp";
+import matigsalug4 from "../assets/matigsalug-4.webp";
+import matigsalug5 from "../assets/matigsalug-5.webp";
 import taallamThumb from "../assets/taallam-thumb.jpg";
 import kaalamThumb from "../assets/kaalam-thumb.jpg";
+import kaalamLogo from "../assets/kaalam-logo.webp";
+import kaalam1 from "../assets/kaalam-1.webp";
+import kaalam2 from "../assets/kaalam-2.webp";
+import kaalam3 from "../assets/kaalam-3.webp";
+import kaalam4 from "../assets/kaalam-4.webp";
+import kaalam5 from "../assets/kaalam-5.webp";
 import sanutIlokanoThumb from "../assets/sanut-ilokano-thumb.jpg";
 import educoThumb from "../assets/educo-thumb.webp";
 import educoScreenshot from "../assets/educo-screenshot.png";
 import educoScreenshotBranding from "../assets/educo-screenshot-branding.png";
+import educoApp1 from "../assets/educo-app-1.webp";
+import educoApp2 from "../assets/educo-app-2.webp";
+import educoApp3 from "../assets/educo-app-3.webp";
+import educoApp4 from "../assets/educo-app-4.webp";
+import educoApp5 from "../assets/educo-app-5.webp";
+import educoApp6 from "../assets/educo-app-6.webp";
 import katataganThumb from "../assets/katatagan-thumb.webp";
+import katatagan1 from "../assets/katatagan-1.jpeg";
+import katatagan2 from "../assets/katatagan-2.jpeg";
+import katatagan3 from "../assets/katatagan-3.jpeg";
+import katatagan4 from "../assets/katatagan-4.jpeg";
+import katatagan5 from "../assets/katatagan-5.jpeg";
+import katatagan6 from "../assets/katatagan-6.jpeg";
+import katatagan7 from "../assets/katatagan-7.jpeg";
+import katatagan8 from "../assets/katatagan-8.jpeg";
 import { imageMetadata } from "astro/assets/utils";
 
 interface Props {
@@ -31,11 +57,47 @@ function imgKeyToMetadata(imgKey) {
     case "matigsalug-thumb.jpg":
       imgMetadata = matigsalugThumb;
       break;
+    case "matigsalug-logo.webp":
+      imgMetadata = matigsalugLogo;
+      break;
+    case "matigsalug-1.webp":
+      imgMetadata = matigsalug1;
+      break;
+    case "matigsalug-2.webp":
+      imgMetadata = matigsalug2;
+      break;
+    case "matigsalug-3.webp":
+      imgMetadata = matigsalug3;
+      break;
+    case "matigsalug-4.webp":
+      imgMetadata = matigsalug4;
+      break;
+    case "matigsalug-5.webp":
+      imgMetadata = matigsalug5;
+      break;
     case "taallam-thumb.jpg":
       imgMetadata = taallamThumb;
       break;
     case "kaalam-thumb.jpg":
       imgMetadata = kaalamThumb;
+      break;
+      case "kaalam-logo.webp":
+      imgMetadata = kaalamLogo;
+      break;
+    case "kaalam-1.webp":
+      imgMetadata = kaalam1;
+      break;
+    case "kaalam-2.webp":
+      imgMetadata = kaalam2;
+      break;
+    case "kaalam-3.webp":
+      imgMetadata = kaalam3;
+      break;
+    case "kaalam-4.webp":
+      imgMetadata = kaalam4;
+      break;
+    case "kaalam-5.webp":
+      imgMetadata = kaalam5;
       break;
     case "sanut-ilokano-thumb.jpg":
       imgMetadata = sanutIlokanoThumb;
@@ -49,8 +111,50 @@ function imgKeyToMetadata(imgKey) {
     case "educo-screenshot-branding.png":
       imgMetadata = educoScreenshotBranding;
       break;
+    case "educo-app-1.webp":
+      imgMetadata = educoApp1;
+      break;
+    case "educo-app-2.webp":
+      imgMetadata = educoApp2;
+      break;
+    case "educo-app-3.webp":
+      imgMetadata = educoApp3;
+      break;
+    case "educo-app-4.webp":
+      imgMetadata = educoApp4;
+      break;
+    case "educo-app-5.webp":
+      imgMetadata = educoApp5;
+      break;
+    case "educo-app-6.webp":
+      imgMetadata = educoApp6;
+      break;
     case "katatagan-thumb.webp":
       imgMetadata = katataganThumb;
+      break;
+    case "katatagan-1.jpeg":
+      imgMetadata = katatagan1;
+      break;
+    case "katatagan-2.jpeg":
+      imgMetadata = katatagan2;
+      break;
+    case "katatagan-3.jpeg":
+      imgMetadata = katatagan3;
+      break;
+    case "katatagan-4.jpeg":
+      imgMetadata = katatagan4;
+      break;
+    case "katatagan-5.jpeg":
+      imgMetadata = katatagan5;
+      break;
+    case "katatagan-6.jpeg":
+      imgMetadata = katatagan6;
+      break;
+    case "katatagan-7.jpeg":
+      imgMetadata = katatagan7;
+      break;
+    case "katatagan-8.jpeg":
+      imgMetadata = katatagan8;
       break;
   }
   return imgMetadata;

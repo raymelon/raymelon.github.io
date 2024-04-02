@@ -102,63 +102,70 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     <!-- <Navbar /> -->
     <DarkLightMode />
 
-    <div class="flex py-[10rem] pl-[10rem] pr-[6.5vw]">
+    <div class="flex flex-col md:flex-row py-[10rem] pl-[10rem] pr-[6.5vw]">
       <div class="flex-1">
         <span class="font-black text-9xl subpixel-antialiased"
           >I'm<br />Raymel
         </span>
       </div>
-      <div class="flex-2">
+      <div class="flex-2 sm:mt-10">
         <span class="font-black text-7xl subpixel-antialiased"
-          >I code,<br />For fun.
-        </span>
-      </div>
-    </div>
-
-    <div class="flex justify-center px-[10rem] pb-[5rem]">
-      <div class="mx-[4rem]">
-        <span class="font-black text-6xl subpixel-antialiased text-center"
-          >Work</span
-        >
-      </div>
-      <div class="mx-[4rem]">
-        <span class="font-black text-2xl subpixel-antialiased text-center"
-          >Show Past</span
-        >
-        <pre></pre>
-        <span class="font-black text-2xl subpixel-antialiased text-center"
-          >Show Ongoing</span
-        >
-        <pre></pre>
-        <span class="font-black text-2xl subpixel-antialiased text-center"
-          >Shuffle</span
-        >
-        <pre></pre>
-        <span class="font-black text-2xl subpixel-antialiased text-center"
-          >Play</span
+          >I make apps..<br />for web,<br />for phones..</span
         >
       </div>
     </div>
+  </div>
 
-    <div id="gridShuffleAlertContainer">
-      <div
-        class="gridShuffleAlert navbar fixed z-50 mx-[70%] mt-[8rem] w-[33%] h-[10rem] rounded-2xl opacity-25 blur-2xl"
+  <div class="flex justify-center px-[10rem] pb-[5rem]">
+    <div class="mx-[4rem]">
+      <span class="font-black text-6xl subpixel-antialiased text-center"
+        >Work</span
       >
-      </div>
-
-      <div
-        class="gridShuffleAlert navbar fixed z-50 mx-[74%] mt-[10rem] w-[50%] rounded-2xl"
+      <br/>
+      <span
+        class="animate-bounce absolute ml-[3rem] mt-[5rem] font-black text-7xl subpixel-antialiased"
       >
-        <span
-          id="gridShuffleAlert"
-          class="ml-[-11px] font-black text-6xl subpixel-antialiased drop-shadow-2xl"
-        >
-          ✓ Resumed
-        </span>
-      </div>
+      👇
+      </span>
+    </div>
+    <div class="flex flex-col items-start mx-[4rem]">
+      <span class="font-black text-6xl subpixel-antialiased text-center mb-[5rem]"
+        >Contact</span
+      >
+      <pre></pre>
+      <span class="font-black text-2xl subpixel-antialiased text-center hover:text-blue-500"
+        ><a href="mailto:raymelon@proton.me">Email</a></span
+      >
+      <pre></pre>
+      <span class="font-black text-2xl subpixel-antialiased text-center hover:text-blue-500"
+        ><a href="https://twitter.com/pseudokid" target="_blank">Twitter</a></span
+      >
+      <pre></pre>
+      <span class="font-black text-2xl subpixel-antialiased text-center hover:text-blue-500"
+        ><a href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank">LinkedIn</a></span
+      >
+    </div>
+  </div>
+
+  <div id="gridShuffleAlertContainer">
+    <div
+      class="gridShuffleAlert navbar fixed z-50 mx-[70%] mt-[8rem] w-[33%] h-[10rem] rounded-2xl opacity-25 blur-2xl"
+    >
     </div>
 
-    <!-- <button class="btn" onclick="
+    <div
+      class="gridShuffleAlert navbar fixed z-50 mx-[74%] mt-[10rem] w-[50%] rounded-2xl"
+    >
+      <span
+        id="gridShuffleAlert"
+        class="ml-[-11px] font-black text-6xl subpixel-antialiased drop-shadow-2xl"
+      >
+        ✓ Resumed
+      </span>
+    </div>
+  </div>
+
+  <!-- <button class="btn" onclick="
   my_modal_1.showModal()
   ">open modal</button>
   <dialog id="my_modal_1" class="modal">
@@ -173,226 +180,291 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     </div>
   </dialog> -->
 
-    <div class="relative containerCust ml-[10rem] mr-[5vw]">
-      <!-- <div class="itemCust item14">
+  <div class="relative containerCust ml-[10rem] mr-[5vw]">
+    <!-- <div class="itemCust item14">
 		<div class="relative w-[100%] h-[100%]">13</div>
 	</div> -->
-      <div id="tile1" class="itemCust item1">
-        <!-- <BrowserMockup classes="relative w-full h-full" /> -->
-        <div class="w-full h-full">
-          <div class="flex justify-center">
-            <span
-              class="absolute top-[20%] font-black text-4xl subpixel-antialiased"
-              >Hover a tile.<br />Try it
-            </span>
-            <span
-              class="animate-bounce absolute ml-[3rem] top-[45%] font-black text-4xl subpixel-antialiased"
-            >
-              👉</span
-            >
+    <div id="tile1" class="itemCust item1">
+      <!-- <BrowserMockup classes="relative w-full h-full" /> -->
+      <div class="w-full h-full">
+        <div class="flex justify-center">
+          <span
+            class="absolute top-[5rem] font-black text-4xl subpixel-antialiased"
+            >Hover a tile.<br />Try it
+          </span>
+          <span
+            class="animate-bounce absolute ml-[3rem] top-[8rem] font-black text-4xl subpixel-antialiased"
+          >
+            👉</span
+          >
 
-            <!-- <div class="font-black text-2xl subpixel-antialiased mt-10">
+          <!-- <div class="font-black text-2xl subpixel-antialiased mt-10">
           Drag each item
         </div> -->
-          </div>
         </div>
-      </div>
-      <div
-        id="tile2"
-        class="flex flex-col itemCust item2 itemCustMockup shadow-lg"
-      >
-        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-          Sanut Ilokano
-        </span>
-        <span class="font-semibold text-1xl w-[93%]">
-          Learn Ilokano Language</span
-        >
-        <div class="h-[75%] mt-[1rem]">
-          <PhoneMockup2
-            viewType="combo:lottie-img"
-            lottieAnimationData={lottieAnimations?.sanutIlokano}
-            imgKeys={["sanut-ilokano-thumb.jpg"]}
-            classes="relative pb-0"
-            wh="w-full h-full"
-            orientation="landscape"
-          />
-        </div>
-      </div>
-      <!-- <div class="itemCust item3">
-		<div class="relative w-[100%] h-[100%]">3</div>
-	</div> -->
-      <div class="flex flex-col itemCust item4 itemCustMockup shadow-lg">
-        <!-- <div class="relative w-[100%] h-[100%]">Matigsalug</div> -->
-        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-          Matigsalug App
-        </span>
-        <span class="font-semibold text-1xl w-[93%]">
-          Literacy app for Matigsalug learners</span
-        >
-        <div class="h-[70%] mt-[1rem]">
-          <PhoneMockup
-            imgKeys={["matigsalug-thumb.jpg"]}
-            classes="relative pb-0"
-            wh="w-full h-full"
-            orientation="landscape"
-          />
-        </div>
-      </div>
-      <div
-        class="flex flex-col itemCust item5 itemCustMockup shadow-l shadow-lg"
-      >
-        <!-- <div class="relative w-[100%] h-[100%]">Lottie Lab</div> -->
-        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-          Lottie Animation
-        </span>
-        <span class="font-semibold text-1xl w-[93%]">
-          Test Lottie Animation</span
-        >
-        <div class="h-[75%] mt-1">
-          <PhoneMockup2
-            viewType="lottie"
-            lottieAnimationData={lottieAnimations?.testLottie}
-            imgKeys={["taallam-thumb.jpg"]}
-            classes="relative pb-0"
-            wh="w-full h-full"
-            orientation="landscape"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col itemCust item6 itemCustMockup shadow-lg">
-        <!-- <div class="itemNum relative w-[100%] h-[100%]">2024</div> -->
-        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-          >milestones<br />from the ❤️</span
-        >
-        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[4rem]"
-          >Soon</span
-        >
-      </div>
-      <div class="flex flex-col itemCust item7 itemCustMockup shadow-lg">
-        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-          >newsletters<br />worth reading?</span
-        >
-        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[4rem]"
-          >Boring</span
-        >
-      </div>
-      <div class="flex flex-col itemCust item8 itemCustMockup shadow-lg">
-        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-          Kaalam
-        </span>
-        <span class="font-semibold text-1xl w-[93%]"> Learn Cebuano</span>
-        <div class="h-[75%] mt-[1rem]">
-          <PhoneMockup2
-            imgKeys={["kaalam-thumb.jpg"]}
-            classes="relative pb-0"
-            wh="w-full h-full"
-            orientation="landscape"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col itemCust item9 itemCustMockup shadow-lg">
-        <div class="itemNum relative w-[100%] h-[100%]">9</div>
-        <!-- <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
-          >not<br />mine</span
-        >
-        <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[1rem]"
-          >👉</span
-        > -->
-      </div>
-      <div class="flex flex-col itemCust item11 itemCustMockup shadow-lg">
-        <!-- <div class="itemNum relative w-[100%] h-[100%]">11</div> -->
-        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-          Pathfinding FX JS
-        </span>
-        <span class="font-semibold text-1xl w-[93%]">by Marco Plain</span>
-        <div class="w-[98%]">
-          <PathfindingFxJs />
-        </div>
-      </div>
-      <div class="flex flex-col itemCust item10 itemCustMockup shadow-lg">
-        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-          Educo
-        </span>
-        <span class="font-semibold text-1xl w-[93%]">Literacy App</span>
-        <div class="w-[95%] h-[70%] mt-[1rem]">
-          <WindowMockup
-            imgKeys={[
-              "educo-thumb.webp",
-              "educo-screenshot.png",
-              "educo-screenshot-branding.png",
-            ]}
-            classes="relative w-full h-full"
-          />
-        </div>
-      </div>
-
-      <div class="flex flex-col itemCust item12 itemCustMockup shadow-lg">
-        <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
-        <span class="font-black text-2xl subpixel-antialiased w-[98%]">
-          Katatagan in a Box
-        </span>
-        <span class="font-semibold text-1xl w-[98%]"
-          >Business Continuity App</span
-        >
-        <div class="relative w-[100%] h-full mt-[1rem]">
-          <PhoneMockup
-            imgKeys={["katatagan-thumb.webp"]}
-            classes="relative"
-            wh="w-full h-full"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col itemCust item13 itemCustMockup shadow-lg">
-        <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
-        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-          >website<br />navigator</span
-        >
-        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[7rem]"
-          >Chrome? Hell No</span
-        >
-      </div>
-      <div class="flex flex-col itemCust item15 itemCustMockup shadow-lg">
-        <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
-        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-          >captions:<br />hello, hallo,<br />hola</span
-        >
-        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[2rem]"
-          >Delayed</span
-        >
-      </div>
-      <div class="flex flex-col itemCust item16 itemCustMockup shadow-lg">
-        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-          >bento grids<br />like this</span
-        >
-        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
-          >I mean, this</span
-        >
-      </div>
-      <div class="flex flex-col itemCust item17 itemCustMockup shadow-lg">
-        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-          >search<br />engine</span
-        >
-        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
-          >Boogling Soon</span
-        >
-      </div>
-      <div class="flex flex-col itemCust item18 itemCustMockup shadow-lg">
-        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-          >atlas<br />app</span
-        >
-        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
-          >Sooner</span
-        >
       </div>
     </div>
-  </div>
-  <!-- <OldGrid /> -->
+    <div
+      id="tile2"
+      class="flex flex-col itemCust item2 itemCustMockup shadow-lg"
+    >
+      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+        Sanut Ilokano
+      </span>
+      <div class="flex flex-row justify-between w-[93%]">
+        <div class="flex font-semibold text-1xl">
+          Language Learning - Mobile App
+        </div>
+        <div class="flex font-semibold text-1xl">2018 - UI/UX - Dev</div>
+      </div>
+      <div class="h-[75%] mt-[1rem]">
+        <PhoneMockup2
+          viewType="combo:lottie-img"
+          lottieAnimationData={lottieAnimations?.sanutIlokano}
+          imgKeys={["sanut-ilokano-thumb.jpg"]}
+          classes="relative pb-0"
+          wh="w-full h-full"
+          orientation="landscape"
+        />
+      </div>
+    </div>
+    <!-- <div class="itemCust item3">
+		<div class="relative w-[100%] h-[100%]">3</div>
+	</div> -->
+    <div class="flex flex-col itemCust item4 itemCustMockup shadow-lg">
+      <!-- <div class="relative w-[100%] h-[100%]">Matigsalug</div> -->
+      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+        Matigsalug
+      </span>
+      <div class="flex flex-row justify-between w-[93%]">
+        <div class="flex font-semibold text-1xl">
+          Language Learning - Mobile App
+        </div>
+        <div class="flex font-semibold text-1xl">2019 - UI/UX - Dev</div>
+      </div>
+      <div class="h-[80%] mt-[0.5rem]">
+        <PhoneMockup
+          imgKeys={[
+            "matigsalug-4.webp",
+            "matigsalug-1.webp",
+            "matigsalug-2.webp",
+            "matigsalug-3.webp",
+            "matigsalug-5.webp",
+          ]}
+          classes="relative pb-0"
+          wh="w-full h-full"
+          orientation="landscape"
+        />
+      </div>
+    </div>
+    <div class="flex flex-col itemCust item5 itemCustMockup shadow-l shadow-lg">
+      <!-- <div class="relative w-[100%] h-[100%]">Lottie Lab</div> -->
+      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+        Lottie Animation
+      </span>
+      <div class="flex flex-row justify-between w-[93%]">
+        <div class="flex font-semibold text-1xl">Lottie Animation Showcase</div>
+        <div class="flex font-semibold text-1xl">SOON</div>
+      </div>
+      <div class="h-[75%] mt-1">
+        <PhoneMockup2
+          viewType="lottie"
+          lottieAnimationData={lottieAnimations?.testLottie}
+          imgKeys={["taallam-thumb.jpg"]}
+          classes="relative pb-0"
+          wh="w-full h-full"
+          orientation="landscape"
+        />
+      </div>
+    </div>
+    <div class="flex flex-col itemCust item6 itemCustMockup shadow-lg border-4 border-lime-500">
+      <!-- <div class="itemNum relative w-[100%] h-[100%]">2024</div> -->
+      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+        >making<br />mobile apps<br />from the ❤️</span
+      >
+      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[2rem]"
+        >since 2017</span
+      >
+    </div>
+    <div class="flex flex-col itemCust item7 itemCustMockup shadow-lg">
+      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+        >newsletter<br />worth reading?</span
+      >
+      <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[2rem]"
+        >👇</span
+      >
+      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
+        ><a href="https://levelup.news" target="_blank">levelup.news</a></span
+      >
+    </div>
+    <div class="flex flex-col itemCust item8 itemCustMockup shadow-lg">
+      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+        Kaalam
+      </span>
+      <div class="flex flex-row justify-between w-[93%]">
+        <div class="flex font-semibold text-1xl">
+          Language Learning - Mobile App
+        </div>
+        <div class="flex font-semibold text-1xl">2018 - UI/UX - Dev</div>
+      </div>
+      <div class="h-[85%] mt-[0rem]">
+        <PhoneMockup2
+          imgKeys={[
+            "kaalam-thumb.jpg",
+            "kaalam-1.webp",
+            "kaalam-2.webp",
+            "kaalam-3.webp",
+            "kaalam-4.webp",
+            "kaalam-5.webp",
+          ]}
+          classes="relative pb-0"
+          wh="w-full h-full"
+          orientation="landscape"
+        />
+      </div>
+    </div>
+    <div
+      class="flex flex-col itemCust item9 itemCustMockup shadow-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white border-4 border-pink-200"
+    >
+      <!-- <div class="itemNum relative w-[100%] h-[100%]">9</div> -->
+      <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
+        >get<br />featured<br />on this slot</span
+      >
+      <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[2rem]"
+        >👇</span
+      >
+      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
+        ><a href="https://makeabentogrid.today" target="_blank">Buy Slot</a
+        ></span
+      >
+    </div>
+    <div class="flex flex-col itemCust item11 itemCustMockup shadow-lg">
+      <!-- <div class="itemNum relative w-[100%] h-[100%]">11</div> -->
+      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+        Pathfinding FX JS
+      </span>
+      <span class="font-semibold text-1xl w-[93%]"
+        >by Marco Plain — Featured</span
+      >
+      <div class="w-[98%]">
+        <PathfindingFxJs />
+      </div>
+    </div>
+    <div class="flex flex-col itemCust item10 itemCustMockup shadow-lg">
+      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+        Educo
+      </span>
+      <div class="flex flex-row justify-between w-[93%]">
+        <div class="flex font-semibold text-1xl">EdTech - Web & Mobile App</div>
+        <div class="flex font-semibold text-1xl">2020 - UI/UX - Dev</div>
+      </div>
+      <div class="w-[95%] h-[50%] mt-[1rem]">
+        <WindowMockup
+          imgKeys={[
+            "educo-app-6.webp",
+            "educo-app-1.webp",
+            "educo-app-2.webp",
+            "educo-app-3.webp",
+            "educo-app-4.webp",
+            "educo-app-5.webp",
+            "educo-thumb.webp",
+            "educo-screenshot.png",
+          ]}
+          classes="relative w-full h-full"
+        />
+      </div>
+    </div>
 
-  <!-- <NavBar /> --><!-- <CardPreview
+    <div class="flex flex-col itemCust item12 itemCustMockup shadow-lg">
+      <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
+      <span class="font-black text-2xl subpixel-antialiased w-[98%]">
+        Katatagan in a Box
+      </span>
+      <div class="flex flex-row justify-between w-[98%]">
+        <div class="flex font-semibold text-1xl">
+          Business Continuity - Mobile App
+        </div>
+        <div class="flex font-semibold text-1xl">2019 - UI/UX - Dev</div>
+      </div>
+      <div class="relative w-[60%] h-full mt-[1rem]">
+        <PhoneMockup
+          imgKeys={[
+            "katatagan-thumb.webp",
+            "katatagan-1.jpeg",
+            "katatagan-2.jpeg",
+            "katatagan-3.jpeg",
+            "katatagan-4.jpeg",
+            "katatagan-5.jpeg",
+            "katatagan-6.jpeg",
+            "katatagan-7.jpeg",
+            "katatagan-8.jpeg",
+          ]}
+          classes="relative"
+          wh="w-full h-full"
+        />
+      </div>
+    </div>
+    <div class="flex flex-col itemCust item13 itemCustMockup shadow-lg border-4 border-sky-500">
+      <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
+      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+        >{new Date().getFullYear() - 2017} years experience</span
+      >
+      <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[3rem]"
+        >👇</span
+      >
+      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
+        ><a href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank">See work Experience</a></span
+      >
+    </div>
+    <div
+      class="flex flex-col itemCust item15 itemCustMockup shadow-lg border-4 border-cyan-500"
+    >
+      <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
+      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+        >making<br />web apps<br />with React</span
+      >
+      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[2rem]"
+        >since 2017</span
+      >
+    </div>
+    <div class="flex flex-col itemCust item16 itemCustMockup shadow-lg">
+      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+        >bento grids<br />just like this site?</span
+      >
+      <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[1rem]"
+        >👇</span
+      >
+      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
+        ><a href="https://makeabentogrid.today" target="_blank"
+          >makeabentogrid.<br />today</a
+        ></span
+      >
+    </div>
+    <div class="flex flex-col itemCust item17 itemCustMockup shadow-lg">
+      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+        >a search<br />engine</span
+      >
+      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
+        >Brewing...</span
+      >
+    </div>
+    <div class="flex flex-col itemCust item18 itemCustMockup shadow-lg">
+      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+        >atlas<br />app</span
+      >
+      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
+        >Brewing...</span
+      >
+    </div>
+  </div>
+</body>
+<!-- <OldGrid /> -->
+
+<!-- <NavBar /> --><!-- <CardPreview
 	href="https://docs.astro.build/"
 	title="Documentation"
 	body="Learn how Astro works and explore the official API docs."
@@ -418,165 +490,165 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
 		/>
 	</div>
 </div> --><!-- <Footer /> -->
-  <style>
-    :root {
-      --containerCust-item-height: 300px;
-      --containerCust-item-width: 510px;
-    }
-    body {
-      /* overflow: hidden; */
-      overflow-y: auto;
+<style>
+  :root {
+    --containerCust-item-height: 300px;
+    --containerCust-item-width: 510px;
+  }
+  body {
+    /* overflow: hidden; */
+    overflow-y: auto;
 
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 
-      /* @apply bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark; */
-      min-height: 100vh;
-    }
+    /* @apply bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark; */
+    min-height: 100vh;
+  }
 
-    body::-webkit-scrollbar {
-      display: none;
-    }
+  body::-webkit-scrollbar {
+    display: none;
+  }
 
-    #tile1 {
-      opacity: 1;
-      background-color: transparent;
-      border: 0;
-    }
+  #tile1 {
+    opacity: 1;
+    background-color: transparent;
+    border: 0;
+  }
 
-    #gridShuffleAlertContainer {
-      visibility: hidden;
-    }
+  #gridShuffleAlertContainer {
+    visibility: hidden;
+  }
 
-    .containerCust {
-      /* position: relative; */
-      /* visibility: hidden; */
-    }
-    .itemCust {
-      position: absolute;
-      width: 250px;
-      height: 400px;
-      /* background-color: rgb(250, 235, 215, 0.1); */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      /* border: 1px solid rgb(250, 235, 215, 0); */
-      border-radius: 1rem;
-      /* color: antiquewhite; */
-      z-index: 1;
-      padding: 10px;
-      margin: 0.4rem;
-      opacity: 0.85;
-      transition: opacity 0.2s ease-in-out;
-      /* @apply bg-cust-background-color; */
-    }
+  .containerCust {
+    /* position: relative; */
+    /* visibility: hidden; */
+  }
+  .itemCust {
+    position: absolute;
+    width: 250px;
+    height: 400px;
+    /* background-color: rgb(250, 235, 215, 0.1); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid rgb(250, 235, 215, 0); */
+    border-radius: 1rem;
+    /* color: antiquewhite; */
+    z-index: 1;
+    padding: 10px;
+    margin: 0.4rem;
+    opacity: 0.85;
+    transition: opacity 0.2s ease-in-out;
+    /* @apply bg-cust-background-color; */
+  }
 
-    body[data-theme="dark"] .itemCust {
-      background-color: rgba(250, 235, 215, 0.1);
-    }
+  body[data-theme="dark"] .itemCust {
+    background-color: rgba(250, 235, 215, 0.1);
+  }
 
-    body[data-theme="light"] .itemCust {
-      opacity: 1;
-      background-color: rgba(250, 235, 215, 1);
-    }
+  body[data-theme="light"] .itemCust {
+    /* opacity: 1; */
+    background-color: rgba(250, 235, 215, 1);
+  }
 
-    .itemCustMockup:hover {
-      opacity: 1;
-    }
+  .itemCustMockup:hover {
+    opacity: 1;
+  }
 
-    .itemCust .itemNum {
-      /* display: none; */
-    }
+  .itemCust .itemNum {
+    /* display: none; */
+  }
 
-    .itemCust.muuri-item-hidden {
-      z-index: 0;
-    }
+  .itemCust.muuri-item-hidden {
+    z-index: 0;
+  }
 
-    .itemCust.muuri-item-positioning {
-      z-index: 2;
-    }
+  .itemCust.muuri-item-positioning {
+    z-index: 2;
+  }
 
-    .itemCust.muuri-item-releasing {
-      z-index: 3;
-    }
-    .itemCust.muuri-item-dragging {
-      z-index: 4;
-    }
+  .itemCust.muuri-item-releasing {
+    z-index: 3;
+  }
+  .itemCust.muuri-item-dragging {
+    z-index: 4;
+  }
 
-    .containerCust .item1 {
-      width: 250px;
-      height: var(--containerCust-item-height);
-    }
-    .containerCust .item2 {
-      width: var(--containerCust-item-width);
-      height: var(--containerCust-item-height);
-    }
-    .containerCust .item4 {
-      width: var(--containerCust-item-width);
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item1 {
+    width: 250px;
+    height: var(--containerCust-item-height);
+  }
+  .containerCust .item2 {
+    width: var(--containerCust-item-width);
+    height: var(--containerCust-item-height);
+  }
+  .containerCust .item4 {
+    width: var(--containerCust-item-width);
+    height: var(--containerCust-item-height);
+  }
 
-    .containerCust .item5 {
-      width: var(--containerCust-item-width);
-      height: var(--containerCust-item-height);
-    }
-    .containerCust .item6 {
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item5 {
+    width: var(--containerCust-item-width);
+    height: var(--containerCust-item-height);
+  }
+  .containerCust .item6 {
+    height: var(--containerCust-item-height);
+  }
 
-    .containerCust .item7 {
-      width: 250px;
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item7 {
+    width: 250px;
+    height: var(--containerCust-item-height);
+  }
 
-    .containerCust .item8 {
-      width: var(--containerCust-item-width);
-      height: var(--containerCust-item-height);
-    }
-    .containerCust .item9 {
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item8 {
+    width: var(--containerCust-item-width);
+    height: var(--containerCust-item-height);
+  }
+  .containerCust .item9 {
+    height: var(--containerCust-item-height);
+  }
 
-    .containerCust .item10 {
-      width: var(--containerCust-item-width);
-      /* height: 380px; */
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item10 {
+    width: var(--containerCust-item-width);
+    /* height: 380px; */
+    height: var(--containerCust-item-height);
+    height: 615px;
+  }
 
-    .containerCust .item11 {
-      height: var(--containerCust-item-height);
-      width: 250px;
-      /* width: var(--containerCust-item-width); */
-      /* height: 250px; */
-    }
+  .containerCust .item11 {
+    height: var(--containerCust-item-height);
+    width: 250px;
+    /* width: var(--containerCust-item-width); */
+    /* height: 250px; */
+  }
 
-    .containerCust .item12 {
-      /* height: var(--containerCust-item-width) */
-      width: var(--containerCust-item-width);
-      /* height: calc(
+  .containerCust .item12 {
+    /* height: var(--containerCust-item-width) */
+    width: var(--containerCust-item-width);
+    /* height: calc(
         var(--containerCust-item-height) + var(--containerCust-item-height)
       ); */
-      height: 615px;
-    }
+    height: 615px;
+  }
 
-    .containerCust .item13 {
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item13 {
+    height: var(--containerCust-item-height);
+  }
 
-    .containerCust .item15 {
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item15 {
+    height: var(--containerCust-item-height);
+  }
 
-    .containerCust .item16 {
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item16 {
+    height: var(--containerCust-item-height);
+  }
 
-    .containerCust .item17 {
-      height: var(--containerCust-item-height);
-    }
+  .containerCust .item17 {
+    height: var(--containerCust-item-height);
+  }
 
-    .containerCust .item18 {
-      height: var(--containerCust-item-height);
-    }
-  </style>
-</body>
+  .containerCust .item18 {
+    height: var(--containerCust-item-height);
+  }
+</style>
