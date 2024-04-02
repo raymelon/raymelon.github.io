@@ -22,6 +22,15 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
 <meta charset="UTF-8" />
 
 <body data-theme="dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   <script>
     import Muuri from "muuri";
 
@@ -102,46 +111,53 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     <!-- <Navbar /> -->
     <DarkLightMode />
 
-    <div class="flex flex-col md:flex-row py-[10rem] pl-[10rem] pr-[6.5vw]">
-      <div class="flex-1">
-        <span class="font-black text-9xl subpixel-antialiased"
-          >I'm<br />Raymel
-        </span>
-      </div>
-      <div class="flex-2 sm:mt-10">
-        <span class="font-black text-7xl subpixel-antialiased"
-          >I make apps..<br />for web,<br />for phones..</span
-        >
-      </div>
+    
+  </div>
+
+  <div class="flex flex-row sm:max-2xl:flex-col justify-center px-[10rem] py-[10rem] pb-[5rem]">
+    <div class="mx-[4rem]">
+      <span class="font-poppins font-black text-8xl subpixel-antialiased text-center"
+        >Raymel<br/>Francisco</span
+      >
+      </span>
+    </div>
+    <div class="hover:animate-pulse flex flex-col sm:max-2xl:mt-20 items-start mx-[4rem]">
+      <span class="font-poppins font-light text-4xl subpixel-antialiased mb-[5rem]"
+        >App development<br/><br />Web development<br/><br />UI/UX</span
+      >
     </div>
   </div>
 
   <div class="flex justify-center px-[10rem] pb-[5rem]">
     <div class="mx-[4rem]">
-      <span class="font-black text-6xl subpixel-antialiased text-center"
+      <span class="font-montserrat font-bold text-6xl subpixel-antialiased text-center"
         >Work</span
       >
       <br/>
       <span
         class="animate-bounce absolute ml-[3rem] mt-[5rem] font-black text-7xl subpixel-antialiased"
       >
+      <a href="#work">
       👇
+      </a>
       </span>
     </div>
     <div class="flex flex-col items-start mx-[4rem]">
-      <span class="font-black text-6xl subpixel-antialiased text-center mb-[5rem]"
+      <span class="font-montserrat font-bold text-6xl subpixel-antialiased text-center mb-[5rem]"
         >Contact</span
       >
       <pre></pre>
-      <span class="font-black text-2xl subpixel-antialiased text-center hover:text-blue-500"
+      <span class="font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
         ><a href="mailto:raymelon@proton.me">Email</a></span
       >
+      <br/>
       <pre></pre>
-      <span class="font-black text-2xl subpixel-antialiased text-center hover:text-blue-500"
+      <span class="font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
         ><a href="https://twitter.com/pseudokid" target="_blank">Twitter</a></span
       >
+      <br/>
       <pre></pre>
-      <span class="font-black text-2xl subpixel-antialiased text-center hover:text-blue-500"
+      <span class="font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
         ><a href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank">LinkedIn</a></span
       >
     </div>
@@ -180,7 +196,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     </div>
   </dialog> -->
 
-  <div class="relative containerCust ml-[10rem] mr-[5vw]">
+  <div id="work" class="relative containerCust ml-[10rem] mr-[5vw]">
     <!-- <div class="itemCust item14">
 		<div class="relative w-[100%] h-[100%]">13</div>
 	</div> -->
@@ -190,10 +206,10 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
         <div class="flex justify-center">
           <span
             class="absolute top-[5rem] font-black text-4xl subpixel-antialiased"
-            >Hover a tile.<br />Try it
+            >Start<br />Here
           </span>
           <span
-            class="animate-bounce absolute ml-[3rem] top-[8rem] font-black text-4xl subpixel-antialiased"
+            class="animate-bounce absolute ml-[11rem] top-[6rem] font-black text-5xl subpixel-antialiased"
           >
             👉</span
           >
@@ -277,7 +293,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
         />
       </div>
     </div>
-    <div class="flex flex-col itemCust item6 itemCustMockup shadow-lg border-4 border-lime-500">
+    <div class="animate-pulse flex flex-col itemCust item6 itemCustMockup shadow-lg border-4 border-lime-500">
       <!-- <div class="itemNum relative w-[100%] h-[100%]">2024</div> -->
       <span class="font-black text-4xl subpixel-antialiased w-[90%]"
         >making<br />mobile apps<br />from the ❤️</span
@@ -325,7 +341,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
       </div>
     </div>
     <div
-      class="flex flex-col itemCust item9 itemCustMockup shadow-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white border-4 border-pink-200"
+      class="animate-pulse flex flex-col itemCust item9 itemCustMockup shadow-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white border-4 border-pink-200"
     >
       <!-- <div class="itemNum relative w-[100%] h-[100%]">9</div> -->
       <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
@@ -405,7 +421,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
         />
       </div>
     </div>
-    <div class="flex flex-col itemCust item13 itemCustMockup shadow-lg border-4 border-sky-500">
+    <div class="animate-pulse flex flex-col itemCust item13 itemCustMockup shadow-lg border-4 border-sky-500">
       <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
       <span class="font-black text-4xl subpixel-antialiased w-[90%]"
         >{new Date().getFullYear() - 2017} years experience</span
@@ -418,7 +434,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
       >
     </div>
     <div
-      class="flex flex-col itemCust item15 itemCustMockup shadow-lg border-4 border-cyan-500"
+      class="animate-pulse flex flex-col itemCust item15 itemCustMockup shadow-lg border-4 border-cyan-500"
     >
       <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
       <span class="font-black text-4xl subpixel-antialiased w-[90%]"
@@ -461,6 +477,10 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
       >
     </div>
   </div>
+  <!-- <div class="divider mx-12 bg-base-100"></div>  -->
+  <br/>
+  <br/>
+  <footer class="mx-auto w-full py-10 text-center font-bold font-poppins bg-slate-950 text-slate-50">Copyright © {new Date().getFullYear()} Raymel Francisco</footer>
 </body>
 <!-- <OldGrid /> -->
 

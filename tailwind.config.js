@@ -14,6 +14,12 @@ module.exports = {
       // backgroundColor: theme => ({
       //   "cust-background-color": "rgb(250, 235, 215, 0.1)"
       // })
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        quicksand: ["Quicksand", "sans-serif"],
+        mulish: ["Mulish", "sans-serif"]
+      }
     },
   },
   plugins: [require('@tailwindcss/typography'), require("daisyui")],
@@ -51,10 +57,10 @@ module.exports = {
       "sunset",
       {
         dark: {
-          ...require("daisyui/src/theming/themes")["[data-theme=dracula]"],
+          ...require("daisyui/src/theming/themes")["[data-theme=synthwave]"],
         },
         light: {
-          ...require("daisyui/src/theming/themes")["[data-theme=lemonade]"],
+          ...require("daisyui/src/theming/themes")["[data-theme=retro]"],
         },
       },
     ]
