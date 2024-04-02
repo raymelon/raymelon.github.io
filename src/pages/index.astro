@@ -103,7 +103,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
   </script>
 
   <!-- <div class="bg-gradient-to-r from-blue-500 to-blue-400"> -->
-  <div>
+  <div class="m-[3rem]">
     <!-- <HiFloatingAndSearchBarFloatingShadow /> -->
     <!-- <HiFloating /> -->
     <!-- <SearchBarFloatingCenter /> -->
@@ -114,56 +114,80 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     
   </div>
 
-  <div class="flex flex-row sm:max-2xl:flex-col justify-center px-[10rem] py-[10rem] pb-[5rem]">
-    <div class="mx-[4rem]">
-      <span class="font-poppins font-black text-8xl subpixel-antialiased text-center"
-        >Raymel<br/>Francisco</span
-      >
+  <div class="flex flex-row justify-center px-[1rem] py-[10rem] pb-[5rem]">
+    <div class="mx-[3rem]">
+      <span class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
+        >&nbsp;Hi, my name is<br/><br/>
+      </span>
+      <span class="font-mulish font-black text-8xl subpixel-antialiased text-center"
+        >Raymel<br/>
+      </span>
+      <span class="font-mulish font-thin text-7xl subpixel-antialiased text-center"
+        >Francisco
       </span>
     </div>
-    <div class="hover:animate-pulse flex flex-col sm:max-2xl:mt-20 items-start mx-[4rem]">
-      <span class="font-poppins font-light text-4xl subpixel-antialiased mb-[5rem]"
-        >App development<br/><br />Web development<br/><br />UI/UX</span
+    <!-- <div class="divider divider-horizontal"></div> -->
+    <div class="flex flex-col items-start mx-[3rem] mb-[5rem]">
+      <span class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
+        >I do<br/><br/>
+      </span>
+      <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
+        >App <span class="font-normal">Development</span></span
+      >
+      <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
+        >Web <span class="font-normal">Development</span></span>
+      <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
+        >UI/UX <span class="font-normal">Design</span></span
       >
     </div>
   </div>
 
   <div class="flex justify-center px-[10rem] pb-[5rem]">
-    <div class="mx-[4rem]">
-      <span class="font-montserrat font-bold text-6xl subpixel-antialiased text-center"
-        >Work</span
-      >
-      <br/>
-      <span
-        class="animate-bounce absolute ml-[3rem] mt-[5rem] font-black text-7xl subpixel-antialiased"
-      >
-      <a href="#work">
-      👇
-      </a>
-      </span>
-    </div>
+    <a href="#work">
+      <div class="mx-[3rem] hover:text-blue-500">
+        <span class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
+        >See my<br/>
+        </span>
+        <span class="font-montserrat font-bold text-6xl subpixel-antialiased text-center"
+          >Work</span
+        >
+        <br/>
+        <span
+          class="animate-bounce absolute ml-[3rem] mt-[4rem] font-black text-7xl subpixel-antialiased"
+        >
+        👇
+        </span>
+      </div>
+    </a>
+    <!-- <div class="divider divider-horizontal"></div> -->
     <div class="flex flex-col items-start mx-[4rem]">
-      <span class="font-montserrat font-bold text-6xl subpixel-antialiased text-center mb-[5rem]"
-        >Contact</span
+      <span class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
+        >You can also<br/>
+      </span>
+      <span class="font-montserrat font-bold text-6xl subpixel-antialiased mb-[1rem]"
+        >Contact me</span
       >
+      <span
+          class="animate-pulse font-black text-3xl subpixel-antialiased mb-[1rem]"
+        >
+        👇
+        </span>
       <pre></pre>
-      <span class="font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
+      <span class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
         ><a href="mailto:raymelon@proton.me">Email</a></span
       >
-      <br/>
       <pre></pre>
-      <span class="font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
+      <span class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
         ><a href="https://twitter.com/pseudokid" target="_blank">Twitter</a></span
       >
-      <br/>
       <pre></pre>
-      <span class="font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
+      <span class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
         ><a href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank">LinkedIn</a></span
       >
     </div>
   </div>
 
-  <div id="gridShuffleAlertContainer">
+  <!-- <div id="gridShuffleAlertContainer">
     <div
       class="gridShuffleAlert navbar fixed z-50 mx-[70%] mt-[8rem] w-[33%] h-[10rem] rounded-2xl opacity-25 blur-2xl"
     >
@@ -179,7 +203,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
         ✓ Resumed
       </span>
     </div>
-  </div>
+  </div> -->
 
   <!-- <button class="btn" onclick="
   my_modal_1.showModal()
@@ -196,7 +220,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     </div>
   </dialog> -->
 
-  <div id="work" class="relative containerCust ml-[10rem] mr-[5vw]">
+  <div id="work" class="relative containerCust mr-[10rem]">
     <!-- <div class="itemCust item14">
 		<div class="relative w-[100%] h-[100%]">13</div>
 	</div> -->
@@ -534,6 +558,13 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     opacity: 1;
     background-color: transparent;
     border: 0;
+  }
+
+  #work {
+    margin-left: 10rem;
+    @media (min-width: 768px) {
+      margin-left: 15rem;
+    }
   }
 
   #gridShuffleAlertContainer {
