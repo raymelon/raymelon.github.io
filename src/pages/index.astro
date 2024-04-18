@@ -18,184 +18,228 @@ import HiFloatingAndSearchBarFloatingShadow from "../components/daisy/HiFloating
 import DarkLightMode from "../components/daisy/DarkLightMode.astro";
 import PathfindingFxJs from "../components/PathfindingFxJs.astro";
 ---
+
 <html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Raymel Francisco - App Development, Web Development, UI/UX Design"
+    />
+    <!-- <meta name="viewport" content="width=device-width" /> -->
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>
+      Raymel Francisco - Portfolio - App Development, Web Development, UI/UX
+      Design
+    </title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="description" content="Raymel Francisco - App Development, Web Development, UI/UX Design" />
-  <!-- <meta name="viewport" content="width=device-width" /> -->
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="generator" content={Astro.generator} />
-  <title>Raymel Francisco - Portfolio - App Development, Web Development, UI/UX Design</title>
-</head>
+  <body data-theme="light">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      import Muuri from "muuri";
 
-<body data-theme="light">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-  <script>
-    import Muuri from "muuri";
-
-    var dragSortOptions = {
-      action: "move",
-      threshold: 50,
-    };
-    var grid = new Muuri(".containerCust", {
-      // showDuration: 0,
-      // showEasing: "linear",
-      dragEnabled: false,
-      layout: {
-        fillGaps: true,
-        // alignRight: true,
-        // alignBottom: true,
-        // rounding: true,
-      },
-      dragStartPredicate: function (item, event) {
-        // Prevent an item from being dragged.
-        if (grid.getItems().indexOf(item) === 1) {
-          return false;
-        }
-        // For other items use the default drag start predicate.
-        return Muuri.ItemDrag.defaultStartPredicate(item, event);
-      },
-      dragSortPredicate: function (item) {
-        var result = Muuri.ItemDrag.defaultSortPredicate(item, dragSortOptions);
-        return result && result.index === 1 ? false : result;
-      },
-      dragSort: function () {
-        // Change the duration and easing for the drag animation
-        return {
-          duration: 800, // Set the duration in milliseconds (default is 300)
-          easing: "cubic-bezier(0.55, 0.055, 0.675, 0.19)", // Set the easing function (default is 'cubic-bezier(0.2, 0, 0.2, 1)')
-        };
-      },
-    });
-
-    setTimeout(() => {
-      // document.querySelector(".containerCust").style.visibility = "visible";
-    }, 1500);
-
-    addEventListener("dragover", (event) => {
-      console.log({ event });
-    });
-
-    addEventListener("drop", (event) => {
-      console.log({ event });
-    });
-
-    addEventListener("dragend", (event) => {
-      console.log({ event });
-    });
-
-    addEventListener("click", (event) => {
-      console.log({ event });
-    });
-
-    const itemCustMockups = document.querySelectorAll(".itemCustMockup");
-
-    itemCustMockups.forEach((itemCustMockup) => {
-      itemCustMockup.addEventListener("mouseover", (event) => {
-        localStorage.setItem("gridShuffle", "off");
+      var dragSortOptions = {
+        action: "move",
+        threshold: 50,
+      };
+      var grid = new Muuri(".containerCust", {
+        // showDuration: 0,
+        // showEasing: "linear",
+        dragEnabled: false,
+        layout: {
+          fillGaps: true,
+          // alignRight: true,
+          // alignBottom: true,
+          // rounding: true,
+        },
+        dragStartPredicate: function (item, event) {
+          // Prevent an item from being dragged.
+          if (grid.getItems().indexOf(item) === 1) {
+            return false;
+          }
+          // For other items use the default drag start predicate.
+          return Muuri.ItemDrag.defaultStartPredicate(item, event);
+        },
+        dragSortPredicate: function (item) {
+          var result = Muuri.ItemDrag.defaultSortPredicate(
+            item,
+            dragSortOptions
+          );
+          return result && result.index === 1 ? false : result;
+        },
+        dragSort: function () {
+          // Change the duration and easing for the drag animation
+          return {
+            duration: 800, // Set the duration in milliseconds (default is 300)
+            easing: "cubic-bezier(0.55, 0.055, 0.675, 0.19)", // Set the easing function (default is 'cubic-bezier(0.2, 0, 0.2, 1)')
+          };
+        },
       });
 
-      itemCustMockup.addEventListener("mouseleave", (event) => {
-        localStorage.setItem("gridShuffle", "on");
+      setTimeout(() => {
+        // document.querySelector(".containerCust").style.visibility = "visible";
+      }, 1500);
+
+      addEventListener("dragover", (event) => {
+        console.log({ event });
       });
-    });
-  </script>
 
-  <!-- <div class="bg-gradient-to-r from-blue-500 to-blue-400"> -->
-  <div class="m-[3rem]">
-    <!-- <HiFloatingAndSearchBarFloatingShadow /> -->
-    <!-- <HiFloating /> -->
-    <!-- <SearchBarFloatingCenter /> -->
+      addEventListener("drop", (event) => {
+        console.log({ event });
+      });
 
-    <!-- <Navbar /> -->
-    <DarkLightMode />
+      addEventListener("dragend", (event) => {
+        console.log({ event });
+      });
 
-    
-  </div>
+      addEventListener("click", (event) => {
+        console.log({ event });
+      });
 
-  <div class="flex flex-row justify-center px-[1rem] py-[10rem] pb-[5rem]">
-    <div class="mx-[3rem]">
-      <span class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
-        >&nbsp;Hi, my name is<br/><br/>
-      </span>
-      <span class="font-mulish font-black text-8xl subpixel-antialiased text-center"
-        >Raymel<br/>
-      </span>
-      <span class="font-mulish font-thin text-7xl subpixel-antialiased text-center"
-        >Francisco
-      </span>
+      // document.querySelectorAll('a[href^="#contact"]').forEach((anchor) => {
+      //   anchor.addEventListener("click", function (e) {
+      //     e.preventDefault();
+
+      //     console.log("scroll into #contact");
+
+      //     document.querySelector("#work").scrollIntoView({
+      //       behavior: "smooth",
+      //     });
+      //   });
+      // });
+
+      const itemCustMockups = document.querySelectorAll(".itemCustMockup");
+
+      itemCustMockups.forEach((itemCustMockup) => {
+        itemCustMockup.addEventListener("mouseover", (event) => {
+          localStorage.setItem("gridShuffle", "off");
+        });
+
+        itemCustMockup.addEventListener("mouseleave", (event) => {
+          localStorage.setItem("gridShuffle", "on");
+        });
+      });
+    </script>
+
+    <!-- <div class="bg-gradient-to-r from-blue-500 to-blue-400"> -->
+    <div class="m-[3rem]">
+      <!-- <HiFloatingAndSearchBarFloatingShadow /> -->
+      <!-- <HiFloating /> -->
+      <!-- <SearchBarFloatingCenter /> -->
+
+      <!-- <Navbar /> -->
+      <DarkLightMode />
     </div>
-    <!-- <div class="divider divider-horizontal"></div> -->
-    <div class="flex flex-col items-start mx-[3rem] mb-[5rem]">
-      <span class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
-        >I do<br/><br/>
-      </span>
-      <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
-        >App <span class="font-normal">Development</span></span
-      >
-      <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
-        >Web <span class="font-normal">Development</span></span>
-      <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
-        >UI/UX <span class="font-normal">Design</span></span
-      >
-    </div>
-  </div>
 
-  <div class="flex justify-center px-[10rem] pb-[5rem]">
-    <a href="#work">
-      <div class="mx-[3rem] hover:text-blue-500">
-        <span class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
-        >See my<br/>
-        </span>
-        <span class="font-montserrat font-bold text-6xl subpixel-antialiased text-center"
-          >Work</span
-        >
-        <br/>
+    <div class="flex flex-row justify-center px-[1rem] py-[10rem] pb-[5rem]">
+      <div class="mx-[3rem]">
         <span
-          class="animate-bounce absolute ml-[3rem] mt-[4rem] font-black text-7xl subpixel-antialiased"
-        >
-        👇
+          class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
+          >&nbsp;Hi, my name is<br /><br />
+        </span>
+        <span
+          class="font-mulish font-black text-8xl subpixel-antialiased text-center"
+          >Raymel<br />
+        </span>
+        <span
+          class="font-mulish font-thin text-7xl subpixel-antialiased text-center"
+          >Francisco
         </span>
       </div>
-    </a>
-    <!-- <div class="divider divider-horizontal"></div> -->
-    <div id="#contact" class="animate-pulse flex flex-col items-start mx-[4rem]">
-      <span class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
-        >Interested to work with me?<br/><br/>
-      </span>
-      <span class="font-montserrat font-bold text-6xl subpixel-antialiased mb-[1rem]"
-        >Contact me</span
-      >
-      <span
-          class="font-black text-3xl subpixel-antialiased mb-[1rem]"
-        >
-        👇
+      <!-- <div class="divider divider-horizontal"></div> -->
+      <div class="flex flex-col items-start mx-[3rem] mb-[5rem]">
+        <span
+          class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
+          >I do<br /><br />
         </span>
-      <pre></pre>
-      <span class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
-        ><a href="mailto:raymelon@proton.me">Email</a></span
-      >
-      <pre></pre>
-      <span class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
-        ><a href="https://twitter.com/pseudokid" target="_blank">Twitter</a></span
-      >
-      <pre></pre>
-      <span class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
-        ><a href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank">LinkedIn</a></span
-      >
+        <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
+          >App <span class="font-normal">Development</span></span
+        >
+        <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
+          >Web <span class="font-normal">Development</span></span
+        >
+        <span class="font-poppins font-bold text-2xl subpixel-antialiased mt-3"
+          >UI/UX <span class="font-normal">Design</span></span
+        >
+      </div>
     </div>
-  </div>
 
-  <!-- <div id="gridShuffleAlertContainer">
+    <div id="contact"></div>
+
+    <div class="flex justify-center px-[10rem] pb-[5rem]">
+      <a href="#work">
+        <div class="mx-[3rem] hover:text-blue-500">
+          <span
+            class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
+            >See my<br />
+          </span>
+          <span
+            class="font-montserrat font-bold text-6xl subpixel-antialiased text-center"
+            >Work</span
+          >
+          <br />
+          <span
+            class="animate-bounce absolute ml-[3rem] mt-[4rem] font-black text-7xl subpixel-antialiased"
+          >
+            👇
+          </span>
+        </div>
+      </a>
+      <!-- <div class="divider divider-horizontal"></div> -->
+      <div class="animate-pulse flex flex-col items-start mx-[4rem]">
+        <span
+          class="font-montserrat font-normal text-2xl subpixel-antialiased text-center"
+          >Interested to work with me?<br /><br />
+        </span>
+        <span
+          class="font-montserrat font-bold text-6xl subpixel-antialiased mb-[1rem]"
+          >Contact me</span
+        >
+        <span class="font-black text-3xl subpixel-antialiased mb-[1rem]">
+          👇
+        </span>
+        <pre></pre>
+        <span
+          class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
+          ><a href="mailto:raymelon@proton.me">Email</a></span
+        >
+        <pre></pre>
+        <span
+          class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
+          ><a href="https://twitter.com/pseudokid" target="_blank">Twitter</a
+          ></span
+        >
+        <pre></pre>
+        <span
+          class="mt-2 font-poppins font-light text-2xl subpixel-antialiased text-center hover:text-blue-500"
+          ><a
+            href="https://www.linkedin.com/in/raymelfrancisco/"
+            target="_blank">LinkedIn</a
+          ></span
+        >
+      </div>
+    </div>
+
+    <!-- <div id="gridShuffleAlertContainer">
     <div
       class="gridShuffleAlert navbar fixed z-50 mx-[70%] mt-[8rem] w-[33%] h-[10rem] rounded-2xl opacity-25 blur-2xl"
     >
@@ -213,7 +257,7 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     </div>
   </div> -->
 
-  <!-- <button class="btn" onclick="
+    <!-- <button class="btn" onclick="
   my_modal_1.showModal()
   ">open modal</button>
   <dialog id="my_modal_1" class="modal">
@@ -228,303 +272,329 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
     </div>
   </dialog> -->
 
-  <div id="work" class="relative containerCust mr-[10rem]">
-    <!-- <div class="itemCust item14">
+    <div id="work" class="relative containerCust mr-[10rem]">
+      <!-- <div class="itemCust item14">
 		<div class="relative w-[100%] h-[100%]">13</div>
 	</div> -->
-    <div id="tile1" class="itemCust item1">
-      <!-- <BrowserMockup classes="relative w-full h-full" /> -->
-      <div class="w-full h-full">
-        <div class="flex justify-center">
-          <span
-            class="absolute top-[5rem] font-black text-4xl subpixel-antialiased"
-            >Start<br />Here
-          </span>
-          <span
-            class="animate-bounce absolute ml-[11rem] top-[6rem] font-black text-5xl subpixel-antialiased"
-          >
-            👉</span
-          >
+      <div id="tile1" class="itemCust item1">
+        <!-- <BrowserMockup classes="relative w-full h-full" /> -->
+        <div class="w-full h-full">
+          <div class="flex justify-center">
+            <span
+              class="absolute top-[5rem] font-black text-4xl subpixel-antialiased"
+              >Start<br />Here
+            </span>
+            <span
+              class="animate-bounce absolute ml-[11rem] top-[6rem] font-black text-5xl subpixel-antialiased"
+            >
+              👉</span
+            >
 
-          <!-- <div class="font-black text-2xl subpixel-antialiased mt-10">
+            <!-- <div class="font-black text-2xl subpixel-antialiased mt-10">
           Drag each item
         </div> -->
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      id="tile2"
-      class="flex flex-col itemCust item2 itemCustMockup shadow-lg"
-    >
-      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-        Sanut Ilokano
-      </span>
-      <div class="flex flex-row justify-between w-[93%]">
-        <div class="flex font-semibold text-1xl">
-          Language Learning - Mobile App
+      <div
+        id="tile2"
+        class="flex flex-col itemCust item2 itemCustMockup shadow-lg"
+      >
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Sanut Ilokano
+        </span>
+        <div class="flex flex-row justify-between w-[93%]">
+          <div class="flex font-semibold text-1xl">
+            Language Learning - Mobile App
+          </div>
+          <div class="flex font-semibold text-1xl">2018 - UI/UX - Dev</div>
         </div>
-        <div class="flex font-semibold text-1xl">2018 - UI/UX - Dev</div>
+        <div class="h-[75%] mt-[1rem]">
+          <PhoneMockup2
+            viewType="combo:lottie-img"
+            lottieAnimationData={lottieAnimations?.sanutIlokano}
+            imgKeys={["sanut-ilokano-thumb.jpg"]}
+            classes="relative pb-0"
+            wh="w-full h-full"
+            orientation="landscape"
+          />
+        </div>
       </div>
-      <div class="h-[75%] mt-[1rem]">
-        <PhoneMockup2
-          viewType="combo:lottie-img"
-          lottieAnimationData={lottieAnimations?.sanutIlokano}
-          imgKeys={["sanut-ilokano-thumb.jpg"]}
-          classes="relative pb-0"
-          wh="w-full h-full"
-          orientation="landscape"
-        />
-      </div>
-    </div>
-    <!-- <div class="itemCust item3">
+      <!-- <div class="itemCust item3">
 		<div class="relative w-[100%] h-[100%]">3</div>
 	</div> -->
-    <div class="flex flex-col itemCust item4 itemCustMockup shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">Matigsalug</div> -->
-      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-        Matigsalug
-      </span>
-      <div class="flex flex-row justify-between w-[93%]">
-        <div class="flex font-semibold text-1xl">
-          Language Learning - Mobile App
+      <div class="flex flex-col itemCust item4 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">Matigsalug</div> -->
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Matigsalug
+        </span>
+        <div class="flex flex-row justify-between w-[93%]">
+          <div class="flex font-semibold text-1xl">
+            Language Learning - Mobile App
+          </div>
+          <div class="flex font-semibold text-1xl">2019 - UI/UX - Dev</div>
         </div>
-        <div class="flex font-semibold text-1xl">2019 - UI/UX - Dev</div>
-      </div>
-      <div class="h-[80%] mt-[0.5rem]">
-        <PhoneMockup
-          imgKeys={[
-            "matigsalug-4.webp",
-            "matigsalug-1.webp",
-            "matigsalug-2.webp",
-            "matigsalug-3.webp",
-            "matigsalug-5.webp",
-          ]}
-          classes="relative pb-0"
-          wh="w-full h-full"
-          orientation="landscape"
-        />
-      </div>
-    </div>
-    <div class="flex flex-col itemCust item5 itemCustMockup shadow-l shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">Lottie Lab</div> -->
-      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-        Lottie Animation
-      </span>
-      <div class="flex flex-row justify-between w-[93%]">
-        <div class="flex font-semibold text-1xl">Lottie Animation Showcase</div>
-        <div class="flex font-semibold text-1xl">SOON</div>
-      </div>
-      <div class="h-[75%] mt-1">
-        <PhoneMockup2
-          viewType="lottie"
-          lottieAnimationData={lottieAnimations?.testLottie}
-          imgKeys={["taallam-thumb.jpg"]}
-          classes="relative pb-0"
-          wh="w-full h-full"
-          orientation="landscape"
-        />
-      </div>
-    </div>
-    <div class="animate-pulse flex flex-col itemCust item6 itemCustMockup shadow-lg border-4 border-lime-500">
-      <!-- <div class="itemNum relative w-[100%] h-[100%]">2024</div> -->
-      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-        >making<br />mobile apps<br />from the ❤️</span
-      >
-      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[2rem]"
-        >since 2017</span
-      >
-    </div>
-    <div class="flex flex-col itemCust item7 itemCustMockup shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-        >newsletter<br />worth reading?</span
-      >
-      <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[2rem]"
-        >👇</span
-      >
-      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
-        ><a href="https://levelup.news" target="_blank">levelup.news</a></span
-      >
-    </div>
-    <div class="flex flex-col itemCust item8 itemCustMockup shadow-lg">
-      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-        Kaalam
-      </span>
-      <div class="flex flex-row justify-between w-[93%]">
-        <div class="flex font-semibold text-1xl">
-          Language Learning - Mobile App
+        <div class="h-[80%] mt-[0.5rem]">
+          <PhoneMockup
+            imgKeys={[
+              "matigsalug-4.webp",
+              "matigsalug-1.webp",
+              "matigsalug-2.webp",
+              "matigsalug-3.webp",
+              "matigsalug-5.webp",
+            ]}
+            classes="relative pb-0"
+            wh="w-full h-full"
+            orientation="landscape"
+          />
         </div>
-        <div class="flex font-semibold text-1xl">2018 - UI/UX - Dev</div>
       </div>
-      <div class="h-[85%] mt-[0rem]">
-        <PhoneMockup2
-          imgKeys={[
-            "kaalam-thumb.jpg",
-            "kaalam-1.webp",
-            "kaalam-2.webp",
-            "kaalam-3.webp",
-            "kaalam-4.webp",
-            "kaalam-5.webp",
-          ]}
-          classes="relative pb-0"
-          wh="w-full h-full"
-          orientation="landscape"
-        />
-      </div>
-    </div>
-    <div
-      class="animate-pulse flex flex-col itemCust item9 itemCustMockup shadow-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white border-4 border-pink-200"
-    >
-      <!-- <div class="itemNum relative w-[100%] h-[100%]">9</div> -->
-      <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
-        >get<br />featured<br />on this slot</span
+      <div
+        class="flex flex-col itemCust item5 itemCustMockup shadow-l shadow-lg"
       >
-      <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[2rem]"
-        >👇</span
-      >
-      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
-        ><a href="https://raymel.lemonsqueezy.com/buy/b4760847-3b27-442c-9290-05215f86cbba" target="_blank">Buy Slot</a
-        ></span
-      >
-    </div>
-    <div class="flex flex-col itemCust item11 itemCustMockup shadow-lg">
-      <!-- <div class="itemNum relative w-[100%] h-[100%]">11</div> -->
-      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-        Pathfinding FX JS
-      </span>
-      <span class="font-semibold text-1xl w-[93%]"
-        >by Marco Plain — Featured</span
-      >
-      <div class="w-[98%]">
-        <PathfindingFxJs />
+        <!-- <div class="relative w-[100%] h-[100%]">Lottie Lab</div> -->
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Lottie Animation
+        </span>
+        <div class="flex flex-row justify-between w-[93%]">
+          <div class="flex font-semibold text-1xl">
+            Lottie Animation Showcase
+          </div>
+          <div class="flex font-semibold text-1xl">SOON</div>
+        </div>
+        <div class="h-[75%] mt-1">
+          <PhoneMockup2
+            viewType="lottie"
+            lottieAnimationData={lottieAnimations?.testLottie}
+            imgKeys={["taallam-thumb.jpg"]}
+            classes="relative pb-0"
+            wh="w-full h-full"
+            orientation="landscape"
+          />
+        </div>
       </div>
-    </div>
-    <div class="flex flex-col itemCust item10 itemCustMockup shadow-lg">
-      <span class="font-black text-2xl subpixel-antialiased w-[93%]">
-        Educo
-      </span>
-      <div class="flex flex-row justify-between w-[93%]">
-        <div class="flex font-semibold text-1xl">EdTech - Web & Mobile App</div>
-        <div class="flex font-semibold text-1xl">2020 - UI/UX - Dev</div>
+      <div
+        class="animate-pulse flex flex-col itemCust item6 itemCustMockup shadow-lg border-4 border-lime-500"
+      >
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">2024</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >making<br />mobile apps<br />from the ❤️</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[2rem]"
+          >since 2017</span
+        >
       </div>
-      <div class="w-[95%] h-[50%] mt-[1rem]">
-        <WindowMockup
-          imgKeys={[
-            "educo-app-6.webp",
-            "educo-app-1.webp",
-            "educo-app-2.webp",
-            "educo-app-3.webp",
-            "educo-app-4.webp",
-            "educo-app-5.webp",
-            "educo-thumb.webp",
-            "educo-screenshot.png",
-          ]}
-          classes="relative w-full h-full"
-        />
+      <div class="flex flex-col itemCust item7 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >newsletter<br />worth reading?</span
+        >
+        <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[2rem]"
+          >👇</span
+        >
+        <span
+          class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
+          ><a href="https://levelup.news" target="_blank">levelup.news</a></span
+        >
       </div>
-    </div>
+      <div class="flex flex-col itemCust item8 itemCustMockup shadow-lg">
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Kaalam
+        </span>
+        <div class="flex flex-row justify-between w-[93%]">
+          <div class="flex font-semibold text-1xl">
+            Language Learning - Mobile App
+          </div>
+          <div class="flex font-semibold text-1xl">2018 - UI/UX - Dev</div>
+        </div>
+        <div class="h-[85%] mt-[0rem]">
+          <PhoneMockup2
+            imgKeys={[
+              "kaalam-thumb.jpg",
+              "kaalam-1.webp",
+              "kaalam-2.webp",
+              "kaalam-3.webp",
+              "kaalam-4.webp",
+              "kaalam-5.webp",
+            ]}
+            classes="relative pb-0"
+            wh="w-full h-full"
+            orientation="landscape"
+          />
+        </div>
+      </div>
+      <div
+        class="animate-pulse flex flex-col itemCust item9 itemCustMockup shadow-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white border-4 border-pink-200"
+      >
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">9</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%] ml-2"
+          >get<br />featured<br />on this slot</span
+        >
+        <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[2rem]"
+          >👇</span
+        >
+        <span
+          class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
+          ><a
+            href="https://raymel.lemonsqueezy.com/buy/b4760847-3b27-442c-9290-05215f86cbba"
+            target="_blank">Buy Slot</a
+          ></span
+        >
+      </div>
+      <div class="flex flex-col itemCust item11 itemCustMockup shadow-lg">
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">11</div> -->
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Pathfinding FX JS
+        </span>
+        <span class="font-semibold text-1xl w-[93%]"
+          >by Marco Plain — Featured</span
+        >
+        <div class="w-[98%]">
+          <PathfindingFxJs />
+        </div>
+      </div>
+      <div class="flex flex-col itemCust item10 itemCustMockup shadow-lg">
+        <span class="font-black text-2xl subpixel-antialiased w-[93%]">
+          Educo
+        </span>
+        <div class="flex flex-row justify-between w-[93%]">
+          <div class="flex font-semibold text-1xl">
+            EdTech - Web & Mobile App
+          </div>
+          <div class="flex font-semibold text-1xl">2020 - UI/UX - Dev</div>
+        </div>
+        <div class="w-[95%] h-[50%] mt-[1rem]">
+          <WindowMockup
+            imgKeys={[
+              "educo-app-6.webp",
+              "educo-app-1.webp",
+              "educo-app-2.webp",
+              "educo-app-3.webp",
+              "educo-app-4.webp",
+              "educo-app-5.webp",
+              "educo-thumb.webp",
+              "educo-screenshot.png",
+            ]}
+            classes="relative w-full h-full"
+          />
+        </div>
+      </div>
 
-    <div class="flex flex-col itemCust item12 itemCustMockup shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
-      <span class="font-black text-2xl subpixel-antialiased w-[98%]">
-        Katatagan in a Box
-      </span>
-      <div class="flex flex-row justify-between w-[98%]">
-        <div class="flex font-semibold text-1xl">
-          Business Continuity - Mobile App
+      <div class="flex flex-col itemCust item12 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">12</div> -->
+        <span class="font-black text-2xl subpixel-antialiased w-[98%]">
+          Katatagan in a Box
+        </span>
+        <div class="flex flex-row justify-between w-[98%]">
+          <div class="flex font-semibold text-1xl">
+            Business Continuity - Mobile App
+          </div>
+          <div class="flex font-semibold text-1xl">2019 - UI/UX - Dev</div>
         </div>
-        <div class="flex font-semibold text-1xl">2019 - UI/UX - Dev</div>
+        <div class="relative w-[60%] h-full mt-[1rem]">
+          <PhoneMockup
+            imgKeys={[
+              "katatagan-thumb.webp",
+              "katatagan-1.jpeg",
+              "katatagan-2.jpeg",
+              "katatagan-3.jpeg",
+              "katatagan-4.jpeg",
+              "katatagan-5.jpeg",
+              "katatagan-6.jpeg",
+              "katatagan-7.jpeg",
+              "katatagan-8.jpeg",
+            ]}
+            classes="relative"
+            wh="w-full h-full"
+          />
+        </div>
       </div>
-      <div class="relative w-[60%] h-full mt-[1rem]">
-        <PhoneMockup
-          imgKeys={[
-            "katatagan-thumb.webp",
-            "katatagan-1.jpeg",
-            "katatagan-2.jpeg",
-            "katatagan-3.jpeg",
-            "katatagan-4.jpeg",
-            "katatagan-5.jpeg",
-            "katatagan-6.jpeg",
-            "katatagan-7.jpeg",
-            "katatagan-8.jpeg",
-          ]}
-          classes="relative"
-          wh="w-full h-full"
-        />
+      <div
+        class="animate-pulse flex flex-col itemCust item13 itemCustMockup shadow-lg border-4 border-sky-500"
+      >
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >{new Date().getFullYear() - 2017} years experience</span
+        >
+        <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[3rem]"
+          >👇</span
+        >
+        <span
+          class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
+          ><a
+            href="https://www.linkedin.com/in/raymelfrancisco/"
+            target="_blank">See work Experience</a
+          ></span
+        >
+      </div>
+      <div
+        class="animate-pulse flex flex-col itemCust item15 itemCustMockup shadow-lg border-4 border-cyan-500"
+      >
+        <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >making<br />web apps<br />with React</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[2rem]"
+          >since 2017</span
+        >
+      </div>
+      <div class="flex flex-col itemCust item16 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >bento grids<br />just like this site?</span
+        >
+        <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[1rem]"
+          >👇</span
+        >
+        <span
+          class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
+          ><a href="https://makeabentogrid.today" target="_blank"
+            >makeabentogrid.<br />today</a
+          ></span
+        >
+      </div>
+      <div class="flex flex-col itemCust item17 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >a search<br />engine</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
+          >Brewing...</span
+        >
+      </div>
+      <div
+        class="flex flex-col itemCust item18 itemCustMockup shadow-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-4 border-pink-200"
+      >
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <a href="#contact" class="hover:text-yellow-500">
+          <span
+            class="font-mulish font-black text-4xl subpixel-antialiased w-[90%]"
+            >Interested to work with me?<br /> Contact me 👉</span
+          >
+        </a>
+      </div>
+      <div class="flex flex-col itemCust item18 itemCustMockup shadow-lg">
+        <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
+        <span class="font-black text-4xl subpixel-antialiased w-[90%]"
+          >atlas<br />app</span
+        >
+        <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
+          >Brewing...</span
+        >
       </div>
     </div>
-    <div class="animate-pulse flex flex-col itemCust item13 itemCustMockup shadow-lg border-4 border-sky-500">
-      <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
-      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-        >{new Date().getFullYear() - 2017} years experience</span
-      >
-      <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[3rem]"
-        >👇</span
-      >
-      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
-        ><a href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank">See work Experience</a></span
-      >
-    </div>
-    <div
-      class="animate-pulse flex flex-col itemCust item15 itemCustMockup shadow-lg border-4 border-cyan-500"
+    <!-- <div class="divider mx-12 bg-base-100"></div>  -->
+    <br />
+    <br />
+    <footer
+      class="mx-auto w-full py-10 text-center font-bold font-poppins bg-slate-950 text-slate-50"
     >
-      <!-- <div class="itemNum relative w-[100%] h-[100%]">13</div> -->
-      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-        >making<br />web apps<br />with React</span
-      >
-      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[2rem]"
-        >since 2017</span
-      >
-    </div>
-    <div class="flex flex-col itemCust item16 itemCustMockup shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-        >bento grids<br />just like this site?</span
-      >
-      <span class="font-black text-6xl subpixel-antialiased w-[90%] mt-[1rem]"
-        >👇</span
-      >
-      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[1rem] hover:text-blue-500"
-        ><a href="https://makeabentogrid.today" target="_blank"
-          >makeabentogrid.<br />today</a
-        ></span
-      >
-    </div>
-    <div class="flex flex-col itemCust item17 itemCustMockup shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-        >a search<br />engine</span
-      >
-      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
-        >Brewing...</span
-      >
-    </div>
-    <div class="flex flex-col itemCust item18 itemCustMockup shadow-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-4 border-pink-200">
-      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-      <a href="#contact" class="hover:text-yellow-500">
-      <span class="font-mulish font-black text-4xl subpixel-antialiased w-[90%]"
-        >Interested to work with me?<br/> Contact me 👉</span
-      >
-      </a>
-    </div>
-    <div class="flex flex-col itemCust item18 itemCustMockup shadow-lg">
-      <!-- <div class="relative w-[100%] h-[100%]">7</div> -->
-      <span class="font-black text-4xl subpixel-antialiased w-[90%]"
-        >atlas<br />app</span
-      >
-      <span class="font-black text-2xl subpixel-antialiased w-[90%] mt-[6rem]"
-        >Brewing...</span
-      >
-    </div>
-  </div>
-  <!-- <div class="divider mx-12 bg-base-100"></div>  -->
-  <br/>
-  <br/>
-  <footer class="mx-auto w-full py-10 text-center font-bold font-poppins bg-slate-950 text-slate-50">Copyright © {new Date().getFullYear()} Raymel Francisco</footer>
-</body>
-<!-- <OldGrid /> -->
+      Copyright © {new Date().getFullYear()} Raymel Francisco
+    </footer>
+  </body>
+  <!-- <OldGrid /> -->
 
-<!-- <NavBar /> --><!-- <CardPreview
+  <!-- <NavBar /> --><!-- <CardPreview
 	href="https://docs.astro.build/"
 	title="Documentation"
 	body="Learn how Astro works and explore the official API docs."
@@ -550,173 +620,173 @@ import PathfindingFxJs from "../components/PathfindingFxJs.astro";
 		/>
 	</div>
 </div> --><!-- <Footer /> -->
-<style>
-  :root {
-    --containerCust-item-height: 300px;
-    --containerCust-item-width: 510px;
-  }
-  body {
-    /* overflow: hidden; */
-    overflow-y: auto;
-
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-
-    /* @apply bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark; */
-    min-height: 100vh;
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
-  #tile1 {
-    opacity: 1;
-    background-color: transparent;
-    border: 0;
-  }
-
-  #work {
-    margin-left: 10rem;
-    @media (min-width: 768px) {
-      margin-left: 15rem;
+  <style>
+    :root {
+      --containerCust-item-height: 300px;
+      --containerCust-item-width: 510px;
     }
-  }
+    body {
+      /* overflow: hidden; */
+      overflow-y: auto;
 
-  #gridShuffleAlertContainer {
-    visibility: hidden;
-  }
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
 
-  .containerCust {
-    /* position: relative; */
-    /* visibility: hidden; */
-  }
-  .itemCust {
-    position: absolute;
-    width: 250px;
-    height: 400px;
-    /* background-color: rgb(250, 235, 215, 0.1); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 1px solid rgb(250, 235, 215, 0); */
-    border-radius: 1rem;
-    /* color: antiquewhite; */
-    z-index: 1;
-    padding: 10px;
-    margin: 0.4rem;
-    opacity: 0.85;
-    transition: opacity 0.2s ease-in-out;
-    /* @apply bg-cust-background-color; */
-  }
+      /* @apply bg-gradient-to-r from-cust-indigo-dark to-cust-indigo-dark; */
+      min-height: 100vh;
+    }
 
-  body[data-theme="dark"] .itemCust {
-    background-color: rgba(250, 235, 215, 0.1);
-  }
+    body::-webkit-scrollbar {
+      display: none;
+    }
 
-  body[data-theme="light"] .itemCust {
-    /* opacity: 1; */
-    background-color: rgba(250, 235, 215, 1);
-  }
+    #tile1 {
+      opacity: 1;
+      background-color: transparent;
+      border: 0;
+    }
 
-  .itemCustMockup:hover {
-    opacity: 1;
-  }
+    #work {
+      margin-left: 10rem;
+      @media (min-width: 768px) {
+        margin-left: 15rem;
+      }
+    }
 
-  .itemCust .itemNum {
-    /* display: none; */
-  }
+    #gridShuffleAlertContainer {
+      visibility: hidden;
+    }
 
-  .itemCust.muuri-item-hidden {
-    z-index: 0;
-  }
+    .containerCust {
+      /* position: relative; */
+      /* visibility: hidden; */
+    }
+    .itemCust {
+      position: absolute;
+      width: 250px;
+      height: 400px;
+      /* background-color: rgb(250, 235, 215, 0.1); */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* border: 1px solid rgb(250, 235, 215, 0); */
+      border-radius: 1rem;
+      /* color: antiquewhite; */
+      z-index: 1;
+      padding: 10px;
+      margin: 0.4rem;
+      opacity: 0.85;
+      transition: opacity 0.2s ease-in-out;
+      /* @apply bg-cust-background-color; */
+    }
 
-  .itemCust.muuri-item-positioning {
-    z-index: 2;
-  }
+    body[data-theme="dark"] .itemCust {
+      background-color: rgba(250, 235, 215, 0.1);
+    }
 
-  .itemCust.muuri-item-releasing {
-    z-index: 3;
-  }
-  .itemCust.muuri-item-dragging {
-    z-index: 4;
-  }
+    body[data-theme="light"] .itemCust {
+      /* opacity: 1; */
+      background-color: rgba(250, 235, 215, 1);
+    }
 
-  .containerCust .item1 {
-    width: 250px;
-    height: var(--containerCust-item-height);
-  }
-  .containerCust .item2 {
-    width: var(--containerCust-item-width);
-    height: var(--containerCust-item-height);
-  }
-  .containerCust .item4 {
-    width: var(--containerCust-item-width);
-    height: var(--containerCust-item-height);
-  }
+    .itemCustMockup:hover {
+      opacity: 1;
+    }
 
-  .containerCust .item5 {
-    width: var(--containerCust-item-width);
-    height: var(--containerCust-item-height);
-  }
-  .containerCust .item6 {
-    height: var(--containerCust-item-height);
-  }
+    .itemCust .itemNum {
+      /* display: none; */
+    }
 
-  .containerCust .item7 {
-    width: 250px;
-    height: var(--containerCust-item-height);
-  }
+    .itemCust.muuri-item-hidden {
+      z-index: 0;
+    }
 
-  .containerCust .item8 {
-    width: var(--containerCust-item-width);
-    height: var(--containerCust-item-height);
-  }
-  .containerCust .item9 {
-    height: var(--containerCust-item-height);
-  }
+    .itemCust.muuri-item-positioning {
+      z-index: 2;
+    }
 
-  .containerCust .item10 {
-    width: var(--containerCust-item-width);
-    /* height: 380px; */
-    height: var(--containerCust-item-height);
-    height: 615px;
-  }
+    .itemCust.muuri-item-releasing {
+      z-index: 3;
+    }
+    .itemCust.muuri-item-dragging {
+      z-index: 4;
+    }
 
-  .containerCust .item11 {
-    height: var(--containerCust-item-height);
-    width: 250px;
-    /* width: var(--containerCust-item-width); */
-    /* height: 250px; */
-  }
+    .containerCust .item1 {
+      width: 250px;
+      height: var(--containerCust-item-height);
+    }
+    .containerCust .item2 {
+      width: var(--containerCust-item-width);
+      height: var(--containerCust-item-height);
+    }
+    .containerCust .item4 {
+      width: var(--containerCust-item-width);
+      height: var(--containerCust-item-height);
+    }
 
-  .containerCust .item12 {
-    /* height: var(--containerCust-item-width) */
-    width: var(--containerCust-item-width);
-    /* height: calc(
+    .containerCust .item5 {
+      width: var(--containerCust-item-width);
+      height: var(--containerCust-item-height);
+    }
+    .containerCust .item6 {
+      height: var(--containerCust-item-height);
+    }
+
+    .containerCust .item7 {
+      width: 250px;
+      height: var(--containerCust-item-height);
+    }
+
+    .containerCust .item8 {
+      width: var(--containerCust-item-width);
+      height: var(--containerCust-item-height);
+    }
+    .containerCust .item9 {
+      height: var(--containerCust-item-height);
+    }
+
+    .containerCust .item10 {
+      width: var(--containerCust-item-width);
+      /* height: 380px; */
+      height: var(--containerCust-item-height);
+      height: 615px;
+    }
+
+    .containerCust .item11 {
+      height: var(--containerCust-item-height);
+      width: 250px;
+      /* width: var(--containerCust-item-width); */
+      /* height: 250px; */
+    }
+
+    .containerCust .item12 {
+      /* height: var(--containerCust-item-width) */
+      width: var(--containerCust-item-width);
+      /* height: calc(
         var(--containerCust-item-height) + var(--containerCust-item-height)
       ); */
-    height: 615px;
-  }
+      height: 615px;
+    }
 
-  .containerCust .item13 {
-    height: var(--containerCust-item-height);
-  }
+    .containerCust .item13 {
+      height: var(--containerCust-item-height);
+    }
 
-  .containerCust .item15 {
-    height: var(--containerCust-item-height);
-  }
+    .containerCust .item15 {
+      height: var(--containerCust-item-height);
+    }
 
-  .containerCust .item16 {
-    height: var(--containerCust-item-height);
-  }
+    .containerCust .item16 {
+      height: var(--containerCust-item-height);
+    }
 
-  .containerCust .item17 {
-    height: var(--containerCust-item-height);
-  }
+    .containerCust .item17 {
+      height: var(--containerCust-item-height);
+    }
 
-  .containerCust .item18 {
-    height: var(--containerCust-item-height);
-  }
-</style>
+    .containerCust .item18 {
+      height: var(--containerCust-item-height);
+    }
+  </style>
 </html>
