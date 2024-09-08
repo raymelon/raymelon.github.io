@@ -7,10 +7,12 @@ export const DATA = {
   url: "https://raymelon.com",
   location: "Manila, PH",
   locationLink: "https://www.google.com/maps/place/manila",
+  // description:
+  //   "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
+    "",
   summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
+    "",
   avatarUrl: "/me.jpg",
   skills: [
     "React",
@@ -33,33 +35,33 @@ export const DATA = {
     email: "pseudokid.dev@gmail.com",
     tel: "",
     social: {
-      GitHub: {
-        name: "GitHub",
-        url: "https://github.com/raymelon",
-        icon: Icons.github,
+      // GitHub: {
+      //   name: "GitHub",
+      //   url: "https://github.com/raymelon",
+      //   icon: Icons.github,
 
-        navbar: true,
-      },
-      LinkedIn: {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/raymelfrancisco/",
-        icon: Icons.linkedin,
+      //   navbar: true,
+      // },
+      // LinkedIn: {
+      //   name: "LinkedIn",
+      //   url: "https://www.linkedin.com/in/raymelfrancisco/",
+      //   icon: Icons.linkedin,
 
-        navbar: true,
-      },
-      X: {
-        name: "X",
-        url: "https://x.com/pseudokid",
-        icon: Icons.x,
+      //   navbar: true,
+      // },
+      // X: {
+      //   name: "X",
+      //   url: "https://x.com/pseudokid",
+      //   icon: Icons.x,
 
-        navbar: true,
-      },
-      Youtube: {
-        name: "Youtube",
-        url: "https://www.youtube.com/@pseudokid",
-        icon: Icons.youtube,
-        navbar: true,
-      },
+      //   navbar: true,
+      // },
+      // Youtube: {
+      //   name: "Youtube",
+      //   url: "https://www.youtube.com/@pseudokid",
+      //   icon: Icons.youtube,
+      //   navbar: true,
+      // },
       email: {
         name: "Send Email",
         url: "#",
