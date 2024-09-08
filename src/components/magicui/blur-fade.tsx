@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import { AnimatePresence, motion, useInView, Variants } from "framer-motion";
