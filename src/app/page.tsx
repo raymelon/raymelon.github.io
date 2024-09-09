@@ -93,8 +93,10 @@ export default function Page() {
             <a className="text-blue-600 dark:text-blue-400" href="https://github.com/raymelon" target="_blank">github</a> •&nbsp;
             <a className="text-blue-600 dark:text-blue-400" href="https://dev.to/raymelon" target="_blank">dev.to</a> •&nbsp;
             <a className="text-blue-600 dark:text-blue-400" href="https://raymel.hashnode.dev/" target="_blank">hashnode</a> •&nbsp;
-            <a className="text-blue-600 dark:text-blue-400" href="https://stackoverflow.com/users/4895040/raymelfrancisco" target="_blank">stackoverflow</a> •&nbsp;
-            <a className="text-blue-600 dark:text-blue-400" href="/blog">blog</a>&nbsp;
+            <a className="text-blue-600 dark:text-blue-400" href="https://stackoverflow.com/users/4895040/raymelfrancisco" target="_blank">stackoverflow</a> &nbsp;
+            <br/>
+            <a className="text-blue-600 dark:text-blue-400" href="/blog">blog</a> •&nbsp;
+            <a className="text-blue-600 dark:text-blue-400" href="/tweets">tweet archive</a>&nbsp;
           </div>
         </BlurFadeTextCustom>
       </section>
