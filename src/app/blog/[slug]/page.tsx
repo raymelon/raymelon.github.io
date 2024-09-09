@@ -90,7 +90,7 @@ export default async function Blog({
           }),
         }}
       />
-      <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
+      <h1 className="title font-medium text-3xl tracking-tighter max-w-[650px]">
         {post.metadata.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
@@ -101,7 +101,7 @@ export default async function Blog({
         </Suspense>
       </div>
       <article
-        className="prose dark:prose-invert"
+        className="prose dark:prose-invert text-lg"
         dangerouslySetInnerHTML={{ __html: post.source }}
       ></article>
     </section>
