@@ -79,7 +79,7 @@ export default function Page() {
           }
         >
           <div className="tracking-tight">
-            i yap in <a className="text-blue-600 dark:text-blue-400" href="https://x.com/pseudokid" target="_blank">twitter @ pseudokid</a>. i find <a className="text-blue-600 dark:text-blue-400" href="https://www.threads.net/@raymelfrancisco" target="_blank">threads</a> cool. check my work experience in my <a className="text-blue-600 dark:text-blue-400" href="https://read.cv/raymel" target="_blank">read.cv</a>.
+            i yap in <a className="text-blue-600 dark:text-blue-400" href="https://x.com/intent/follow?screen_name=pseudokid" target="_blank">twitter @ pseudokid</a>. i find <a className="text-blue-600 dark:text-blue-400" href="https://www.threads.net/@raymelfrancisco" target="_blank">threads</a> cool. check my work experience in my <a className="text-blue-600 dark:text-blue-400" href="https://read.cv/raymel" target="_blank">read.cv</a>.
             <br/>
             <br/>
             of course i have a <a className="text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank">linkedin.</a>
