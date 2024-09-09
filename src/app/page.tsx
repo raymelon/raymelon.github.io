@@ -97,10 +97,11 @@ export default function Page() {
       </section>
       <section id="email">
         <BlurFadeTextCustom delay={BLUR_FADE_DELAY * 4} text=''>
-          {/* <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">for collabs, work, or just to say hi</h2> */}
-          <br/>
-          <h2 className="text-2xl font-bold tracking-tighter">for collabs, work, or just to say hi</h2>
-          <a className="text-xl font-bold tracking-tighter sm:text-3xl xl:text-4xl/none text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
+          <div className="">
+            <br/>
+            <h2 className="text-2xl font-bold tracking-tighter">for collabs, work, or just to say hi</h2>
+            <a className="text-xl font-bold tracking-tighter sm:text-3xl xl:text-4xl/none text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
+          </div>
         </BlurFadeTextCustom>
       </section>
       {/* <section id="about">
