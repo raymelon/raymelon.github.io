@@ -11,7 +11,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default async function TweetPage() {
   const tweets = await getHighlightTwitterPosts();
-
+  // @ts-ignore
   return (
     <section>
       <BlurFade delay={BLUR_FADE_DELAY}>
