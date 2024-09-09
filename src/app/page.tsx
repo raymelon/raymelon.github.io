@@ -33,7 +33,7 @@ export default function Page() {
                   `
                 }
               >
-                <div className="tracking-tight">
+                <div className="tracking-normal">
                   i ❤️ building apps.
                   <br/>
                   <br/>
