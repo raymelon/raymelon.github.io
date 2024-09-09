@@ -7,11 +7,21 @@ export const metadata = {
   description: "highlight tweets archive",
 };
 
+type Tweet = {
+  id: string;
+  created_at: string;
+  full_text: string;
+  tweet_owner: string;
+  conversation_id_str: string;
+  // Add other properties as needed
+};
+
 const BLUR_FADE_DELAY = 0.04;
 
 export default async function TweetPage() {
-  const tweets = await getHighlightTwitterPosts();
   // @ts-ignore
+  const tweets: Tweet[] = await getHighlightTwitterPosts();
+
   return (
     <section>
       <BlurFade delay={BLUR_FADE_DELAY}>
