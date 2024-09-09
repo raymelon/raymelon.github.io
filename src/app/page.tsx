@@ -26,14 +26,14 @@ export default function Page() {
                 text={`hey, i'm ${DATA.name.split(" ")[0].toLowerCase()} 👋`}
               />
               <BlurFadeTextCustom
-                className="max-w-[600px] sm:text-2xl mt-5 text-gray-600 dark:text-white"
+                className="max-w-[600px] sm:text-[22px] mt-5 text-gray-600 dark:text-white"
                 delay={BLUR_FADE_DELAY}
                 text={
                   `
                   `
                 }
               >
-                <div className="tracking-normal">
+                <div className="tracking-tight">
                   i ❤️ building apps.
                   <br/>
                   <br/>
@@ -71,7 +71,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">links</h2>
         </BlurFade>
         <BlurFadeTextCustom
-          className="max-w-[600px] sm:text-2xl mt-5 text-gray-600 dark:text-white"
+          className="max-w-[600px] sm:text-[22px] mt-5 text-gray-600 dark:text-white"
           delay={BLUR_FADE_DELAY * 3}
           text={
             `
@@ -96,11 +96,19 @@ export default function Page() {
         </BlurFadeTextCustom>
       </section>
       <section id="email">
-        <BlurFadeTextCustom delay={BLUR_FADE_DELAY * 4} text=''>
+        <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">for collabs, work, or just to say hi</h2>
+        </BlurFade>
+        <BlurFadeTextCustom 
+          className="max-w-[600px] sm:text-[22px] mt-2 text-gray-600 dark:text-white"
+          delay={BLUR_FADE_DELAY * 4}
+          text={``}
+        >
           <div className="">
-            <br/>
-            <h2 className="text-2xl font-bold tracking-tighter">for collabs, work, or just to say hi</h2>
-            <a className="text-xl font-bold tracking-tighter sm:text-3xl xl:text-4xl/none text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
+            {/* <br/> */}
+            {/* <h2 className="text-2xl font-bold tracking-tighter">for collabs, work, or just to say hi</h2>
+            <a className="text-xl font-bold tracking-tighter sm:text-3xl xl:text-4xl/none text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a> */}
+            <a className="text-[22px] tracking-tighter text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
           </div>
         </BlurFadeTextCustom>
       </section>
