@@ -82,9 +82,12 @@ export default function Page() {
             i yap in <a className="text-blue-600 dark:text-blue-400" href="https://x.com/intent/follow?screen_name=pseudokid" target="_blank">twitter @ pseudokid</a>. i find <a className="text-blue-600 dark:text-blue-400" href="https://www.threads.net/@raymelfrancisco" target="_blank">threads</a> cool. check my work experience in my <a className="text-blue-600 dark:text-blue-400" href="https://read.cv/raymel" target="_blank">read.cv</a>.
             <br/>
             <br/>
-            of course i have a <a className="text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank">linkedin.</a>
+            to see my work, check my <a className="text-blue-600 dark:text-blue-400" href="https://modul.so/raymel" target="_blank">portfolio.</a>
             <br/>
-            and a <a className="text-blue-600 dark:text-blue-400" href="https://modul.so/raymel" target="_blank">cool portfolio.</a>
+            <br/>
+            for collabs, offers, or just to say hi 
+            <br/>
+            <a className="text-[22px] tracking-tighter text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
             <br/>
             <br/>
             <a className="text-blue-600 dark:text-blue-400" href="https://github.com/raymelon" target="_blank">github</a> •&nbsp;
@@ -95,23 +98,7 @@ export default function Page() {
           </div>
         </BlurFadeTextCustom>
       </section>
-      <section id="email">
-        <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">for collabs, work, or just to say hi</h2>
-        </BlurFade>
-        <BlurFadeTextCustom 
-          className="max-w-[600px] sm:text-[22px] mt-2 text-gray-600 dark:text-white"
-          delay={BLUR_FADE_DELAY * 4}
-          text={``}
-        >
-          <div className="">
-            {/* <br/> */}
-            {/* <h2 className="text-2xl font-bold tracking-tighter">for collabs, work, or just to say hi</h2>
-            <a className="text-xl font-bold tracking-tighter sm:text-3xl xl:text-4xl/none text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a> */}
-            <a className="text-[22px] tracking-tighter text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
-          </div>
-        </BlurFadeTextCustom>
-      </section>
+      
       {/* <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-xl font-bold">About</h2>
