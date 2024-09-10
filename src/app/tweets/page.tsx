@@ -1,7 +1,7 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { getHighlightTwitterPosts } from "@/data/highlight-tweets";
 import Link from "next/link";
-import { TweetCard } from "@/components/magicui/tweet-card.tsx";
+import { TweetCard } from "@/components/magicui/tweet-card";
 import { Tweet } from "react-tweet";
 
 export const metadata = {
