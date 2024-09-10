@@ -3,6 +3,7 @@ import { getHighlightTwitterPosts } from "@/data/highlight-tweets";
 import Link from "next/link";
 import { TweetCard } from "@/components/magicui/tweet-card";
 import { Tweet } from "react-tweet";
+import { TweetAlt } from "@/components/tweet/tweet-alt";
 
 export const metadata = {
   title: "Tweets",
@@ -68,8 +69,9 @@ export default async function TweetPage() {
                 </p>
               </div>
             </Link> */}
-            {/* <TweetCard className="mb-2" id={post.conversation_id_str}/> */}
-            <Tweet id={post.conversation_id_str}/>
+            <TweetCard className="mb-2" id={post.conversation_id_str}/>
+            {/* <Tweet id={post.conversation_id_str}/> */}
+            {/* <TweetAlt id={post.conversation_id_str}/> */}
           </BlurFade>
         ))}
     </section>

@@ -1,6 +1,13 @@
 import { Suspense } from "react";
 import {
   enrichTweet,
+  QuotedTweet,
+  TweetActions,
+  TweetBody,
+  TweetContainer,
+  TweetHeader,
+  TweetInfo,
+  TweetMedia,
   type EnrichedTweet,
   type TweetProps,
   type TwitterComponents,
@@ -103,7 +110,7 @@ export const TweetNotFound = ({
   </div>
 );
 
-export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
+export const TweetHeaderAlt = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className="flex flex-row justify-between tracking-tight">
     <div className="flex items-center space-x-2">
       <a href={tweet.user.url} target="_blank" rel="noreferrer">
@@ -123,7 +130,7 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
           rel="noreferrer"
           className="flex items-center whitespace-nowrap font-semibold"
         >
-          {truncate(tweet.user.name, 20)}
+          {truncate(tweet.user.name, 30)}
           {tweet.user.verified ||
             (tweet.user.is_blue_verified && (
               <Verified className="ml-1 inline h-4 w-4 text-blue-500" />
@@ -148,7 +155,7 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
   </div>
 );
 
-export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
+export const TweetBodyAlt = ({ tweet }: { tweet: EnrichedTweet }) => (
   <span className="break-words leading-normal tracking-tighter">
     {tweet.entities.map((entity, idx) => {
       switch (entity.type) {
@@ -184,7 +191,7 @@ export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
   </span>
 );
 
-export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => (
+export const TweetMediaAlt = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className="flex flex-1 items-center justify-center">
     {tweet.video && (
       <video
@@ -239,17 +246,25 @@ export const MagicTweet = ({
 }) => {
   const enrichedTweet = enrichTweet(tweet);
   return (
-    <div
-      className={cn(
-        "relative flex h-full w-full max-w-[32rem] flex-col gap-2 overflow-hidden rounded-lg border p-4 backdrop-blur-md",
-        className,
-      )}
-      {...props}
-    >
-      <TweetHeader tweet={enrichedTweet} />
-      <TweetBody tweet={enrichedTweet} />
-      <TweetMedia tweet={enrichedTweet} />
-    </div>
+    <TweetContainer>
+      <div
+        className={cn(
+          "relative flex h-full w-full max-w-[32rem] flex-col gap-2 overflow-hidden rounded-lg p-2 backdrop-blur-md",
+          className,
+        )}
+        {...props}
+      >
+        <TweetHeaderAlt tweet={enrichedTweet} />
+        {/* <TweetHeader tweet={enrichedTweet} /> */}
+        {/* <TweetBodyAlt tweet={enrichedTweet} /> */}
+        <TweetBody tweet={enrichedTweet}/>
+        <TweetMediaAlt tweet={enrichedTweet} />
+        {/* <TweetMedia tweet={enrichedTweet} /> */}
+        {enrichedTweet.quoted_tweet && <QuotedTweet tweet={enrichedTweet.quoted_tweet} />}
+        {/* <TweetInfo tweet={enrichedTweet}/> */}
+        <TweetActions tweet={enrichedTweet} />
+      </div>
+    </TweetContainer>
   );
 };
 
