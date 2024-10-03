@@ -1,3 +1,4 @@
+import { ViewCounter } from "@/components/view-counter";
 import { getPost, getBlogPosts } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
@@ -97,6 +98,7 @@ export default async function Blog({
         <Suspense fallback={<p className="h-5" />}>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             {formatDate(post.metadata.publishedAt)}
+            <ViewCounter/>
           </p>
         </Suspense>
       </div>
