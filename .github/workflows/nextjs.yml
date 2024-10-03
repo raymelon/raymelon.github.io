@@ -77,6 +77,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
           NEXT_PUBLIC_TINYBIRD_DATA_TOKEN: ${{ secrets.NEXT_PUBLIC_TINYBIRD_DATA_TOKEN }}
+          TINYBIRD_API_BEARER_TOKEN: ${{ secrets.TINYBIRD_API_BEARER_TOKEN }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

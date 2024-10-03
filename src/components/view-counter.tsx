@@ -1,7 +1,7 @@
 import { getViews } from '@/lib/views';
 
-export async function ViewCounter() {
-  const views = await getViews();
+export async function ViewCounter({ slug }: { slug: string }) {
+  const views = await getViews(slug);
 
   if (views <= 0) {
     return <p></p>;
