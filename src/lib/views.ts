@@ -17,7 +17,7 @@ export async function getViews(slug: string): Promise<number> {
     const data = await response.json();
 
     if (Array.isArray(data.data)) {
-      const targetPost = data.data.find(item => item.pathname.split('/').at(-1) === slug);
+      const targetPost = data.data.find((item: { pathname: string }) => item.pathname.split('/').at(-1) === slug);
       if (targetPost) {
         return targetPost.hits;
       }
