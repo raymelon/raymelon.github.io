@@ -96,7 +96,11 @@ export default function Page() {
             <a className="text-blue-600 dark:text-blue-400" href="https://stackoverflow.com/users/4895040/raymelfrancisco" target="_blank">stackoverflow</a> &nbsp;
             <br/>
             <a className="text-blue-600 dark:text-blue-400" href="/blog">blog</a> •&nbsp;
-            <a className="text-blue-600 dark:text-blue-400" href="/tweets">tweet archive</a>&nbsp;
+            <a className="text-blue-600 dark:text-blue-400" href="/tweets">tweet archive</a> •&nbsp;
+            <a className="text-blue-600 dark:text-blue-400" href="/portfolio">portfolio</a>&nbsp;
+            <br/>
+            <br/>
+            <br/>
           </div>
         </BlurFadeTextCustom>
       </section>
