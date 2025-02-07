@@ -91,8 +91,8 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792234/1602323347376_btp2eb.jpg",
-    title: "Ta'allam Arabic App",
-    description: "Ta'allam Arabic App",
+    title: "Ta'allam Learners App",
+    description: "Ta'allam Learners App",
     url: "",
     tags: ["mobile", "react-native", "android", "ios", "2017"]
   },
