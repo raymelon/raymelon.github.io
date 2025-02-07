@@ -18,7 +18,7 @@ const portfolioItems: PortfolioItem[] = [
     videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1738791292/video_3_ympe6m.mp4",
     title: "Trading View AI Agent",
     description: "Trading View AI Agent",
-    url: "https://example.com/card",
+    url: "",
     tags: ["browser-automation", "ai", "2025"]
   },
   {
