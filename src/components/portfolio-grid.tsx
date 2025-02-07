@@ -51,13 +51,13 @@ const portfolioItems: PortfolioItem[] = [
     videoUrl: "https://video.twimg.com/ext_tw_video/1806998259489222657/pu/vid/avc1/1920x1080/z3mz1fMMppqL24KB.mp4?tag=14",
     title: "ChatGPT clone built in 3 hours",
     description: "ChatGPT clone built in 3 hours",
-    url: "https://example.com/card",
+    url: "https://x.com/pseudokid/status/1806998353571713320",
     tags: ["frontend", "ai", "2024"]
   },
   {
     imageUrl: "https://pbs.twimg.com/ext_tw_video_thumb/1835589451977797632/pu/img/qCEtn7ylmHDeISza.jpg",
     title: "This Portfolio",
-    description: "this website, literally",
+    description: "this portfolio, literally",
     url: "https://twitter.com/pseudokid/status/1835589504125591861",
     tags: ["frontend", "full-stack", "nextjs", "2024"]
   },
@@ -65,7 +65,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "https://pbs.twimg.com/ext_tw_video_thumb/1795045702663630848/pu/img/xKbxqhBSlV-KMcMJ.jpg",
     title: "Level Up! Founders",
     description: "Level Up! Founders",
-    url: "https://levelup.news",
+    url: "https://x.com/pseudokid/status/1795046078414295340",
     tags: ["frontend", "ai", "astrojs", "2024"]
   },
   {
@@ -100,7 +100,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792313/Simulator_Screen_Shot_-_iPhone_12_Pro_Max_-_2021-04-30_at_12.47.53_abbadx.png",
     title: "Katatagan In A Box",
     description: "Business Continuity Toolkit for MSMEs",
-    url: "",
+    url: "https://play.google.com/store/apps/details?id=xyz.orangefix.katatagan",
     tags: ["mobile", "react-native", "android", "ios", "2019"]
   },
   {
@@ -125,12 +125,41 @@ const portfolioItems: PortfolioItem[] = [
     tags: ["mobile", "react-native", "android", "ios", "2018"]
   },
   {
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927546/1YZva9yKdCmhCkDP-unnamed_2520_1_jirfjy.jpg",
+    title: "Educo Learners App",
+    description: "Educo Learners App",
+    url: "https://play.google.com/store/apps/details?id=com.Educo.educocwdpardo&hl=en_US&gl=US",
+    tags: ["full-stack", "nodejs", "2020"]
+  },
+  {
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927509/ajckHzGuoDvb7Qr3-1024x500_kv7fjp.png",
+    title: "Yazi",
+    description: "Yazi",
+    url: "https://play.google.com/store/apps/details?id=com.yazi.app.user&hl=en&gl=US",
+    tags: ["mobile", "react-native", "android", "ios", "2020"]
+  },
+  {
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927515/8D9o8QA87DSxk7os-guide-1024x500_20banner_go4icv.png",
+    title: "Yazi Guide",
+    description: "Yazi Guide",
+    url: "https://play.google.com/store/apps/details?id=com.yazi.app.guide",
+    tags: ["mobile", "react-native", "android", "ios", "2020"]
+  },
+  {
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927556/kgylLkDHKTHQjaRn-dash-widget_logo_var2_COLORED_miz0hi.png",
+    title: "Dash Widget",
+    description: "Dash Widget",
+    url: "",
+    tags: ["wordpress plugin", "2022"]
+  },
+  {
     title: "Tagalog Dictionary Scraper",
     description: "Collects 42,723 Tagalog words from tagalog.pinoydictionary.com",
     url: "https://github.com/raymelon/tagalog-dictionary-scraper",
     tags: ["github", "scraping", "python", "2016"]
   },
   {
+    imageUrl: "https://raw.githubusercontent.com/raymelon/TrafficLightNeuralNetwork/master/misc/demo.gif",
     title: "Traffic Light Neural Network",
     description: "An Artificial Neural Network based Traffic Light Controller for intersections.",
     url: "https://github.com/raymelon/tagalog-dictionary-scraper",
