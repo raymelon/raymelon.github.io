@@ -17,16 +17,16 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="gap-2 flex justify-between">
+          <div className="flex flex-col-reverse sm:flex-row sm:justify-between gap-6 sm:gap-2">
             <div className="flex-col flex flex-1 space-y-1.5">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
+                className="text-3xl font-bold tracking-tighter xl:text-6xl/none"
                 yOffset={8}
                 text={`hey, i'm ${DATA.name.split(" ")[0].toLowerCase()} 👋`}
               />
               <BlurFadeTextCustom
-                className="max-w-[600px] sm:text-[22px] mt-5 text-gray-600 dark:text-white"
+                className="max-w-[600px] text-[22px] mt-5 text-gray-600 dark:text-white"
                 delay={BLUR_FADE_DELAY}
                 text={
                   `
@@ -66,7 +66,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="links">
+      <section id="links" className="text-xl">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">links</h2>
         </BlurFade>
@@ -87,7 +87,7 @@ export default function Page() {
             <br/>
             for collabs, offers, or just to say hi 
             <br/>
-            <a className="text-[22px] tracking-tighter text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
+            <a className="tracking-tighter text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
             <br/>
             <br/>
             <a className="text-blue-600 dark:text-blue-400" href="https://github.com/raymelon" target="_blank">github</a> •&nbsp;
