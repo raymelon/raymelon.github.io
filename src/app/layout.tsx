@@ -7,6 +7,8 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import TinyBird from "@/components/analytics/tinybird";
+import { initMixpanel } from '../lib/mixpanelClient';
+import { useEffect } from "react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -54,6 +56,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  useEffect(() => {
+    initMixpanel(); // Initialize Mixpanel
+  }, []);
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
