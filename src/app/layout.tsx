@@ -55,10 +55,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  useEffect(() => {
-    initMixpanel(); // Initialize Mixpanel
-  }, []);
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
