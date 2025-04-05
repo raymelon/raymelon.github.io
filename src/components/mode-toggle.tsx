@@ -3,9 +3,15 @@
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
+import { initMixpanel } from '../lib/mixpanelClient';
+import { useEffect } from "react";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    initMixpanel(); // Initialize Mixpanel
+  }, []);
 
   return (
     <Button
