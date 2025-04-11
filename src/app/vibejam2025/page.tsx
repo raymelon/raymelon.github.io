@@ -41,7 +41,7 @@ export default function VibejamHubPage() {
             Play Cyber Vibe 2025 &rarr;
           </Link>
           <br />
-           <Link href="https://cybervibe.raymelon.com/about" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:underline mt-1 inline-block">
+           <Link href="https://cybervibe.raymelon.com/about.html" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:underline mt-1 inline-block">
             About Cyber Vibe 2025
           </Link>
         </div>
