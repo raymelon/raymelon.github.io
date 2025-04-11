@@ -79,10 +79,12 @@ export default function Page() {
           }
         >
           <div className="tracking-tight">
-            i yap in <a className="text-blue-600 dark:text-blue-400" href="https://x.com/intent/follow?screen_name=pseudokid" target="_blank">twitter @ pseudokid</a>. i find <a className="text-blue-600 dark:text-blue-400" href="https://www.threads.net/@raymelfrancisco" target="_blank">threads</a> cool. check my work experience in my <a className="text-blue-600 dark:text-blue-400" href="https://read.cv/raymel" target="_blank">read.cv</a>.
+            i #buildinpublic at <a className="text-blue-600 dark:text-blue-400" href="https://x.com/intent/follow?screen_name=pseudokid" target="_blank">twitter @ pseudokid</a>.
+            <br/>
+            check my work history in my <a className="text-blue-600 dark:text-blue-400" href="https://read.cv/raymel" target="_blank">read.cv</a>.
             <br/>
             <br/>
-            to see my work, check my <a className="text-blue-600 dark:text-blue-400" href="https://modul.so/raymel" target="_blank">portfolio.</a>
+            to see my work, check my <a className="text-blue-600 dark:text-blue-400" href="https://modul.so/raymel" target="_blank">modul.so page</a>.
             <br/>
             <br/>
             for collabs, offers, or just to say hi 
@@ -90,13 +92,20 @@ export default function Page() {
             <a className="tracking-tighter text-blue-600 dark:text-blue-400" href="https://www.linkedin.com/messaging/compose?recipient=raymelfrancisco">dm me on linkedin</a>
             <br/>
             <br/>
+            more:
+            <br/>
+            <br/>
             <a className="text-blue-600 dark:text-blue-400" href="https://github.com/raymelon" target="_blank">github</a> •&nbsp;
             <a className="text-blue-600 dark:text-blue-400" href="https://dev.to/raymelon" target="_blank">dev.to</a> •&nbsp;
             <a className="text-blue-600 dark:text-blue-400" href="https://raymel.hashnode.dev/" target="_blank">hashnode</a> •&nbsp;
-            <a className="text-blue-600 dark:text-blue-400" href="https://stackoverflow.com/users/4895040/raymelfrancisco" target="_blank">stackoverflow</a> &nbsp;
+            <a className="text-blue-600 dark:text-blue-400" href="https://stackoverflow.com/users/4895040/raymelfrancisco" target="_blank">stackoverflow</a> •&nbsp;
+            <br/>
+            <a className="text-blue-600 dark:text-blue-400" href="https://www.threads.net/@raymelfrancisco" target="_blank">threads</a> •&nbsp;
+            <a className="text-blue-600 dark:text-blue-400" href="/vibejam2025">2025 vibe coding game jam</a> &nbsp;
             <br/>
             <a className="text-blue-600 dark:text-blue-400" href="/blog">blog</a> •&nbsp;
             <a className="text-blue-600 dark:text-blue-400" href="/tweets">tweet archive</a> •&nbsp;
+            <a className="text-blue-600 dark:text-blue-400" href="https://read.cv/raymel" target="_blank">cv</a> •&nbsp;
             <a className="text-blue-600 dark:text-blue-400" href="/portfolio">portfolio</a>&nbsp;
             <br/>
             <br/>
