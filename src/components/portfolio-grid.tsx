@@ -2,7 +2,7 @@
 import { useTheme } from "next-themes";
 import { MagicCard } from "@/components/magicui/magic-card";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 interface PortfolioItem {
   title?: string;
@@ -11,7 +11,14 @@ interface PortfolioItem {
   description: string;
   url: string;
   tags: string[];
+  year?: number; // Add year for easier sorting
 }
+
+// Helper function to extract year from tags
+const getYearFromTags = (tags: string[]): number | undefined => {
+  const yearTag = tags.find(tag => /^\d{4}$/.test(tag));
+  return yearTag ? parseInt(yearTag, 10) : undefined;
+};
 
 const portfolioItems: PortfolioItem[] = [
   {
@@ -201,50 +208,102 @@ const portfolioItems: PortfolioItem[] = [
     tags: ["github", "simulator", "c#", "2016"]
   },
   // Add more items as needed
-];
+].map(item => ({
+  ...item,
+  year: getYearFromTags(item.tags) // Pre-calculate year
+}));
 
 // Get unique tags from all portfolio items
 const allTags = Array.from(
   new Set(portfolioItems.flatMap(item => item.tags).sort())
 );
 
+type SortOrder = 'default' | 'year-asc' | 'year-desc';
+
 export function PortfolioGrid() {
   const { theme } = useTheme();
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  
-  const filteredItems = activeTag 
-    ? portfolioItems.filter(item => item.tags.includes(activeTag))
-    : portfolioItems;
+  const [sortOrder, setSortOrder] = useState<SortOrder>('year-desc'); // Default sort by year descending
+
+  const sortedAndFilteredItems = useMemo(() => {
+    let items = [...portfolioItems];
+
+    // Sort items
+    if (sortOrder === 'year-asc') {
+      items.sort((a, b) => (a.year ?? 0) - (b.year ?? 0));
+    } else if (sortOrder === 'year-desc') {
+      items.sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
+    }
+    // Add other sort orders if needed, like 'default' which might be insertion order or title
+
+    // Filter items
+    if (activeTag) {
+      items = items.filter(item => item.tags.includes(activeTag));
+    }
+
+    return items;
+  }, [activeTag, sortOrder]);
+
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2">
-        <button
-          onClick={() => setActiveTag(null)}
-          className={`text-blue-600 dark:text-blue-400 hover:underline ${
-            activeTag === null ? 'underline' : ''
-          }`}
-        >
-          all
-        </button>
-        {allTags.map((tag, index) => (
-          <>
-            <span className="text-gray-500">•</span>
-            <button
-              key={tag}
-              onClick={() => setActiveTag(tag)}
-              className={`text-blue-600 dark:text-blue-400 hover:underline ${
-                activeTag === tag ? 'underline' : ''
-              }`}
-            >
-              {tag}
-            </button>
-          </>
-        ))}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        {/* Tag Filters */}
+        <div className="flex flex-wrap gap-2 items-center">
+          <span className="font-medium text-sm mr-1">Filter by Tag:</span>
+          <button
+            onClick={() => setActiveTag(null)}
+            className={`text-blue-600 dark:text-blue-400 hover:underline text-sm ${
+              activeTag === null ? 'underline font-bold' : ''
+            }`}
+          >
+            all
+          </button>
+          {allTags.map((tag) => {
+            const isYearTag = /^\d{4}$/.test(tag);
+            return (
+              <>
+                <span className="text-gray-500 text-xs">•</span>
+                <button
+                  key={tag}
+                  onClick={() => setActiveTag(tag)} // Allow clicking any tag, including years
+                  className={`text-sm hover:underline text-blue-600 dark:text-blue-400 ${ // Use same base style for all tags
+                    activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
+                  }`}
+                >
+                  {tag}
+                </button>
+              </>
+            );
+          })}
+        </div>
+
+        {/* Sort Controls */}
+        <div className="flex flex-wrap gap-2 items-center">
+           <span className="font-medium text-sm mr-1">Sort by Year:</span>
+           <button
+            onClick={() => setSortOrder('year-asc')}
+            className={`text-green-600 dark:text-green-400 hover:underline text-sm ${
+              sortOrder === 'year-asc' ? 'underline font-bold' : ''
+            }`}
+          >
+            Oldest First
+          </button>
+          <span className="text-gray-500 text-xs">•</span>
+           <button
+            onClick={() => setSortOrder('year-desc')}
+            className={`text-green-600 dark:text-green-400 hover:underline text-sm ${
+              sortOrder === 'year-desc' ? 'underline font-bold' : ''
+            }`}
+          >
+            Newest First
+          </button>
+        </div>
       </div>
 
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full">
-        {filteredItems.map((item, index) => (
+        {sortedAndFilteredItems.map((item, index) => (
           <Link href={item.url} target="_blank" key={index}>
             <MagicCard
               className="cursor-pointer flex flex-col items-center justify-center shadow-2xl h-[250px]"
@@ -277,12 +336,31 @@ export function PortfolioGrid() {
                 <p className="mt-2 text-sm text-center text-muted-foreground">
                   {item.description}
                 </p>
-                <div className="flex flex-wrap gap-1">
-                  {item.tags.map((tag, i) => (
-                    <span key={tag} className="text-xs text-blue-600 dark:text-blue-400">
-                      {tag} {(i < item.tags.length - 1) && <span className="text-gray-500">•</span>}
-                    </span>
-                  ))}
+                <div className="flex flex-wrap gap-1 mt-2 justify-center items-center">
+                  {item.tags.map((tag, i) => {
+                    const isYearTag = /^\d{4}$/.test(tag);
+                    return (
+                      <>
+                        <button
+                          key={tag}
+                          onClick={(e) => {
+                            e.preventDefault(); // Prevent navigating via the parent Link
+                            e.stopPropagation(); // Stop the event from bubbling up
+                            // If the clicked tag is already active, deactivate it (show all). Otherwise, activate it.
+                            setActiveTag(prevActiveTag => prevActiveTag === tag ? null : tag); 
+                          }}
+                          className={`text-xs hover:underline text-blue-600 dark:text-blue-400 ${ // Use same base style for all tags
+                            activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
+                          }`}
+                          // No longer disabled
+                        >
+                          {tag}
+                        </button>
+                        {/* Add dot separator if not the last tag */}
+                        {i < item.tags.length - 1 && <span className="text-gray-500 text-xs">•</span>}
+                      </>
+                    )
+                  })}
                 </div>
               </div>
             </MagicCard>
