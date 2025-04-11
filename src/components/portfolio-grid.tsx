@@ -15,6 +15,27 @@ interface PortfolioItem {
 
 const portfolioItems: PortfolioItem[] = [
   {
+    videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1744354160/ioMxNPSbhYMDjSEz_vbqpwl.mp4",
+    title: "Cyber Vibe 2025",
+    description: "Cyberpunk inspired vibe-coded game",
+    url: "https://cybervibe.raymelon.com/",
+    tags: ["2025 Vibe Coding Game Jam", "vibe coding", "2025"]
+  },
+  {
+    videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1744355240/aaIp7ipELMRFarnw_idtwri.mp4",
+    title: "Cowboy Shooter",
+    description: "Wild west inspired vibe-coded game",
+    url: "https://x.com/pseudokid/status/1897981468862996910",
+    tags: ["2025 Vibe Coding Game Jam", "vibe coding", "2025"]
+  },
+  {
+    videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1744355179/-LNr2te0Y7TxMskw_ocmagq.mp4",
+    title: "2025 Vibe Coding Game Jam Landing Page Entry",
+    description: "2025 Vibe Coding Game Jam Landing Page Entry",
+    url: "https://x.com/pseudokid/status/1904570854660514268",
+    tags: ["2025 Vibe Coding Game Jam", "vibe coding", "2025"]
+  },
+  {
     videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1738791292/video_3_ympe6m.mp4",
     title: "Trading View AI Agent",
     description: "Trading View AI Agent",
