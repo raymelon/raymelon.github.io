@@ -22,6 +22,13 @@ const getYearFromTags = (tags: string[]): number | undefined => {
 
 const portfolioItems: PortfolioItem[] = [
   {
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1744972218/02ai.dev_hero_wwacbd.png",
+    title: "02AI.DEV",
+    description: "Delegate AI planning, setup, and maintenance to us, so you can focus on growing your business.",
+    url: "https://02ai.dev",
+    tags: ["ai-agency", "ai", "2025"]
+  },
+  {
     videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1744354160/ioMxNPSbhYMDjSEz_vbqpwl.mp4",
     title: "Cyber Vibe 2025",
     description: "Cyberpunk inspired vibe-coded game",
