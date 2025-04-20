@@ -70,6 +70,7 @@ export default function RootLayout({
             <TinyBird />
           </TooltipProvider>
         </ThemeProvider>
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="Zid9IIfZ3iQfTmOI6wNltg" async></script>
       </body>
     </html>
   );
