@@ -25,7 +25,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1744972218/02ai.dev_hero_wwacbd.png",
     title: "02AI.DEV",
     description: "Building AI workflows for your business.",
-    url: "https://02ai.dev",
+    url: "https://02ai.dev?ref=raymelonportfolio",
     tags: ["ai-agency", "ai", "2025"]
   },
   {
@@ -67,7 +67,7 @@ const portfolioItems: PortfolioItem[] = [
     videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1738791292/video_3_ympe6m.mp4",
     title: "Trading View AI Agent",
     description: "Trading View AI Agent",
-    url: "",
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7347874514304737280/",
     tags: ["browser-automation", "ai", "2025"]
   },
   {
