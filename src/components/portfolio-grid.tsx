@@ -126,8 +126,8 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1738792064/1708578272992_4_kckjur.mp4",
-    title: "recaps.fyi",
-    description: "recaps.fyi",
+    title: "recaps.fyi - text to video",
+    description: "recaps.fyi - text to video",
     url: "https://www.linkedin.com/in/raymelfrancisco/details/experience/edit/forms/2425422872/?profileFormEntryPoint=PROFILE_SECTION",
     tags: ["full-stack", "remotion", "nextjs", "2024"]
   },
