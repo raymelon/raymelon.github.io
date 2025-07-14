@@ -24,9 +24,23 @@ const portfolioItems: PortfolioItem[] = [
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1744972218/02ai.dev_hero_wwacbd.png",
     title: "02AI.DEV",
-    description: "Delegate AI planning, setup, and maintenance to us, so you can focus on growing your business.",
+    description: "Building AI workflows for your business.",
     url: "https://02ai.dev",
     tags: ["ai-agency", "ai", "2025"]
+  },
+  {
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752451852/top_games_ybdvs6.png",
+    title: "Vibe coded 9 games in 3 weeks",
+    description: "Vibe coded 9 games in 3 weeks.",
+    url: "https://x.com/pseudokid/status/1923473371880358177",
+    tags: ["Orange Web3 Vibe Jam", "ai", "2025"]
+  },
+  {
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752451896/pixel_post_as_inspo_jlaeqv.png",
+    title: "ixel Post 2D",
+    description: "Pixel Post 2D - 3rd 🏆 in Orange Vibe Jam",
+    url: "https://x.com/pseudokid/status/1930738134070837658",
+    tags: ["Orange Web3 Vibe Jam", "ai", "2025"]
   },
   {
     videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1744354160/ioMxNPSbhYMDjSEz_vbqpwl.mp4",
@@ -60,7 +74,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "https://pbs.twimg.com/ext_tw_video_thumb/1861889348955979776/pu/img/2xmojdicvXxLTePy.jpg",
     description: "Document Chat AI Assistant",
     url: "https://twitter.com/pseudokid/status/1861895287855624617",
-    tags: ["desktop", "ai", "2024"]
+    tags: ["desktop", "streamlit","ai", "2024"]
   },
   {
     videoUrl: "https://video.twimg.com/ext_tw_video/1828424822340112384/pu/vid/avc1/720x1280/FBRzb30zFRQQwHC6.mp4?tag=12",
@@ -73,21 +87,21 @@ const portfolioItems: PortfolioItem[] = [
     videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1738790655/video_89_hk6nza.mp4",
     title: "Tokwa AI Chat",
     description: "Tokwa AI Chat",
-    url: "",
-    tags: ["full-stack", "ai", "2024"]
+    url: "https://x.com/02AIDEV/status/1939276659711967478",
+    tags: ["full-stack", "nextjs", "ai", "2024"]
   },
   {
     title: "Twitter Unfollower Agent",
     description: "AI Agent that tracks Twitter Unfollowers",
     url: "https://github.com/raymelon/ai6z-twitter-agents",
-    tags: ["twitter", "ai", "2025"]
+    tags: ["twitter", "python", "js", "ai", "2025"]
   },
   {
     videoUrl: "https://video.twimg.com/ext_tw_video/1806998259489222657/pu/vid/avc1/1920x1080/z3mz1fMMppqL24KB.mp4?tag=14",
     title: "ChatGPT clone built in 3 hours",
     description: "ChatGPT clone built in 3 hours",
     url: "https://x.com/pseudokid/status/1806998353571713320",
-    tags: ["frontend", "ai", "2024"]
+    tags: ["frontend", "react", "ai", "2024"]
   },
   {
     imageUrl: "https://pbs.twimg.com/ext_tw_video_thumb/1835589451977797632/pu/img/qCEtn7ylmHDeISza.jpg",
@@ -114,7 +128,7 @@ const portfolioItems: PortfolioItem[] = [
     videoUrl: "https://res.cloudinary.com/dxsornfee/video/upload/v1738792064/1708578272992_4_kckjur.mp4",
     title: "recaps.fyi",
     description: "recaps.fyi",
-    url: "https://recaps.fyi",
+    url: "https://www.linkedin.com/in/raymelfrancisco/details/experience/edit/forms/2425422872/?profileFormEntryPoint=PROFILE_SECTION",
     tags: ["full-stack", "remotion", "nextjs", "2024"]
   },
   {
@@ -122,19 +136,19 @@ const portfolioItems: PortfolioItem[] = [
     title: "Frontend Grid Shuffle",
     description: "Frontend Grid Shuffle",
     url: "https://x.com/pseudokid/status/1712955695300260318",
-    tags: ["frontend", "2023"]
+    tags: ["frontend", "tailwind", "2023"]
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792234/1602323347376_btp2eb.jpg",
     title: "Ta'allam Learners App",
     description: "Ta'allam Learners App",
-    url: "",
-    tags: ["mobile", "react-native", "android", "ios", "2017"]
+    url: "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
+    tags: ["mobile", "android", "ios", "2017"]
   },
   {
-    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792313/Simulator_Screen_Shot_-_iPhone_12_Pro_Max_-_2021-04-30_at_12.47.53_abbadx.png",
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752452448/katataganmay202020fastforward-ezgif.com-video-to-gif-converter_ff4y5m.gif",
     title: "Katatagan In A Box",
-    description: "Business Continuity Toolkit for MSMEs",
+    description: "Business Continuity App for MSMEs",
     url: "https://play.google.com/store/apps/details?id=xyz.orangefix.katatagan",
     tags: ["mobile", "react-native", "android", "ios", "2019"]
   },
@@ -142,50 +156,50 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792238/1601667424678_mvo3uc.jpg",
     title: "Matigsalug Learners App",
     description: "Matigsalug Learners App",
-    url: "",
+    url: "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
     tags: ["mobile", "react-native", "android", "ios", "2018"]
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792241/1602522448880_rtrk1b.jpg",
     title: "Kaalam Cebuano App",
     description: "Kaalam Cebuano App",
-    url: "",
-    tags: ["mobile", "react-native", "android", "ios", "2018"]
+    url: "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
+    tags: ["mobile", "android", "ios", "2018"]
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792243/1599205837166_bv4zcn.jpg",
     title: "Sanut Ilokano App",
     description: "Sanut Ilokano App",
-    url: "",
-    tags: ["mobile", "react-native", "android", "ios", "2018"]
+    url: "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
+    tags: ["mobile", "android", "ios", "2018"]
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927546/1YZva9yKdCmhCkDP-unnamed_2520_1_jirfjy.jpg",
     title: "Educo Learners App",
     description: "Educo Learners App",
     url: "https://play.google.com/store/apps/details?id=com.Educo.educocwdpardo&hl=en_US&gl=US",
-    tags: ["full-stack", "nodejs", "2020"]
+    tags: ["full-stack", "mobile", "nodejs", "2020"]
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927509/ajckHzGuoDvb7Qr3-1024x500_kv7fjp.png",
     title: "Yazi",
     description: "Yazi",
     url: "https://play.google.com/store/apps/details?id=com.yazi.app.user&hl=en&gl=US",
-    tags: ["mobile", "react-native", "android", "ios", "2020"]
+    tags: ["mobile", "firebase", "react-native", "2020"]
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927515/8D9o8QA87DSxk7os-guide-1024x500_20banner_go4icv.png",
     title: "Yazi Guide",
     description: "Yazi Guide",
     url: "https://play.google.com/store/apps/details?id=com.yazi.app.guide",
-    tags: ["mobile", "react-native", "android", "ios", "2020"]
+    tags: ["mobile", "firebase", "react-native", "2020"]
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927556/kgylLkDHKTHQjaRn-dash-widget_logo_var2_COLORED_miz0hi.png",
     title: "Dash Widget",
     description: "Dash Widget",
-    url: "",
-    tags: ["wordpress plugin", "2022"]
+    url: "https://orangefix.xyz/portfolio/",
+    tags: ["wordpress plugin", "php", "facebook-api", "2022"]
   },
   {
     title: "Tagalog Dictionary Scraper",
@@ -196,8 +210,8 @@ const portfolioItems: PortfolioItem[] = [
   {
     imageUrl: "https://raw.githubusercontent.com/raymelon/TrafficLightNeuralNetwork/master/misc/demo.gif",
     title: "Traffic Light Neural Network",
-    description: "An Artificial Neural Network based Traffic Light Controller for intersections.",
-    url: "https://github.com/raymelon/tagalog-dictionary-scraper",
+    description: "Traffic Light Neural Network",
+    url: "https://github.com/raymelon/TrafficLightNeuralNetwork",
     tags: ["github", "ai", "c#", "2017"]
   },
   {
