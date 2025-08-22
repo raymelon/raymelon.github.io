@@ -323,69 +323,71 @@ export function PortfolioGrid() {
       </div>
 
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full">
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-4 w-full space-y-4">
         {sortedAndFilteredItems.map((item, index) => (
-          <Link href={item.url} target="_blank" key={index}>
-            <MagicCard
-              className="cursor-pointer flex flex-col items-center justify-center shadow-2xl h-[250px]"
-              gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-            >
-              <div className={`flex flex-col items-center ${(item.imageUrl || item.videoUrl) ? 'gap-1' : 'gap-4 p-4'}`}>
-                {item.videoUrl ? (
-                  <div className="h-40 w-full flex items-center justify-center">
-                    <video
-                      src={item.videoUrl}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="max-h-full max-w-full object-cover rounded-md"
-                    />
+          <div key={index} className="break-inside-avoid mb-4">
+            <Link href={item.url} target="_blank">
+              <MagicCard
+                className="cursor-pointer flex flex-col items-center justify-center shadow-2xl"
+                gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+              >
+                <div className={`flex flex-col items-center ${(item.imageUrl || item.videoUrl) ? 'gap-1' : 'gap-4 p-4'}`}>
+                  {item.videoUrl ? (
+                    <div className="w-full flex items-center justify-center min-h-[200px]">
+                      <video
+                        src={item.videoUrl}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="object-contain rounded-md max-h-[400px]"
+                      />
+                    </div>
+                  ) : item.imageUrl ? (
+                    <div className="w-full flex items-center justify-center min-h-[200px]">
+                      <img
+                        src={item.imageUrl}
+                        alt={item.description}
+                        className="object-contain rounded-md max-h-[400px]"
+                      />
+                    </div>
+                  ) : item.title ? (
+                    <h2 className="text-1xl whitespace-nowrap">{item.title}</h2>
+                  ) : null}
+                  
+                  <p className="mt-2 text-sm text-center text-muted-foreground">
+                    {item.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1 mt-2 justify-center items-center">
+                    {item.tags.map((tag, i) => {
+                      const isYearTag = /^\d{4}$/.test(tag);
+                      return (
+                        <>
+                          <button
+                            key={tag}
+                            onClick={(e) => {
+                              e.preventDefault(); // Prevent navigating via the parent Link
+                              e.stopPropagation(); // Stop the event from bubbling up
+                              // If the clicked tag is already active, deactivate it (show all). Otherwise, activate it.
+                              setActiveTag(prevActiveTag => prevActiveTag === tag ? null : tag); 
+                            }}
+                            className={`text-xs hover:underline text-blue-600 dark:text-blue-400 ${ // Use same base style for all tags
+                              activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
+                            }`}
+                            // No longer disabled
+                          >
+                            {tag}
+                          </button>
+                          {/* Add dot separator if not the last tag */}
+                          {i < item.tags.length - 1 && <span className="text-gray-500 text-xs">•</span>}
+                        </>
+                      )
+                    })}
                   </div>
-                ) : item.imageUrl ? (
-                  <div className="h-44 w-[90%] flex items-center justify-center">
-                    <img
-                      src={item.imageUrl}
-                      alt={item.description}
-                      className="max-h-full max-w-full object-cover rounded-md"
-                    />
-                  </div>
-                ) : item.title ? (
-                  <h2 className="text-1xl whitespace-nowrap">{item.title}</h2>
-                ) : null}
-                
-                <p className="mt-2 text-sm text-center text-muted-foreground">
-                  {item.description}
-                </p>
-                <div className="flex flex-wrap gap-1 mt-2 justify-center items-center">
-                  {item.tags.map((tag, i) => {
-                    const isYearTag = /^\d{4}$/.test(tag);
-                    return (
-                      <>
-                        <button
-                          key={tag}
-                          onClick={(e) => {
-                            e.preventDefault(); // Prevent navigating via the parent Link
-                            e.stopPropagation(); // Stop the event from bubbling up
-                            // If the clicked tag is already active, deactivate it (show all). Otherwise, activate it.
-                            setActiveTag(prevActiveTag => prevActiveTag === tag ? null : tag); 
-                          }}
-                          className={`text-xs hover:underline text-blue-600 dark:text-blue-400 ${ // Use same base style for all tags
-                            activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
-                          }`}
-                          // No longer disabled
-                        >
-                          {tag}
-                        </button>
-                        {/* Add dot separator if not the last tag */}
-                        {i < item.tags.length - 1 && <span className="text-gray-500 text-xs">•</span>}
-                      </>
-                    )
-                  })}
                 </div>
-              </div>
-            </MagicCard>
-          </Link>
+              </MagicCard>
+            </Link>
+          </div>
         ))}
       </div>
     </div>
