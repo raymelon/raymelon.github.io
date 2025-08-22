@@ -1,8 +1,9 @@
 "use client"
+import React from "react";
 import { useTheme } from "next-themes";
 import { MagicCard } from "@/components/magicui/magic-card";
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, Fragment } from "react";
 
 interface PortfolioItem {
   title?: string;
@@ -280,23 +281,19 @@ export function PortfolioGrid() {
           >
             all
           </button>
-          {allTags.map((tag, index) => {
-            const isYearTag = /^\d{4}$/.test(tag);
-            return (
-              <>
-                {index > 0 && <span key={`sep-${index}`} className="text-gray-500 text-xs">•</span>}
-                <button
-                  key={tag}
-                  onClick={() => setActiveTag(tag)} // Allow clicking any tag, including years
-                  className={`text-sm hover:underline text-blue-600 dark:text-blue-400 ${ // Use same base style for all tags
-                    activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
-                  }`}
-                >
-                  {tag}
-                </button>
-              </>
-            );
-          })}
+          {allTags.map((tag, index) => (
+            <Fragment key={tag}>
+              {index > 0 && <span className="text-gray-500 text-xs mx-1">•</span>}
+              <button
+                onClick={() => setActiveTag(tag)} // Allow clicking any tag, including years
+                className={`text-sm hover:underline text-blue-600 dark:text-blue-400 ${ // Use same base style for all tags
+                  activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
+                }`}
+              >
+                {tag}
+              </button>
+            </Fragment>
+          ))}
         </div>
 
         {/* Sort Controls */}
@@ -325,7 +322,7 @@ export function PortfolioGrid() {
 
       <div className="columns-1 md:columns-2 lg:columns-3 gap-4 w-full space-y-4">
         {sortedAndFilteredItems.map((item, index) => (
-          <div key={`${item.url}-${index}`} className="break-inside-avoid mb-4">
+          <div key={`${item.url}-${index}`} className="break-inside-avoid mb-6">
             <Link href={item.url} target="_blank">
               <MagicCard
                 className="cursor-pointer flex flex-col items-center justify-center shadow-xl p-3"
@@ -358,31 +355,26 @@ export function PortfolioGrid() {
                   <p className="mt-1 text-sm text-center text-muted-foreground mb-3 px-2">
                     {item.description}
                   </p>
-                  <div className="flex flex-wrap gap-1 mt-1 justify-center items-center w-full px-2 pb-1">
-                    {item.tags.map((tag, i) => {
-                      const isYearTag = /^\d{4}$/.test(tag);
-                      return (
-                        <>
-                          <button
-                            key={tag}
-                            onClick={(e) => {
-                              e.preventDefault(); // Prevent navigating via the parent Link
-                              e.stopPropagation(); // Stop the event from bubbling up
-                              // If the clicked tag is already active, deactivate it (show all). Otherwise, activate it.
-                              setActiveTag(prevActiveTag => prevActiveTag === tag ? null : tag);
-                            }}
-                            className={`text-xs hover:underline text-blue-600 dark:text-blue-400 px-2 py-1 rounded ${ // Use same base style for all tags
-                              activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
-                            }`}
-                            // No longer disabled
-                          >
-                            {tag}
-                          </button>
-                          {/* Add dot separator if not the last tag */}
-                          {i < item.tags.length - 1 && <span className="text-gray-500 text-xs mx-1">•</span>}
-                        </>
-                      )
-                    })}
+                  <div className="flex flex-wrap gap-1 mt-2 justify-center items-center mb-3 pb-3">
+                    {item.tags.map((tag, i) => (
+                      <Fragment key={`${item.url}-${tag}-${i}`}>
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault(); // Prevent navigating via the parent Link
+                            e.stopPropagation(); // Stop the event from bubbling up
+                            // If the clicked tag is already active, deactivate it (show all). Otherwise, activate it.
+                            setActiveTag(prevActiveTag => prevActiveTag === tag ? null : tag);
+                          }}
+                          className={`text-xs hover:underline text-blue-600 dark:text-blue-400 ${ // Use same base style for all tags
+                            activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
+                          }`}
+                        >
+                          {tag}
+                        </button>
+                        {/* Add dot separator if not the last tag */}
+                        {i < item.tags.length - 1 && <span className="text-gray-500 text-xs">•</span>}
+                      </Fragment>
+                    ))}
                   </div>
                 </div>
               </MagicCard>
