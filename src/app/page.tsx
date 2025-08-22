@@ -14,7 +14,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col min-h-[100dvh] space-y-10 max-w-2xl mx-auto py-10 sm:py-20 px-6">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="flex flex-col-reverse sm:flex-row sm:justify-between gap-6 sm:gap-2">

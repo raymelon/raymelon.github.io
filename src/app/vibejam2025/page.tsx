@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function VibejamHubPage() {
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="max-w-2xl mx-auto py-10 sm:py-20 px-6">
       <h1 className="text-3xl font-bold mb-4">Vibejam 2025 Hub</h1>
       <p className="mb-6 text-lg">
         Welcome to my hub for 2025 Vibe Coding Game Jam!
