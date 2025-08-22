@@ -24,10 +24,13 @@ export default function Navbar() {
                   href={item.href}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12"
+                    "size-12",
                   )}
                 >
-                  <item.icon className="size-4" />
+                  <div className="flex items-center gap-2">
+                    <item.icon className="size-4" />
+                    <span>{item.label}</span>
+                  </div>
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
