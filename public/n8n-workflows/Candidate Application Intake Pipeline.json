@@ -1,0 +1,282 @@
+{
+  "name": "Candidate Application Intake Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Candidate Recruitment Workflow\n\nThis workflow automates the process of handling new candidate submissions:\n\n1.  **Typeform Webhook**: Listens for new candidate applications.\n2.  **Clean Form Data**: Standardizes candidate information (capitalizes names, lowercases emails, trims spaces).\n3.  **Add Candidate to Airtable**: Stores the cleaned data in your 'Recruitment DB' on Airtable.\n4.  **Notify Recruitment on Slack**: Sends an alert to the recruitment team upon successful Airtable entry. \n\nDouble-click to edit this note.",
+        "height": 280,
+        "width": 450
+      },
+      "name": "Workflow Explanation",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        160,
+        -96
+      ],
+      "id": "generated-08b3e500-fef6-465e-8b5c-2ca97fae5286"
+    },
+    {
+      "parameters": {
+        "content": "## Error Handling\n\nThis section manages failures during the Airtable submission:\n\n1.  **Error Handler**: Catches errors from the \"Add Candidate to Airtable\" node.\n2.  **Log Failed Submission**: Records the error details in a designated Google Sheet.\n3.  **Alert Automation Channel**: Notifies the `#automation-alerts` Slack channel about the failure.\n\nEnsure the \"Add Candidate to Airtable\" node is configured to \"Continue and Trigger Error Workflow\" on failure with 3 retries.",
+        "height": 250,
+        "width": 450,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        704,
+        272
+      ],
+      "name": "Error Handling Explanation",
+      "id": "generated-2300f6f8-d727-481f-9399-d2231e72e79a"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "0fd0807f-97bb-4636-81b9-8b41d6157ccc",
+        "options": {
+          "allowedOrigins": "*",
+          "binaryPropertyName": "data",
+          "ignoreBots": false,
+          "ipWhitelist": "",
+          "noResponseBody": false,
+          "rawBody": false,
+          "responseData": "",
+          "responseHeaders": {
+            "values": []
+          }
+        }
+      },
+      "name": "Typeform Webhook",
+      "position": [
+        416,
+        240
+      ],
+      "type": "n8n-nodes-base.webhook",
+      "id": "generated-9c72181f-ba20-4088-8c96-e76b4e690bdd",
+      "webhookId": "0fd0807f-97bb-4636-81b9-8b41d6157ccc"
+    },
+    {
+      "parameters": {
+        "functionCode": "\nfor (const item of items) {\n  const formResponse = item.json.form_response;\n  if (!formResponse || !formResponse.answers) {\n    // If form_response or answers are missing, skip this item or handle as needed\n    // For now, we'll just move on, perhaps logging a warning in a real scenario\n    console.log('Skipping item: form_response or answers missing from payload.');\n    item.json = {\n        name: 'Unknown',\n        email: 'unknown@example.com',\n        role: 'Unknown',\n        resume: 'No link provided'\n    };\n    continue;\n  }\n\n  const cleanedData = {};\n  for (const answer of formResponse.answers) {\n    // Ensure answer.field and answer.field.title exist\n    if (!answer.field || !answer.field.title) {\n        continue; // Skip answers without a valid field title\n    }\n    const fieldTitle = answer.field.title;\n\n    let value;\n    if (answer.type === 'text' || answer.type === 'short_text' || answer.type === 'long_text') {\n      value = answer.text;\n    } else if (answer.type === 'email') {\n      value = answer.email;\n    } else if (answer.type === 'url' || answer.type === 'website') {\n      value = answer.url;\n    }\n\n    if (value !== undefined && value !== null) {\n      // Ensure value is a string before trimming and manipulating\n      value = String(value).trim();\n\n      switch (fieldTitle) {\n        case 'Name':\n          // Capitalize each word in the name\n          cleanedData.name = value.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');\n          break;\n        case 'Email':\n          // Lowercase email addresses\n          cleanedData.email = value.toLowerCase();\n          break;\n        case 'Role':\n          cleanedData.role = value;\n          break;\n        case 'Resume':\n          // Rename to 'resume' for consistency with Airtable\n          cleanedData.resume = value;\n          break;\n      }\n    }\n  }\n  item.json = { ...item.json, ...cleanedData }; // Merge cleaned data back into item.json\n}\nreturn items;\n"
+      },
+      "position": [
+        704,
+        112
+      ],
+      "name": "Clean Form Data",
+      "type": "n8n-nodes-base.function",
+      "id": "generated-2c55fdf5-88df-4990-8ab1-92f70a780d1f"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "mode": "url",
+          "__rl": true,
+          "value": "https://airtable.com/appcF1xBc320zotOj/tblqUX1ULRy0KQW3e/viwtJJi2nDFPbr2eo"
+        },
+        "table": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://airtable.com/appcF1xBc320zotOj/tblqUX1ULRy0KQW3e/viwtJJi2nDFPbr2eo"
+        },
+        "columns": {
+          "attemptToConvertTypes": true,
+          "mappingMode": "autoMapInputData",
+          "matchingColumns": [],
+          "value": {},
+          "schema": [],
+          "convertFieldsToString": true
+        },
+        "options": {
+          "typecast": false
+        }
+      },
+      "name": "Add Candidate to Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1008,
+        112
+      ],
+      "id": "generated-818c882b-1956-444b-8992-eaa0b4332a29",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "QTfldRO6riUISiV0",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "n8n-demos-candidate-application-intake-pipeline",
+          "mode": "name"
+        },
+        "text": "=New Candidate Submission:\nName: {{$json[\"name\"]}}\nRole: {{$json[\"role\"]}}\nEmail: {{$json[\"email\"]}}\nResume: {{$json[\"resume\"]}}\nAirtable Record: {{ $(\"Add Candidate to Airtable\").first().json.data.url }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": true,
+          "link_names": false,
+          "mrkdwn": true,
+          "unfurl_links": false,
+          "unfurl_media": true
+        }
+      },
+      "name": "Notify Recruitment on Slack",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        1312,
+        112
+      ],
+      "id": "generated-1b1b8ddb-cc27-4221-bcc1-d2dd0dd2f81d",
+      "webhookId": "6654b54c-76b6-4126-bffd-d8328534cd96",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "Zn4iwZkBSBYlOB4t",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "name": "Error Handler",
+      "position": [
+        1008,
+        400
+      ],
+      "id": "generated-8086a754-2aea-481a-b8f0-c8b1d5291c2b"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1MjWp3r8DWn84ENQf7RY41FF8xGX1ond91oAk3G5vrEc",
+          "mode": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet 1",
+          "mode": ""
+        },
+        "options": {}
+      },
+      "name": "Log Failed Submission",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1312,
+        400
+      ],
+      "id": "generated-fc96c71a-3ad6-41eb-810a-945e23e9efdf",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Rx6MJKl2wjZ6rnp0",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": "YOUR_SLACK_CHANNEL_ID",
+        "text": "Failed to add candidate to Airtable. Details: {{$json.errorMessage}}",
+        "otherOptions": {
+          "includeLinkToWorkflow": true,
+          "link_names": false,
+          "mrkdwn": true,
+          "unfurl_links": false,
+          "unfurl_media": true
+        }
+      },
+      "position": [
+        1600,
+        400
+      ],
+      "type": "n8n-nodes-base.slack",
+      "name": "Alert Automation Channel",
+      "id": "generated-a32a485d-9f77-4420-aff3-a66e5b372954",
+      "webhookId": "85f508d5-35bf-4834-84aa-be3cbb170dc9",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "Zn4iwZkBSBYlOB4t",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Typeform Webhook": {
+      "main": [
+        [
+          {
+            "node": "Clean Form Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Form Data": {
+      "main": [
+        [
+          {
+            "node": "Add Candidate to Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Candidate to Airtable": {
+      "main": [
+        [
+          {
+            "node": "Notify Recruitment on Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Handler": {
+      "main": [
+        [
+          {
+            "node": "Log Failed Submission",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Failed Submission": {
+      "main": [
+        [
+          {
+            "node": "Alert Automation Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "17ee17e6-c507-41dd-ab1a-4a876b55a54e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0688dc651d3d4a8391d375bc8747cb6e8d477baec739c74791bf6ad321ff1486"
+  },
+  "id": "PuGn1YNGaMG5wjSa",
+  "tags": []
+}

@@ -10,14 +10,23 @@ interface N8nItem {
   description: string;
   tags: string[];
   component: 'webcomponent';
+  workflowUrl: string;
 }
 
 const n8nItems: N8nItem[] = [
   {
-    title: "N8n Web Component Demo",
-    description: "Interactive demo of n8n automation using web components",
-    tags: ["n8n", "automation", "web-component", "demo"],
-    component: "webcomponent"
+    title: "Basic Workflow Demo",
+    description: "Simple webhook-based workflow demonstration",
+    tags: ["n8n", "automation", "web-component", "demo", "basic"],
+    component: "webcomponent",
+    workflowUrl: "/n8n-workflows/workflow.json"
+  },
+  {
+    title: "Candidate Application Intake Pipeline",
+    description: "Automated pipeline for processing candidate applications",
+    tags: ["n8n", "automation", "web-component", "demo", "recruitment"],
+    component: "webcomponent",
+    workflowUrl: "/n8n-workflows/Candidate Application Intake Pipeline-cleaned.json"
   }
 ];
 
@@ -37,10 +46,10 @@ export function N8nGrid() {
     return n8nItems;
   }, [activeTag]);
 
-  const renderComponent = (component: string) => {
-    switch (component) {
+  const renderComponent = (item: N8nItem) => {
+    switch (item.component) {
       case 'webcomponent':
-        return <N8nDemoWebComponent />;
+        return <N8nDemoWebComponent workflowUrl={item.workflowUrl} />;
       default:
         return null;
     }
@@ -108,7 +117,7 @@ export function N8nGrid() {
                   ))}
                 </div>
                 <div className="w-full">
-                  {renderComponent(item.component)}
+                  {renderComponent(item)}
                 </div>
               </div>
             </MagicCard>

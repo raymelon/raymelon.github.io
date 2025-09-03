@@ -2,21 +2,30 @@
 
 import { useEffect, useState } from 'react'
 
-export default function N8nDemoWebComponent() {
+interface N8nDemoWebComponentProps {
+  workflowUrl?: string
+}
+
+export default function N8nDemoWebComponent({ workflowUrl = '/workflow.json' }: N8nDemoWebComponentProps) {
   const [workflow, setWorkflow] = useState<string>('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const script = document.createElement('script')
-    script.src = 'https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component@1.0.20/docs/n8n-demo.bundled.js'
+    script.src = 'https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js'
     script.type = 'module'
     document.head.appendChild(script)
 
     // Fetch workflow data
-    fetch('/workflow.json')
+    fetch(workflowUrl)
       .then(res => res.json())
       .then(data => {
-        setWorkflow(JSON.stringify(data))
+        // Extract only the core workflow data that the web component expects
+        const workflowData = {
+          nodes: data.nodes || [],
+          connections: data.connections || {}
+        }
+        setWorkflow(JSON.stringify(workflowData))
         setLoading(false)
       })
       .catch(err => {
@@ -29,7 +38,7 @@ export default function N8nDemoWebComponent() {
         document.head.removeChild(script)
       }
     }
-  }, [])
+  }, [workflowUrl])
 
   if (loading) {
     return (
