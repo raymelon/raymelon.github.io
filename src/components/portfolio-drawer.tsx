@@ -78,7 +78,9 @@ export function PortfolioDrawer({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed top-0 right-0 h-full w-1/2 bg-white dark:bg-gray-900 z-30 flex flex-col overflow-hidden shadow-2xl transform transition-transform duration-300 ease-in-out">
+    <div className={`fixed top-0 right-0 h-full w-1/2 bg-white dark:bg-gray-900 z-30 flex flex-col overflow-hidden shadow-2xl transform transition-transform duration-500 ease-out ${
+      isOpen ? 'translate-x-0' : 'translate-x-full'
+    }`}>
       {/* Content Header */}
       <div className="p-6 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-start justify-between">
