@@ -151,6 +151,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1752452448/katataganmay202020fastforward-ezgif.com-video-to-gif-converter_ff4y5m.gif",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924982/portfolio2025-rest-of-assets/katatagan-1_pwelcx.jpg",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924984/portfolio2025-rest-of-assets/katatagan-3_fkj07o.jpg",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-4_edsxvh.jpg",
@@ -167,6 +168,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1738792238/1601667424678_mvo3uc.jpg",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-1_ib66cs.webp",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-2_ieqigy.webp",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-3_qi9x6z.webp",
@@ -180,6 +182,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1738792241/1602522448880_rtrk1b.jpg",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924978/portfolio2025-rest-of-assets/kaalam-1_tq50kz.webp",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-2_lsuadw.webp",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-3_jmilbw.webp",
@@ -200,6 +203,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1738927546/1YZva9yKdCmhCkDP-unnamed_2520_1_jirfjy.jpg",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-1_zcdguw.webp",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-2_vnrnin.webp",
       "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-3_arblje.webp",
