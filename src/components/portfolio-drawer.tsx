@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ImageCarousel } from "@/components/image-carousel";
 
 interface PortfolioItem {
   title?: string;
   imageUrl?: string;
+  imageUrls?: string[]; // Array of images for carousel
   videoUrl?: string;
   description: string;
   url: string;
@@ -122,12 +124,36 @@ export function PortfolioDrawer({
                 poster={selectedItem.imageUrl}
               />
             </div>
+          ) : selectedItem.imageUrls && selectedItem.imageUrls.length > 0 ? (
+            <div className="mb-6">
+              <ImageCarousel
+                images={selectedItem.imageUrls}
+                alt={selectedItem.title || selectedItem.description}
+                className="w-full max-h-96 object-contain rounded-lg"
+                autoplayInterval={5000}
+                showControls={true}
+              />
+            </div>
           ) : selectedItem.imageUrl ? (
             <div className="mb-6">
               <img
                 src={selectedItem.imageUrl}
                 alt={selectedItem.title || selectedItem.description}
-                className="w-full max-h-96 object-contain rounded-lg"
+                className="w-full rounded-lg"
+                style={{
+                  objectFit: 'contain', // Default to contain, will be overridden if vertical
+                  maxHeight: '384px' // Default max height for desktop
+                }}
+                onLoad={(e) => {
+                  const img = e.target as HTMLImageElement;
+                  const isVertical = img.naturalHeight > img.naturalWidth;
+                  if (isVertical) {
+                    img.style.objectFit = 'cover';
+                    img.style.maxHeight = '384px';
+                  } else {
+                    img.style.objectFit = 'contain';
+                  }
+                }}
               />
             </div>
           ) : null}

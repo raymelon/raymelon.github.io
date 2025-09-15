@@ -3,10 +3,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ImageCarousel } from "@/components/image-carousel";
 
 interface PortfolioItem {
   title?: string;
   imageUrl?: string;
+  imageUrls?: string[]; // Array of images for carousel
   videoUrl?: string;
   description: string;
   url: string;
@@ -51,15 +53,25 @@ export function MobilePortfolioDrawer({
       // Get screen height
       const screenHeight = window.innerHeight;
 
-      // If content fits on screen, use natural height. Otherwise, use full screen with internal scrolling
-      if (totalContentHeight <= screenHeight * 1.05) {
-        // Content fits - use natural height (no internal scrolling)
+      // Check if there are vertical images that need full screen
+      const hasVerticalImages = contentRef.current.querySelectorAll('img').length > 0 &&
+        Array.from(contentRef.current.querySelectorAll('img')).some(img => {
+          const htmlImg = img as HTMLImageElement;
+          return htmlImg.naturalHeight > htmlImg.naturalWidth;
+        });
+
+      if (hasVerticalImages) {
+        // Vertical images detected - use full screen height
+        setDrawerHeight('100vh');
+        setNeedsScrolling(true);
+      } else if (totalContentHeight <= screenHeight * 0.9) {
+        // Content fits within 90% - use natural height
         const heightVh = (totalContentHeight / screenHeight) * 100;
         setDrawerHeight(`${Math.round(heightVh)}vh`);
         setNeedsScrolling(false);
       } else {
-        // Content doesn't fit - use full screen height + 10% (will have internal scrolling)
-        setDrawerHeight('105vh');
+        // Content exceeds 90% - use 90% height with internal scrolling
+        setDrawerHeight('90vh');
         setNeedsScrolling(true);
       }
     }
@@ -133,10 +145,10 @@ export function MobilePortfolioDrawer({
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 flex flex-col rounded-t-2xl shadow-2xl transition-all duration-300 ease-out"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 flex flex-col rounded-t-2xl shadow-2xl transition-all duration-300 ease-out overflow-hidden"
       style={{
-        minHeight: 'fit-content', // Let content determine height
-        maxHeight: '66.67vh' // 2/3 screen height - reasonable limit
+        height: drawerHeight,
+        maxHeight: '90vh' // Increased from 66.67vh to prevent content overflow
       }}
     >
       {/* Header */}
@@ -183,12 +195,22 @@ export function MobilePortfolioDrawer({
                   poster={selectedItem.imageUrl}
                 />
               </div>
+            ) : selectedItem.imageUrls && selectedItem.imageUrls.length > 0 ? (
+              <div className="mb-4 rounded-lg">
+                <ImageCarousel
+                  images={selectedItem.imageUrls}
+                  alt={selectedItem.title || selectedItem.description}
+                  className="w-full h-auto object-contain"
+                  autoplayInterval={4000}
+                  showControls={true}
+                />
+              </div>
             ) : selectedItem.imageUrl ? (
-              <div className="mb-4">
+              <div className="mb-4 rounded-lg">
                 <img
                   src={selectedItem.imageUrl}
                   alt={selectedItem.title || selectedItem.description}
-                  className="w-full object-contain rounded-lg"
+                  className="w-full h-auto object-contain rounded-lg"
                 />
               </div>
             ) : null}
@@ -212,13 +234,13 @@ export function MobilePortfolioDrawer({
         </div>
       </div>
 
-      {/* Footer with Action Button - Always Visible */}
-      <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex-shrink-0 bg-white dark:bg-gray-900">
+      {/* Footer with Action Button - Hidden for now */}
+      {/* <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex-shrink-0 bg-white dark:bg-gray-900">
         <Button onClick={handleViewLive} className="w-full">
           <ExternalLink className="h-4 w-4 mr-2" />
           View Live
         </Button>
-      </div>
+      </div> */}
 
       {/* Confirmation Modal */}
       {showConfirmModal && (

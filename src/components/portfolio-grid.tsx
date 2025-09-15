@@ -2,12 +2,14 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { MagicCard } from "@/components/magicui/magic-card";
+import { ImageCarousel } from "@/components/image-carousel";
 
 import { useState, useMemo, Fragment } from "react";
 
 interface PortfolioItem {
   title?: string;
   imageUrl?: string;
+  imageUrls?: string[]; // Array of images for carousel
   videoUrl?: string;
   description: string;
   url: string;
@@ -148,21 +150,42 @@ const portfolioItems: PortfolioItem[] = [
     tags: ["mobile", "android", "ios", "2017"]
   },
   {
-    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752452448/katataganmay202020fastforward-ezgif.com-video-to-gif-converter_ff4y5m.gif",
+    imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924982/portfolio2025-rest-of-assets/katatagan-1_pwelcx.jpg",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924984/portfolio2025-rest-of-assets/katatagan-3_fkj07o.jpg",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-4_edsxvh.jpg",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-5_ygao5s.jpg",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-6_kjrdyj.jpg",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-7_qxw7gd.jpg",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-8_n7wdhk.jpg",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924982/portfolio2025-rest-of-assets/katatagan-2_cm1txe.jpg"
+    ],
     title: "Katatagan In A Box",
     description: "Business Continuity App for MSMEs",
     url: "https://play.google.com/store/apps/details?id=xyz.orangefix.katatagan",
     tags: ["mobile", "react-native", "android", "ios", "2019"]
   },
   {
-    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792238/1601667424678_mvo3uc.jpg",
+    imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-1_ib66cs.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-2_ieqigy.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-3_qi9x6z.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924976/portfolio2025-rest-of-assets/matigsalug-4_ufeezm.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924976/portfolio2025-rest-of-assets/matigsalug-5_c5eep2.webp"
+    ],
     title: "Matigsalug Learners App",
     description: "Matigsalug Learners App",
     url: "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
     tags: ["mobile", "react-native", "android", "ios", "2018"]
   },
   {
-    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738792241/1602522448880_rtrk1b.jpg",
+    imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924978/portfolio2025-rest-of-assets/kaalam-1_tq50kz.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-2_lsuadw.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-3_jmilbw.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-4_wtjbll.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-5_nuyatg.webp"
+    ],
     title: "Kaalam Cebuano App",
     description: "Kaalam Cebuano App",
     url: "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
@@ -176,7 +199,15 @@ const portfolioItems: PortfolioItem[] = [
     tags: ["mobile", "android", "ios", "2018"]
   },
   {
-    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927546/1YZva9yKdCmhCkDP-unnamed_2520_1_jirfjy.jpg",
+    imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-1_zcdguw.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-2_vnrnin.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-3_arblje.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-4_sexapr.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-5_eamvfh.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-6_rdlgmq.webp",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757924978/portfolio2025-rest-of-assets/educo-screenshot_g5egqf.png"
+    ],
     title: "Educo Learners App",
     description: "Educo Learners App",
     url: "https://play.google.com/store/apps/details?id=com.Educo.educocwdpardo&hl=en_US&gl=US",
@@ -379,6 +410,16 @@ export function PortfolioGrid({ selectedItemIndex: externalSelectedIndex, onItem
                         loop
                         playsInline
                         className="object-contain rounded-md max-h-[400px]"
+                      />
+                    </div>
+                  ) : item.imageUrls && item.imageUrls.length > 0 ? (
+                    <div className="w-full flex items-center justify-center min-h-[180px] max-h-[180px] mb-2 overflow-hidden">
+                      <ImageCarousel
+                        images={item.imageUrls}
+                        alt={item.description}
+                        className="object-contain rounded-md h-full w-full"
+                        autoplayInterval={4000}
+                        showControls={false}
                       />
                     </div>
                   ) : item.imageUrl ? (
