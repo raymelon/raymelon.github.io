@@ -38,7 +38,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752451896/pixel_post_as_inspo_jlaeqv.png",
-    title: "ixel Post 2D",
+    title: "Pixel Post 2D",
     description: "Pixel Post 2D - 3rd 🏆 in Orange Vibe Jam",
     url: "https://x.com/pseudokid/status/1930738134070837658",
     tags: ["Orange Web3 Vibe Jam", "ai", "2025"]
@@ -73,6 +73,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     imageUrl: "https://pbs.twimg.com/ext_tw_video_thumb/1861889348955979776/pu/img/2xmojdicvXxLTePy.jpg",
+    title: "Document Chat AI Assistant",
     description: "Document Chat AI Assistant",
     url: "https://twitter.com/pseudokid/status/1861895287855624617",
     tags: ["desktop", "streamlit","ai", "2024"]
