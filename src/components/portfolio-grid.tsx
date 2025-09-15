@@ -2,7 +2,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { MagicCard } from "@/components/magicui/magic-card";
-import Link from "next/link";
+
 import { useState, useMemo, Fragment } from "react";
 
 interface PortfolioItem {
@@ -242,10 +242,26 @@ const allTags = Array.from(
 
 type SortOrder = 'default' | 'year-asc' | 'year-desc';
 
-export function PortfolioGrid() {
+interface PortfolioGridProps {
+  selectedItemIndex?: number;
+  onItemSelect?: (index: number) => void;
+  drawerOpen?: boolean;
+  onDrawerChange?: (open: boolean) => void;
+  onItemsChange?: (items: PortfolioItem[]) => void;
+}
+
+export function PortfolioGrid({ selectedItemIndex: externalSelectedIndex, onItemSelect, drawerOpen = false, onDrawerChange, onItemsChange }: PortfolioGridProps) {
   const { theme } = useTheme();
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<SortOrder>('year-desc'); // Default sort by year descending
+  const [internalDrawerOpen, setInternalDrawerOpen] = useState(false);
+  const [internalSelectedIndex, setInternalSelectedIndex] = useState(0);
+
+  // Use external state if provided, otherwise use internal state
+  const selectedItemIndex = externalSelectedIndex ?? internalSelectedIndex;
+  const setSelectedItemIndex = onItemSelect ?? setInternalSelectedIndex;
+  const isDrawerOpen = drawerOpen;
+  const setDrawerOpen = onDrawerChange ?? setInternalDrawerOpen;
 
   const sortedAndFilteredItems = useMemo(() => {
     let items = [...portfolioItems];
@@ -266,15 +282,30 @@ export function PortfolioGrid() {
     return items;
   }, [activeTag, sortOrder]);
 
+  // Update parent with current items
+  React.useEffect(() => {
+    if (onItemsChange) {
+      onItemsChange(sortedAndFilteredItems);
+    }
+  }, [sortedAndFilteredItems, onItemsChange]);
+
+  const handleItemClick = (itemIndex: number) => {
+    setSelectedItemIndex(itemIndex);
+    setDrawerOpen(true);
+  };
+
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 z-40 relative" data-filter>
         {/* Tag Filters */}
         <div className="flex flex-wrap gap-2 items-center">
           <span className="font-medium text-sm mr-1">Filter by Tag:</span>
           <button
-            onClick={() => setActiveTag(null)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveTag(null);
+            }}
             className={`text-blue-600 dark:text-blue-400 hover:underline text-sm ${
               activeTag === null ? 'underline font-bold' : ''
             }`}
@@ -285,7 +316,10 @@ export function PortfolioGrid() {
             <Fragment key={tag}>
               {index > 0 && <span className="text-gray-500 text-xs mx-1">•</span>}
               <button
-                onClick={() => setActiveTag(tag)} // Allow clicking any tag, including years
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveTag(tag);
+                }} // Allow clicking any tag, including years
                 className={`text-sm hover:underline text-blue-600 dark:text-blue-400 ${ // Use same base style for all tags
                   activeTag === tag ? 'underline font-bold' : '' // Apply active style regardless of tag type
                 }`}
@@ -300,7 +334,10 @@ export function PortfolioGrid() {
         <div className="flex flex-wrap gap-2 items-center">
            <span className="font-medium text-sm mr-1">Sort by Year:</span>
            <button
-            onClick={() => setSortOrder('year-asc')}
+            onClick={(e) => {
+              e.stopPropagation();
+              setSortOrder('year-asc');
+            }}
             className={`text-green-600 dark:text-green-400 hover:underline text-sm ${
               sortOrder === 'year-asc' ? 'underline font-bold' : ''
             }`}
@@ -309,7 +346,10 @@ export function PortfolioGrid() {
           </button>
           <span className="text-gray-500 text-xs">•</span>
            <button
-            onClick={() => setSortOrder('year-desc')}
+            onClick={(e) => {
+              e.stopPropagation();
+              setSortOrder('year-desc');
+            }}
             className={`text-green-600 dark:text-green-400 hover:underline text-sm ${
               sortOrder === 'year-desc' ? 'underline font-bold' : ''
             }`}
@@ -320,10 +360,10 @@ export function PortfolioGrid() {
       </div>
 
 
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-4 w-full space-y-4">
+      <div className="gap-4 space-y-4 columns-1 md:columns-2 lg:columns-3">
         {sortedAndFilteredItems.map((item, index) => (
           <div key={`${item.url}-${index}`} className="break-inside-avoid mb-6">
-            <Link href={item.url} target="_blank">
+            <div onClick={() => handleItemClick(index)}>
               <MagicCard
                 className="cursor-pointer flex flex-col items-center justify-center shadow-xl p-3"
                 gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
@@ -351,7 +391,7 @@ export function PortfolioGrid() {
                   ) : item.title ? (
                     <h2 className="text-1xl whitespace-nowrap mb-2">{item.title}</h2>
                   ) : null}
-                  
+
                   <p className="mt-1 text-sm text-center text-muted-foreground mb-3 px-2">
                     {item.description}
                   </p>
@@ -360,7 +400,7 @@ export function PortfolioGrid() {
                       <Fragment key={`${item.url}-${tag}-${i}`}>
                         <button
                           onClick={(e) => {
-                            e.preventDefault(); // Prevent navigating via the parent Link
+                            e.preventDefault(); // Prevent opening drawer
                             e.stopPropagation(); // Stop the event from bubbling up
                             // If the clicked tag is already active, deactivate it (show all). Otherwise, activate it.
                             setActiveTag(prevActiveTag => prevActiveTag === tag ? null : tag);
@@ -378,10 +418,12 @@ export function PortfolioGrid() {
                   </div>
                 </div>
               </MagicCard>
-            </Link>
+            </div>
           </div>
         ))}
       </div>
+
+
     </div>
   );
 }

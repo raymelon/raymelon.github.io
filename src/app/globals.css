@@ -142,3 +142,8 @@ code[data-line-numbers-max-digits="2"] > [data-line]::before {
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
+
+/* Override Radix UI's body pointer-events blocking */
+body[data-radix-dialog-open] {
+  pointer-events: auto !important;
+}
