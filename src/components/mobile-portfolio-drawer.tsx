@@ -34,6 +34,7 @@ export function MobilePortfolioDrawer({
   const [needsScrolling, setNeedsScrolling] = useState(false);
   const [isVerticalVideo, setIsVerticalVideo] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [hasVerticalImages, setHasVerticalImages] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -54,13 +55,16 @@ export function MobilePortfolioDrawer({
       const screenHeight = window.innerHeight;
 
       // Check if there are vertical images that need full screen
-      const hasVerticalImages = contentRef.current.querySelectorAll('img').length > 0 &&
+      const verticalImagesDetected = contentRef.current.querySelectorAll('img').length > 0 &&
         Array.from(contentRef.current.querySelectorAll('img')).some(img => {
           const htmlImg = img as HTMLImageElement;
           return htmlImg.naturalHeight > htmlImg.naturalWidth;
         });
 
-      if (hasVerticalImages) {
+      // Update state for conditional styling
+      setHasVerticalImages(verticalImagesDetected);
+
+      if (verticalImagesDetected) {
         // Vertical images detected - use full screen height
         setDrawerHeight('100vh');
         setNeedsScrolling(true);
@@ -216,7 +220,7 @@ export function MobilePortfolioDrawer({
             ) : null}
 
             {/* Additional Info with Live Button */}
-            <div className="flex items-end justify-between pt-2">
+            <div className={`flex items-end justify-between pt-2 ${hasVerticalImages ? 'pb-16' : ''}`}>
               {selectedItem.year && (
                 <div>
                   <h3 className="text-sm font-semibold mb-1">Year</h3>

@@ -214,14 +214,24 @@ const portfolioItems: PortfolioItem[] = [
     tags: ["full-stack", "mobile", "nodejs", "2020"]
   },
   {
-    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927509/ajckHzGuoDvb7Qr3-1024x500_kv7fjp.png",
+    imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1738927509/ajckHzGuoDvb7Qr3-1024x500_kv7fjp.png",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yazi01_zvpp5c.png",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757942022/portfolio2025-rest-of-assets/yazi02_iaf0ud.png",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yazi03_qd3yqg.png"
+    ],
     title: "Yazi",
     description: "Yazi",
     url: "https://play.google.com/store/apps/details?id=com.yazi.app.user&hl=en&gl=US",
     tags: ["mobile", "firebase", "react-native", "2020"]
   },
   {
-    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1738927515/8D9o8QA87DSxk7os-guide-1024x500_20banner_go4icv.png",
+    imageUrls: [
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1738927515/8D9o8QA87DSxk7os-guide-1024x500_20banner_go4icv.png",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yaziguide01_ncxu53.png",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yaziguide04_m7cvrk.png",
+      "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yaziguide02_luzs7j.png"
+    ],
     title: "Yazi Guide",
     description: "Yazi Guide",
     url: "https://play.google.com/store/apps/details?id=com.yazi.app.guide",
