@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ImageCarousel } from "@/components/image-carousel";
+import BlurFade from "@/components/magicui/blur-fade";
 
 interface PortfolioItem {
   title?: string;
@@ -78,9 +79,24 @@ export function PortfolioDrawer({
   if (!isOpen) return null;
 
   return (
-    <div className={`fixed top-0 right-0 h-full w-1/2 bg-white dark:bg-gray-900 z-30 flex flex-col overflow-hidden shadow-2xl transform transition-transform duration-500 ease-out ${
-      isOpen ? 'translate-x-0' : 'translate-x-full'
-    }`}>
+    <div
+      className="fixed top-0 right-0 h-full w-1/2 bg-white dark:bg-gray-900 z-30 flex flex-col overflow-hidden shadow-2xl"
+      style={{
+        opacity: 0,
+        filter: 'blur(6px)',
+        transform: 'translateY(6px)',
+        animation: 'drawerFadeIn 0.4s ease-out 0.04s forwards'
+      }}
+    >
+      <style jsx>{`
+        @keyframes drawerFadeIn {
+          to {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateY(-6px);
+          }
+        }
+      `}</style>
       {/* Content Header */}
       <div className="p-6 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-start justify-between">
@@ -115,7 +131,16 @@ export function PortfolioDrawer({
       </div>
 
       {/* Content Body */}
-      <div className="flex-1 p-6 overflow-y-auto">
+      <div
+        key={selectedIndex}
+        className="flex-1 p-6 overflow-y-auto"
+        style={{
+          opacity: 0,
+          filter: 'blur(6px)',
+          transform: 'translateY(6px)',
+          animation: 'drawerFadeIn 0.4s ease-out 0.04s forwards'
+        }}
+      >
         <div className="max-w-4xl mx-auto">
           {selectedItem.videoUrl ? (
             <div className="mb-6">

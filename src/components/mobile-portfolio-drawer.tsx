@@ -152,9 +152,22 @@ export function MobilePortfolioDrawer({
       className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 flex flex-col rounded-t-2xl shadow-2xl transition-all duration-300 ease-out overflow-hidden"
       style={{
         height: drawerHeight,
-        maxHeight: '90vh' // Increased from 66.67vh to prevent content overflow
+        maxHeight: '90vh', // Increased from 66.67vh to prevent content overflow
+        opacity: 0,
+        filter: 'blur(6px)',
+        transform: 'translateY(6px)',
+        animation: 'drawerFadeIn 0.4s ease-out 0.04s forwards'
       }}
     >
+      <style jsx>{`
+        @keyframes drawerFadeIn {
+          to {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateY(-6px);
+          }
+        }
+      `}</style>
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
         <h1 className="text-lg font-bold truncate">
@@ -167,7 +180,17 @@ export function MobilePortfolioDrawer({
 
       {/* Scrollable Content Area */}
       <div className="flex-1 overflow-y-auto">
-        <div ref={contentRef} className="p-4">
+        <div
+          key={selectedIndex}
+          ref={contentRef}
+          className="p-4"
+          style={{
+            opacity: 0,
+            filter: 'blur(6px)',
+            transform: 'translateY(6px)',
+            animation: 'drawerFadeIn 0.4s ease-out 0.04s forwards'
+          }}
+        >
           <div className="max-w-full mx-auto space-y-4">
             {/* Project Info */}
             <div>
