@@ -3,7 +3,8 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { useState, useMemo, Fragment } from "react";
-import N8nDemoWebComponent from '@/components/n8n-demo-webcomponent'
+import N8nDemoWebComponent from '@/components/n8n-demo-webcomponent';
+import { N8nFullscreenModal } from '@/components/n8n-fullscreen-modal';
 
 interface N8nItem {
   title: string;
@@ -38,6 +39,8 @@ const allTags = Array.from(
 export function N8nGrid() {
   const { theme } = useTheme();
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<N8nItem | null>(null);
 
   const filteredItems = useMemo(() => {
     if (activeTag) {
@@ -45,6 +48,18 @@ export function N8nGrid() {
     }
     return n8nItems;
   }, [activeTag]);
+
+  const handleCardClick = (item: N8nItem) => {
+    console.log('Card clicked:', item.title);
+    setSelectedItem(item);
+    setModalOpen(true);
+    console.log('Modal should open now');
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setSelectedItem(null);
+  };
 
   const renderComponent = (item: N8nItem) => {
     switch (item.component) {
@@ -88,10 +103,11 @@ export function N8nGrid() {
       <div className="columns-1 gap-4 w-full space-y-4">
         {filteredItems.map((item, index) => (
           <div key={`${item.title}-${index}`} className="break-inside-avoid mb-6">
-            <MagicCard
-              className="flex flex-col items-center justify-center shadow-xl p-3"
-              gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-            >
+            <div onClick={() => handleCardClick(item)} className="cursor-pointer">
+              <MagicCard
+                className="flex flex-col items-center justify-center shadow-xl p-3"
+                gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+              >
               <div className="flex flex-col items-center w-full">
                 <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
                 <p className="mt-1 text-sm text-center text-muted-foreground mb-3 px-2">
@@ -103,7 +119,6 @@ export function N8nGrid() {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          e.stopPropagation();
                           setActiveTag(prevActiveTag => prevActiveTag === tag ? null : tag);
                         }}
                         className={`text-xs hover:underline text-blue-600 dark:text-blue-400 ${
@@ -121,9 +136,17 @@ export function N8nGrid() {
                 </div>
               </div>
             </MagicCard>
+            </div>
           </div>
         ))}
       </div>
+
+      {/* Fullscreen Modal */}
+      <N8nFullscreenModal
+        item={selectedItem}
+        isOpen={modalOpen}
+        onClose={handleModalClose}
+      />
     </div>
   );
 }
