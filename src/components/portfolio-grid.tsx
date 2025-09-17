@@ -32,17 +32,17 @@ const portfolioItems: PortfolioItem[] = [
     tags: ["ai-agency", "ai", "2025"]
   },
   {
-    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752451852/top_games_ybdvs6.png",
-    title: "Vibe coded 9 games in 3 weeks",
-    description: "Vibe coded 9 games in 3 weeks.",
-    url: "https://x.com/pseudokid/status/1923473371880358177",
-    tags: ["Orange Web3 Vibe Jam", "ai", "2025"]
-  },
-  {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752451896/pixel_post_as_inspo_jlaeqv.png",
     title: "Pixel Post 2D",
     description: "Pixel Post 2D - Hackathon 3rd Placer 🏆 in Orange Vibe Jam: World's First Vibe Coding Hackathon in Web3",
     url: "https://x.com/pseudokid/status/1930738134070837658",
+    tags: ["Orange Web3 Vibe Jam", "ai", "2025"]
+  },
+  {
+    imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752451852/top_games_ybdvs6.png",
+    title: "Vibe coded 9 games in 3 weeks",
+    description: "Vibe coded 9 games in 3 weeks.",
+    url: "https://x.com/pseudokid/status/1923473371880358177",
     tags: ["Orange Web3 Vibe Jam", "ai", "2025"]
   },
   {
