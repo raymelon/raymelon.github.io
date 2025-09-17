@@ -41,7 +41,7 @@ const portfolioItems: PortfolioItem[] = [
   {
     imageUrl: "https://res.cloudinary.com/dxsornfee/image/upload/v1752451896/pixel_post_as_inspo_jlaeqv.png",
     title: "Pixel Post 2D",
-    description: "Pixel Post 2D - 3rd 🏆 in Orange Vibe Jam",
+    description: "Pixel Post 2D - Hackathon 3rd Placer 🏆 in Orange Vibe Jam: World's First Vibe Coding Hackathon in Web3",
     url: "https://x.com/pseudokid/status/1930738134070837658",
     tags: ["Orange Web3 Vibe Jam", "ai", "2025"]
   },
