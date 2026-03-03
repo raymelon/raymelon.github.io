@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from "../layouts/Layout.astro";
 import ImageTicker from "../components/ImageTicker.astro";
 import MediaCarousel from "../components/MediaCarousel.astro";
@@ -9,6 +10,10 @@ import {
   getPortfolioContent,
   getPortfolioAssetUrl,
 } from "../lib/portfolio";
+
+import heroSource from '../assets/P_20200702_131755_mod.jpg';
+import introSource from '../assets/syncsignature-headshot-1706457210445 (3).png';
+import shipSource from '../assets/P_20181107_210050.jpg';
 
 const { ctaSlide } = getPortfolioContent();
 const allProjects = getAllProjects();
@@ -102,12 +107,14 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
               id="hero-ascii-canvas"
               class="hero-ascii"
               aria-label="ASCII art portrait"></canvas>
-            <img
+            <Image
               id="hero-ascii-source"
-              src="/P_20200702_131755_mod.jpg"
+              src={heroSource}
               alt="Portrait"
               loading="eager"
               decoding="async"
+              format="webp"
+              quality={80}
               style="display: none;"
             />
           </figure>
@@ -256,12 +263,14 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
           id="ascii-canvas"
           class="intro-photo"
           aria-label="ASCII art portrait of Raymel Francisco"></canvas>
-        <img
+        <Image
           id="ascii-source"
-          src="/syncsignature-headshot-1706457210445%20(3).png"
+          src={introSource}
           alt="Portrait of Raymel Francisco"
           loading="eager"
           decoding="async"
+          format="webp"
+          quality={80}
           style="display: none;"
         />
       </figure>
@@ -828,12 +837,14 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
             id="ship-ascii-canvas"
             class="ship-ascii"
             aria-label="ASCII art photo"></canvas>
-          <img
+          <Image
             id="ship-ascii-source"
-            src="/P_20181107_210050.jpg"
+            src={shipSource}
             alt="Photo"
             loading="eager"
-            decoding="sync"
+            decoding="async"
+            format="webp"
+            quality={80}
             style="display: none;"
           />
         </figure>
@@ -1028,12 +1039,14 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
                 id="testimonial-ascii-canvas-01"
                 class="testimonial-ascii"
                 aria-label="Client portrait"></canvas>
-              <img
+              <Image
                 id="testimonial-ascii-source-01"
-                src="/P_20200702_131755_mod.jpg"
+                src={heroSource}
                 alt="Client portrait"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                format="webp"
+                quality={80}
                 style="display: none;"
               />
               <div class="testimonial-tint testimonial-tint--indigo"></div>
@@ -1080,12 +1093,14 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
                 id="testimonial-ascii-canvas-02"
                 class="testimonial-ascii"
                 aria-label="Client portrait"></canvas>
-              <img
+              <Image
                 id="testimonial-ascii-source-02"
-                src="/P_20200702_131755_mod.jpg"
+                src={heroSource}
                 alt="Client portrait"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                format="webp"
+                quality={80}
                 style="display: none;"
               />
               <div class="testimonial-tint testimonial-tint--green"></div>
@@ -1127,12 +1142,14 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
                 id="testimonial-ascii-canvas-03"
                 class="testimonial-ascii"
                 aria-label="Client portrait"></canvas>
-              <img
+              <Image
                 id="testimonial-ascii-source-03"
-                src="/P_20200702_131755_mod.jpg"
+                src={heroSource}
                 alt="Client portrait"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                format="webp"
+                quality={80}
                 style="display: none;"
               />
               <div class="testimonial-tint testimonial-tint--crimson"></div>
@@ -1987,13 +2004,23 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
       }
     }
 
-    function init() {
+    function triggerRender() {
       if (img.complete && img.naturalWidth > 0) {
         renderASCII();
       } else {
-        img.addEventListener("load", renderASCII);
+        img.addEventListener("load", renderASCII, { once: true });
       }
     }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        triggerRender();
+      });
+    }, { rootMargin: "200px" });
+
+    observer.observe(canvas);
 
     // Re-render on resize
     let resizeTimer: ReturnType<typeof setTimeout>;
@@ -2001,13 +2028,6 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(renderASCII, 200);
     });
-
-    // Init when DOM is ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
-    } else {
-      init();
-    }
   })();
 </script>
 
@@ -2132,24 +2152,30 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
       }
     }
 
-    function init() {
-      img.onload = () => renderASCII();
-      if (img.complete) renderASCII();
+    function triggerRender() {
+      if (img.complete && img.naturalWidth > 0) {
+        renderASCII();
+      } else {
+        img.addEventListener("load", renderASCII, { once: true });
+      }
+    }
 
-      let resizeTimer: ReturnType<typeof setTimeout>;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(renderASCII, 200);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        triggerRender();
       });
-    }
+    }, { rootMargin: "200px" });
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
-    } else {
-      init();
-    }
+    observer.observe(canvas);
+
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(renderASCII, 200);
+    });
   })();
-</script>
 
 <script>
   // How I Ship ASCII renderer (same coarse + subtle style as hero)
@@ -2270,27 +2296,29 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
       }
     }
 
-    function init() {
-      img.onload = () => renderASCII();
+    function triggerRender() {
       if (img.complete && img.naturalWidth > 0) {
         renderASCII();
       } else {
-        // Belt-and-suspenders: also render on full page load
-        window.addEventListener("load", () => renderASCII(), { once: true });
+        img.addEventListener("load", renderASCII, { once: true });
       }
+    }
 
-      let resizeTimer: ReturnType<typeof setTimeout>;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(renderASCII, 200);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        triggerRender();
       });
-    }
+    }, { rootMargin: "200px" });
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
-    } else {
-      init();
-    }
+    observer.observe(canvas);
+
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(renderASCII, 200);
+    });
   })();
 </script>
 
@@ -2441,12 +2469,23 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
         ctx.fillText(initials, centerX, centerY);
       }
 
-      img.onload = () => doRender();
-      if (img.complete && img.naturalWidth > 0) {
-        doRender();
-      } else {
-        window.addEventListener("load", () => doRender(), { once: true });
+      function triggerRender() {
+        if (img.complete && img.naturalWidth > 0) {
+          doRender();
+        } else {
+          img.addEventListener("load", doRender, { once: true });
+        }
       }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          triggerRender();
+        });
+      }, { rootMargin: "200px" });
+
+      observer.observe(canvas);
 
       let resizeTimer: ReturnType<typeof setTimeout>;
       window.addEventListener("resize", () => {
@@ -2591,12 +2630,23 @@ const contactUrl = ctaSlide?.url ?? "https://x.com/pseudokid";
         }
       }
 
-      img.onload = () => doRender();
-      if (img.complete && img.naturalWidth > 0) {
-        doRender();
-      } else {
-        window.addEventListener("load", () => doRender(), { once: true });
+      function triggerRender() {
+        if (img.complete && img.naturalWidth > 0) {
+          doRender();
+        } else {
+          img.addEventListener("load", doRender, { once: true });
+        }
       }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          triggerRender();
+        });
+      }, { rootMargin: "200px" });
+
+      observer.observe(canvas);
 
       let resizeTimer: ReturnType<typeof setTimeout>;
       window.addEventListener("resize", () => {
