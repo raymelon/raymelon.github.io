@@ -16,9 +16,9 @@ const { images, speed = 500 } = Astro.props;
 
 const videoThumbnails: Record<string, string> = {
   "aaIp7ipELMRFarnw_idtwri.mp4":
-    "/assets/portfolio/videoframe_27084_rwy6qt.png",
+    "/assets/portfolio/videoframe_27084_rwy6qt.webp",
   "ioMxNPSbhYMDjSEz_vbqpwl.mp4":
-    "/assets/portfolio/videoframe_18991_qjyn9q.png",
+    "/assets/portfolio/videoframe_18991_qjyn9q.webp",
 };
 
 function resolveAssetUrl(asset: string): string {
@@ -61,7 +61,7 @@ const processedImages = images.map((img) => ({
         <img
           src="${collageSrc}"
           alt="${image.alt} ${idx + 1}"
-          loading="eager"
+          loading="lazy"
           decoding="async"
         />
       `).join('');
@@ -80,7 +80,7 @@ const processedImages = images.map((img) => ({
         <img
           src="${image.src}"
           alt="${image.alt}"
-          loading="eager"
+          loading="lazy"
           decoding="async"
         />
       </div>
