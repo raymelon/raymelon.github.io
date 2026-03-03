@@ -1,0 +1,579 @@
+{
+  "slides": [
+    {
+      "type": "title",
+      "title": "Raymel Francisco",
+      "subtitle": "Builder, Engineer, Product Operator",
+      "tagline": "Building products. Shipping fast. Learning loud."
+    },
+    {
+      "type": "intro",
+      "title": "What I Build",
+      "description": "Over 14 years, I have built projects across hobby, academe, freelancing, and work, with focus on architecture, infrastructure, and system design plus product and marketing execution."
+    },
+    {
+      "type": "product",
+      "name": "02AI.DEV",
+      "tagline": "AI workflows for your business",
+      "metric": "10+ businesses served, 5-20 workflows per business, 50-100 users",
+      "description": "AI automation platform for businesses",
+      "year": "2024",
+      "url": "https://02ai.dev",
+      "asset": "02ai.dev_hero_wwacbd.png"
+    },
+    {
+      "type": "product",
+      "name": "recaps.fyi",
+      "tagline": "Text to video, made easy",
+      "status": "retired",
+      "metric": "20k impressions on launch campaign, 3 clients served the first week",
+      "description": "Text-to-video platform for content creators",
+      "year": "2024",
+      "asset": "recapsfyi screenshot.PNG",
+      "assets": [
+        "recapsfyi screenshot.PNG",
+        "recaps-demo.PNG",
+        "1708578272992_4_kckjur.mp4"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Level Up! Founders",
+      "tagline": "Newsletter for indie makers",
+      "status": "retired",
+      "metric": "50 subs, 1k impressions/m",
+      "description": "Newsletter platform for indie makers and startup founders",
+      "year": "2024",
+      "asset": "xKbxqhBSlV-KMcMJ.jpg"
+    },
+    {
+      "type": "product",
+      "name": "Cowboy Shooter",
+      "tagline": "Wild west vibe-coded game",
+      "status": "retired",
+      "metric": "50k+ impressions on first few days of launch, landed sponsorship slots, 40+ active players during hackathon run, orangeweb3 at 30k DAU",
+      "description": "Wild west themed game",
+      "year": "2025",
+      "url": "https://x.com/pseudokid/status/1897981468862996910",
+      "asset": "aaIp7ipELMRFarnw_idtwri.mp4"
+    },
+    {
+      "type": "product",
+      "name": "Cyber Vibe 2025",
+      "tagline": "Cyberpunk vibe-coded game",
+      "status": "retired",
+      "metric": "10k+ impressions on first few days of launch, 40+ active players during hackathon run, orangeweb3 at 30k DAU as of late 2025",
+      "description": "Cyberpunk themed game",
+      "year": "2025",
+      "url": "https://cybervibe.raymelon.com/",
+      "asset": "ioMxNPSbhYMDjSEz_vbqpwl.mp4"
+    },
+    {
+      "type": "product",
+      "name": "AI Content Empire",
+      "tagline": "Coming soon",
+      "status": "soon",
+      "description": "AI-powered content creation tool",
+      "year": "2025"
+    },
+    {
+      "type": "product",
+      "name": "Tokwa Chat",
+      "tagline": "ChatGPT-like AI chat platform",
+      "status": "wip",
+      "description": "AI chat platform",
+      "year": "2025",
+      "asset": "tokwachat screenshot.PNG"
+    },
+    {
+      "type": "product",
+      "name": "Punla",
+      "tagline": "Connecting farmers to buyers",
+      "status": "retired",
+      "description": "Agricultural marketplace platform",
+      "year": "2020",
+      "url": "https://facebook.com/punlafarms/"
+    },
+    {
+      "type": "product",
+      "name": "Nababaha",
+      "tagline": "Weather data for every Filipino",
+      "status": "retired",
+      "description": "Weather data platform for Filipinos",
+      "year": "2019",
+      "asset": "nababaha screenshot.PNG"
+    },
+    {
+      "type": "product",
+      "name": "KaiXi",
+      "tagline": "Talent Database / Talent Search",
+      "status": "shipped",
+      "metric": "platform ready to onboard 50-100 talents in 2019",
+      "description": "Talent matching platform",
+      "year": "2024",
+      "asset": "kaixi screenshot 2018-09-01.png",
+      "assets": [
+        "kaixi screenshot 2018-09-01.png",
+        "kaixi screenhot 2018-09-03.png"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "The Live Almanac Project",
+      "tagline": "Encyclopedia of Philippine Maps",
+      "status": "shipped",
+      "description": "Philippine almanac map with basic stats when you hover - a visualizer",
+      "asset": "the live almanac project screenshot.PNG",
+      "assets": [
+        "the live almanac project screenshot.PNG",
+        "the live almanac project screenshot 1.PNG"
+      ],
+      "year": "2017"
+    },
+    {
+      "type": "product",
+      "name": "QRQodes",
+      "tagline": "QR Code management platform",
+      "status": "shipped",
+      "metric": "Built for ballot QR scanning during the 2022 elections",
+      "description": "QRQodes is a ballot QR code scanner made for 2022 elections.",
+      "year": "2022",
+      "asset": "qrqodes screenshot.PNG",
+      "assets": [
+        "qrqodes screenshot.PNG",
+        "qrqodes screenshot 2.PNG",
+        "qrqodes screenshot 3.PNG"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "KuyaBai",
+      "tagline": "AI-powered learning platform",
+      "status": "shipped",
+      "metric": "200k+ monthly active visits, 30k monthly sessions, 18k monthly new users, 20% bounce rate in 2025",
+      "description": "AI-powered learning platform",
+      "year": "2023",
+      "asset": "kuyabai.PNG"
+    },
+    {
+      "type": "product",
+      "name": "Call Log Project",
+      "tagline": "Call tracking and analytics",
+      "status": "shipped",
+      "metric": "demo ready to process thousands of call logs daily",
+      "description": "Call tracking and analytics platform",
+      "year": "2023",
+      "asset": "call log app screenshot.PNG",
+      "assets": [
+        "call log app screenshot.PNG",
+        "call log app screenshot 1.PNG"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "CloudWidget",
+      "tagline": "Cloud widget dashboard",
+      "status": "shipped",
+      "metric": "projected EmbedSocial-level numbers, ready to integrate Facebook, Instagram, X feeds",
+      "description": "Cloud widget dashboard",
+      "year": "2023",
+      "asset": "dashwidget screenshot 2.webp",
+      "assets": [
+        "dashwidget screenshot 2.webp",
+        "dash widget settingspng.png"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Educo",
+      "tagline": "Learners app platform",
+      "status": "shipped",
+      "metric": "millions of students from partner schools, 150k+ students in Philippines across 184 barangays, 192 schools in 11 municipalities in Albay, Camarines Sur, Sorsogon as of 2025",
+      "description": "Educational learning platform",
+      "year": "2020",
+      "asset": "educo-screenshot_g5egqf.png",
+      "assets": [
+        "educo-screenshot_g5egqf.png",
+        "educo-1.webp",
+        "educo-2.webp",
+        "educo-3.webp",
+        "educo-4.webp",
+        "educo-5.webp",
+        "educo-6.webp"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Katatagan In A Box",
+      "tagline": "Business continuity app for MSMEs",
+      "status": "shipped",
+      "metric": "1.2M MSMEs reach in the Philippines",
+      "description": "Business continuity app for MSMEs",
+      "year": "2019",
+      "asset": "katatagan-1_pwelcx.jpg",
+      "assets": [
+        "katatagan-1_pwelcx.jpg",
+        "katatagan-2_cm1txe.jpg",
+        "katatagan-3_fkj07o.jpg",
+        "katatagan-4_edsxvh.jpg",
+        "katatagan-5_ygao5s.jpg",
+        "katatagan-6_kjrdyj.jpg",
+        "katatagan-7_qxw7gd.jpg",
+        "katatagan-8_n7wdhk.jpg"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Ta'allam Learners App",
+      "tagline": "Mobile app for language learning",
+      "status": "shipped",
+      "metric": "Part of a language-learning suite used by 500+ students in partner schools and classrooms",
+      "description": "Arabic-focused language learning app from the Smart Localapps initiative",
+      "year": "2017",
+      "asset": "1602323347376_btp2eb.jpg"
+    },
+    {
+      "type": "product",
+      "name": "Matigsalug Learners App",
+      "tagline": "Indigenous language learning app",
+      "status": "shipped",
+      "metric": "Part of a language-learning suite used by 500+ students in partner schools and classrooms",
+      "description": "Matigsalug language learning mobile app from the Smart Localapps initiative",
+      "year": "2018",
+      "asset": "1601667424678_mvo3uc.jpg",
+      "assets": [
+        "matigsalug-1.webp",
+        "matigsalug-2.webp",
+        "matigsalug-3.webp",
+        "matigsalug-4.webp",
+        "matigsalug-5.webp"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Kaalam Cebuano App",
+      "tagline": "Cebuano language learning app",
+      "status": "shipped",
+      "metric": "Part of a language-learning suite used by 500+ students in partner schools and classrooms",
+      "description": "Cebuano language learning mobile app from the Smart Localapps initiative",
+      "year": "2018",
+      "asset": "1602522448880_rtrk1b.jpg",
+      "assets": [
+        "kaalam-1.webp",
+        "kaalam-2.webp",
+        "kaalam-3.webp",
+        "kaalam-4.webp",
+        "kaalam-5.webp"
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Sanut Ilokano App",
+      "tagline": "Ilokano language learning app",
+      "status": "shipped",
+      "metric": "Part of a language-learning suite used by 500+ students in partner schools and classrooms",
+      "description": "Ilokano language learning mobile app from the Smart Localapps initiative",
+      "year": "2018",
+      "asset": "1599205837166_bv4zcn.jpg"
+    },
+    {
+      "type": "product",
+      "name": "Buildinpublic Feed",
+      "tagline": "Build in public content platform",
+      "status": "shipped",
+      "metric": "2k+ impressions on X, hundreds of builder posts featured weekly",
+      "description": "Build in public content platform",
+      "year": "2024",
+      "asset": "todayinbuildinpublic screenshot.PNG"
+    },
+    {
+      "type": "product",
+      "name": "Indiewrapped",
+      "tagline": "Spotify Wrapped for indie makers",
+      "status": "shipped",
+      "metric": "1k+ impressions on New Year's Eve launch",
+      "description": "Analytics platform for indie makers",
+      "year": "2024",
+      "asset": "indiewrapped aka recaps screenshot.PNG"
+    },
+    {
+      "type": "product",
+      "name": "Make a Bento Grid Today",
+      "tagline": "Bento grid generator",
+      "status": "shipped",
+      "metric": "1k+ impressions during launch campaign, 20+ grids created",
+      "description": "Bento grid layout generator",
+      "year": "2024",
+      "asset": "makeabentogridtoday screenshot.PNG"
+    },
+    {
+      "type": "product",
+      "name": "YouTube Playlist Backup",
+      "tagline": "Google Apps Script for playlist backup",
+      "status": "shipped",
+      "metric": "12k+ videos backed up",
+      "description": "YouTube playlist backup system",
+      "year": "2024"
+    },
+    {
+      "type": "product",
+      "name": "Voice Chat PWA",
+      "tagline": "Voice chat prototype",
+      "status": "demo",
+      "metric": "projected ChatGPT-scale userbase",
+      "description": "Real-time voice chat PWA",
+      "year": "2024"
+    },
+    {
+      "type": "product",
+      "name": "AI Components",
+      "tagline": "AI UI components library",
+      "status": "shipped",
+      "metric": "projected Streamlit/Chatlit/Gradio/Vercel AI SDK-scale userbase",
+      "description": "AI UI components library",
+      "year": "2024"
+    },
+    {
+      "type": "product",
+      "name": "Tweet Replies Analyzer",
+      "tagline": "Twitter replies analysis tool",
+      "status": "shipped",
+      "metric": "200+ replies analyzed per week per user",
+      "description": "Social intelligence tool - analyzes audience sentiment at scale",
+      "year": "2024"
+    },
+    {
+      "type": "product",
+      "name": "Tokwa Demos",
+      "tagline": "Gen AI prototype demos",
+      "status": "demo",
+      "metric": "10+ prospects in 2025",
+      "description": "Generative AI demos - PDF chat, RAG, AI landing pages",
+      "year": "2024"
+    },
+    {
+      "type": "product",
+      "name": "Scrape Analyze Show",
+      "tagline": "Job interview automation project",
+      "status": "shipped",
+      "metric": "hundreds of Instagram comments analyzed per post",
+      "description": "Instagram comment analyzer",
+      "year": "2025",
+      "asset": "scrape-analyze-show-screenshot.PNG"
+    },
+    {
+      "type": "product",
+      "name": "YouTube Live Tracker",
+      "tagline": "YouTube live stream monitor",
+      "status": "shipped",
+      "metric": "2100+ live streams tracked",
+      "description": "YouTube live stream monitor",
+      "year": "2025"
+    },
+    {
+      "type": "product",
+      "name": "YouTube Streamer VODs Organizer",
+      "tagline": "YouTube VOD organization tool",
+      "status": "shipped",
+      "metric": "2000+ VODs organized over 9 months",
+      "description": "YouTube VOD organizer",
+      "year": "2025"
+    },
+    {
+      "type": "product",
+      "name": "Weather Broadcast Livestream Tracker",
+      "tagline": "Livestream archival project",
+      "status": "shipped",
+      "metric": "11k+ 24/7 weather broadcasts tracked over 3 years",
+      "description": "Weather broadcast livestream archiver",
+      "year": "2022"
+    },
+    {
+      "type": "product",
+      "name": "StreamVOD Archiver Agent",
+      "tagline": "Stream and VOD archiving agent",
+      "status": "shipped",
+      "metric": "220+ agent runs in the past 8 months",
+      "description": "Stream and VOD archiver",
+      "year": "2024"
+    },
+    {
+      "type": "product",
+      "name": "Automated Twitter",
+      "tagline": "Twitter automation tool",
+      "status": "shipped",
+      "metric": "100+ tweet ideas generated",
+      "description": "Twitter automation tool",
+      "year": "2024"
+    },
+    {
+      "type": "product",
+      "name": "Twitter Feed Algorithm AI",
+      "status": "shipped",
+      "description": "AI agent processing content like Twitter's feed. Processes at least 150 tweets per session.",
+      "year": "2025",
+      "url": "https://02ai.dev/portfolio/twitter-feed-algorithm-ai",
+      "asset": "videoframe_18991_qjyn9q.png"
+    },
+    {
+      "type": "product",
+      "name": "Trading View AI Agent",
+      "status": "shipped",
+      "description": "A custom AI agent that automates technical analysis and signal generation.",
+      "year": "2025",
+      "url": "https://02ai.dev/portfolio/trading-view-ai-agent",
+      "asset": "videoframe_27084_rwy6qt.png"
+    },
+    {
+      "type": "product",
+      "name": "Document Chat AI Assistant",
+      "status": "shipped",
+      "description": "Desktop AI assistant for chatting with your documents. Demonstrates project planning capabilities.",
+      "year": "2025",
+      "url": "https://02ai.dev/portfolio/document-chat-ai-assistant",
+      "asset": "2xmojdicvXxLTePy.jpg"
+    },
+    {
+      "type": "product",
+      "name": "Minimalist Screen Sleeper",
+      "tagline": "Screen utility tool",
+      "status": "shipped",
+      "metric": "6000+ times activated over 10+ years",
+      "description": "Screen utility tool",
+      "year": "2015",
+      "asset": "minimalist screen sleeper.PNG"
+    },
+    {
+      "type": "product",
+      "name": "Convo Archive Nexus",
+      "tagline": "Conversation archiver",
+      "status": "shipped",
+      "metric": "projected to archive hundreds of AI sessions weekly per user",
+      "description": "AI chat organizer across chat applications",
+      "year": "2024",
+      "asset": "convo nexus demo.PNG"
+    },
+    {
+      "type": "product",
+      "name": "Pinger Basic",
+      "tagline": "Simple ping utility",
+      "status": "shipped",
+      "description": "Basic network ping monitoring tool",
+      "year": "2012",
+      "asset": "pingerbasic.png"
+    },
+    {
+      "type": "vibe_jam_games",
+      "title": "Vibe Coding Hackathon",
+      "subtitle": "3rd place, 11 submissions, 3 weeks",
+      "description": "Built and shipped 11 submissions in 3 weeks for the Vibe Coding Hackathon, finishing as 3rd place. Portfolio hosted at orange.raymelon.com.",
+      "year": "2025",
+      "games": [
+        {
+          "name": "Pixel Post 2D",
+          "url": "https://pixel.raymelon.com/",
+          "status": "submitted",
+          "asset": "fd38cb93-7699-44b1-9544-af0bc076e2c4.png"
+        },
+        {
+          "name": "Cow Level Moo Moo Farm",
+          "url": "https://cow.raymelon.com/",
+          "status": "submitted",
+          "asset": "a4040737-9b6d-4480-b574-d63e318293ed.png"
+        },
+        {
+          "name": "3D Helicopter Rescue",
+          "url": "https://heli.raymelon.com/",
+          "status": "submitted",
+          "asset": "heli-rescue-bolt-gameplay.PNG"
+        },
+        {
+          "name": "Gremlin Glitch",
+          "url": "https://gremlin.raymelon.com/",
+          "status": "submitted",
+          "asset": "26f0fce8-2e70-4f86-bc27-e5a35c0a7b35.png"
+        },
+        {
+          "name": "UFO Invader Arena",
+          "url": "https://ufo.raymelon.com/",
+          "status": "submitted",
+          "asset": "df890cb4-7f04-43ca-ae56-e8496de89f30.png"
+        },
+        {
+          "name": "Beyblade Arena",
+          "url": "https://beyblade.raymelon.com/",
+          "status": "submitted",
+          "asset": "b524cdcb-9aad-46af-83ce-224390f32580.png"
+        },
+        {
+          "name": "Tetra Neon Twist",
+          "url": "https://tetra.raymelon.com/",
+          "status": "submitted",
+          "asset": "4e714787-73b2-4228-932c-3d5d2c697175.png"
+        },
+        {
+          "name": "Family Feud Faceoff Frenzy",
+          "url": "https://familyfeud.raymelon.com/",
+          "status": "submitted",
+          "asset": "family-feud-faceoff-frenzy-gameplay.PNG"
+        },
+        {
+          "name": "Want To Be A Sun Millionaire",
+          "url": "https://sun.raymelon.com/",
+          "status": "submitted",
+          "asset": "want-to-be-a-sun-millionaire-gameplay.png"
+        },
+        {
+          "name": "UFO Invader Arena (Old)",
+          "status": "submitted"
+        },
+        {
+          "name": "Beyblade Arena v0",
+          "status": "submitted"
+        }
+      ]
+    },
+    {
+      "type": "vibe_jam_games",
+      "title": "Vibe Jam Non-Entree - Games",
+      "subtitle": "Extra games built during hackathon",
+      "description": "Additional vibe-coded games built during the Orange Vibe Jam but not submitted.",
+      "year": "2025",
+      "games": [
+        {
+          "name": "Shadow of Lost Kingdom",
+          "tagline": "Prince of Persia-inspired platformer",
+          "status": "unsubmitted"
+        },
+        {
+          "name": "Skywalker Sands of Time",
+          "status": "unsubmitted"
+        }
+      ]
+    },
+    {
+      "type": "vibe_jam_games",
+      "title": "Vibe Jam Non-Entree - Platforms",
+      "subtitle": "Extra platforms built during hackathon",
+      "description": "Additional vibe-coded platforms built during the Orange Vibe Jam but not submitted.",
+      "year": "2025",
+      "games": [
+        {
+          "name": "vibe-sponsor-games",
+          "status": "unsubmitted"
+        },
+        {
+          "name": "vibecode-directory",
+          "status": "unsubmitted"
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "title": "Let's Build Together",
+      "description": "Open to collaborations and partnerships.",
+      "cta": "Send a DM/Email",
+      "url": "https://x.com/pseudokid"
+    }
+  ]
+}

@@ -1,0 +1,800 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 | pseudokid.dev" description="Page not found">
+  <nav class="site-nav">
+    <div>
+      <a href="/#top" class="brand-link">
+        <div class="brand-text">
+          pseudokid<span class="brand-dot">.</span>dev
+        </div>
+      </a>
+
+      <nav>
+        <a href="/#about">About</a>
+        <a href="/#who-i-work-with">Who I Work With</a>
+        <a href="/#what-i-build">Services</a>
+        <a href="/#portfolio">Portfolio</a>
+        <a href="/#pricing">Pricing</a>
+      </nav>
+
+      <a class="top-cta" href="/#contact">Contact</a>
+
+      <button
+        class="hamburger-btn"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <a href="/#top" class="mobile-menu-brand">
+        pseudokid<span class="brand-dot">.</span>dev
+      </a>
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <nav class="mobile-menu-nav">
+        <a href="/#about" class="mobile-menu-link">About</a>
+        <a href="/#who-i-work-with" class="mobile-menu-link">Who I Work With</a>
+        <a href="/#what-i-build" class="mobile-menu-link">Services</a>
+        <a href="/#portfolio" class="mobile-menu-link">Portfolio</a>
+        <a href="/#pricing" class="mobile-menu-link">Pricing</a>
+        <a href="/#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="error-404-main">
+    <div class="error-404-container">
+      <h1 class="error-404-code">
+        404
+      </h1>
+
+      <div class="error-404-image-wrapper">
+        <pre class="error-404-ascii" aria-label="Friendly robot character">
+               .
+             .:.:
+              .:,
+             .:,,;....
+       .,:,.......   ..,,.
+      :,.  ......,,,,.   .:
+     :. ,........      ., ..
+   .,: :.  ..       ..  .; ;,.
+  ,:.; ;  ,,,:     ,,.,  | ;.,,  ;|;|.
+  ,,.; |     .,...:.     | ;,.,: ,:,::,
+   ,,; ;       ...      .; ;,  ,:   .,
+     ;  ................. ,,  ,, .,,;.
+      .,,,,,,,,,,,,,,,,,:,. .,,,.  :,
+      .,;,.,,,,,,,,:::.  :,.,,   .,,
+    .:..|                 ;. ,, .,.
+   ., ..|                 |,.,,..
+  ,,.  ,|.                :..
+ ,, .,,;:.               ;
+ ::,...; :,             ,:
+ ,:.  ,|  ;;,,,....,,,::;
+ .:,,,::, .,.         .:.
+ .;/;,:     .:.     .,,
+              .,,,,,.
+
+STATUS: JUST_CHILLING</pre>
+        <div class="error-404-tint"></div>
+        <div class="error-404-overlay"></div>
+      </div>
+
+      <h2 class="error-404-text">
+        PAGE NOT<br/>FOUND
+      </h2>
+    </div>
+  </main>
+
+  <footer class="site-footer" aria-hidden="true" aria-label="Footer navigation">
+    <div class="footer-content">
+      <div class="footer-status">
+        <span class="status-dot"></span>
+        <span>Available for new projects</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/raymelon" target="_blank" rel="noreferrer noopener"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/raymelfrancisco/"
+          target="_blank"
+          rel="noreferrer noopener">LinkedIn</a
+        >
+        <a href="https://x.com/pseudokid" target="_blank" rel="noreferrer noopener"
+          >X/Twitter</a
+        >
+        <a href="mailto:raymel@pseudokid.dev">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <footer class="site-footer-embedded" aria-label="Site footer">
+    <div class="footer-embedded-content">
+      <div class="footer-brand-col">
+        <a href="/#top" class="footer-brand-link">
+          <div class="brand-text">
+            pseudokid<span class="brand-dot">.</span>dev
+          </div>
+        </a>
+        <div class="footer-status footer-embedded-status">
+          <span class="status-dot"></span>
+          <span>Available for new projects</span>
+        </div>
+      </div>
+      <div class="footer-right-col">
+        <div class="footer-links">
+          <a href="https://github.com/raymelon" target="_blank" rel="noreferrer noopener"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/raymelfrancisco/"
+            target="_blank"
+            rel="noreferrer noopener">LinkedIn</a
+          >
+          <a href="https://x.com/pseudokid" target="_blank" rel="noreferrer noopener"
+            >X/Twitter</a
+          >
+          <a href="mailto:raymel@pseudokid.dev">Email</a>
+        </div>
+        <div class="footer-built-with">
+          <span>Built with Astro</span><span class="fbw-sep">&nbsp;•&nbsp;</span><wbr/><span>Birthed with OpenCode</span><span class="fbw-sep">&nbsp;•&nbsp;</span><wbr /><span>Stitched with Stitch</span><span class="fbw-sep">&nbsp;•&nbsp;</span><wbr /><span>© 2026</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  // Mobile menu functionality
+  const hamburgerBtn = document.querySelector(".hamburger-btn");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const mobileMenuClose = document.querySelector(".mobile-menu-close");
+  const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+
+  function openMobileMenu() {
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.setAttribute("aria-expanded", "true");
+      mobileMenu.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function closeMobileMenu() {
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.setAttribute("aria-expanded", "false");
+      mobileMenu.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+  }
+
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener("click", () => {
+      const isExpanded = hamburgerBtn.getAttribute("aria-expanded") === "true";
+      if (isExpanded) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+  }
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener("click", closeMobileMenu);
+  }
+
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  // Close menu when clicking on brand logo
+  const mobileMenuBrand = document.querySelector(".mobile-menu-brand");
+  if (mobileMenuBrand) {
+    mobileMenuBrand.addEventListener("click", closeMobileMenu);
+  }
+
+  if (mobileMenu) {
+    mobileMenu.addEventListener("click", (e) => {
+      if (e.target === mobileMenu) {
+        closeMobileMenu();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "Escape" &&
+      mobileMenu?.getAttribute("aria-hidden") === "false"
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  // Scroll handler for compact header and floating footer
+  const footer = document.querySelector(".site-footer");
+  const embeddedFooter = document.querySelector(".site-footer-embedded");
+  
+  function handleScroll() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const siteNav = document.querySelector(".site-nav");
+    
+    // Check if we're near the bottom (within 100px of the embedded footer)
+    const embeddedFooterRect = embeddedFooter?.getBoundingClientRect();
+    const isNearBottom = embeddedFooterRect && embeddedFooterRect.top < window.innerHeight + 100;
+
+    // Compact header after 5% scroll
+    if (scrollY > window.innerHeight * 0.05) {
+      siteNav?.classList.add("compact");
+    } else {
+      siteNav?.classList.remove("compact");
+    }
+    
+    // Show floating footer always, except when near bottom
+    if (!isNearBottom) {
+      footer?.classList.add("visible");
+      footer?.setAttribute("aria-hidden", "false");
+    } else {
+      footer?.classList.remove("visible");
+      footer?.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
+</script>
+
+<style is:global>
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .site-nav.compact {
+    padding: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .site-nav {
+      padding: 2.5rem;
+    }
+
+    .site-nav.compact {
+      padding: 1.5rem;
+    }
+  }
+
+  .site-nav > div {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(0.85rem, 1.6vw, 2rem);
+    width: 100%;
+  }
+
+  .brand-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+  }
+
+  .brand-dot {
+    color: #3b82f6;
+  }
+
+  .site-nav nav {
+    display: flex;
+    gap: clamp(1rem, 2.2vw, 2rem);
+  }
+
+  @media (min-width: 768px) {
+    .site-nav nav {
+      gap: clamp(1.25rem, 2.6vw, 3rem);
+    }
+  }
+
+  .site-nav nav a {
+    font-size: clamp(0.8125rem, 0.95vw, 0.875rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: clamp(0.12em, 0.35vw, 0.2em);
+    color: var(--muted);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+
+  .site-nav nav a:hover {
+    color: #3b82f6;
+  }
+
+  .top-cta {
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.66rem 1.18rem;
+    background: var(--brand);
+    color: #ffffff;
+    font:
+      700 0.73rem/1 "Manrope",
+      sans-serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Hamburger Menu Button */
+  .hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 60;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 28px;
+    height: 2.5px;
+    background-color: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: color-mix(in oklab, var(--bg) 95%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-content {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: -3rem;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-menu[aria-hidden="false"] .mobile-menu-close {
+    display: flex;
+  }
+
+  .mobile-menu-close:hover {
+    color: #3b82f6;
+  }
+
+  .mobile-menu-brand {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    color: var(--text);
+    margin-bottom: 3rem;
+    text-decoration: none;
+  }
+
+  .mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu-link {
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .mobile-menu-link:hover {
+    color: #3b82f6;
+  }
+
+  @media (max-width: 420px) {
+    .mobile-menu-link {
+      font-size: clamp(1.6rem, 7.2vw, 2.2rem);
+      letter-spacing: 0.03em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hamburger-btn {
+      display: flex;
+    }
+
+    .site-nav nav {
+      display: none;
+    }
+
+    .top-cta {
+      display: none;
+    }
+  }
+
+  /* Floating Footer */
+  .site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    padding: 1rem 1.5rem;
+    background: color-mix(in oklab, var(--bg) 92%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .site-footer.visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (min-width: 768px) {
+    .site-footer {
+      padding: 1.25rem 2.5rem;
+    }
+  }
+
+  .footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .site-footer .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .site-footer .footer-links a {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .site-footer .footer-links a:hover {
+    color: #ffff00;
+  }
+
+  /* Embedded Footer */
+  .site-footer-embedded {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  @media (min-width: 761px) {
+    .site-footer-embedded {
+      padding: 3rem 2.5rem 4.5rem;
+    }
+  }
+
+  .footer-embedded-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-brand-link {
+    text-decoration: none;
+  }
+
+  .footer-brand-link .brand-text {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .footer-brand-link .brand-dot {
+    color: #3b82f6;
+  }
+
+  .footer-embedded-status {
+    gap: 0.6rem !important;
+  }
+
+  .footer-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #3b82f6;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .footer-embedded-status {
+    gap: 0.6rem !important;
+  }
+
+  .footer-right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+
+  .footer-right-col .footer-links {
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .footer-links a {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #ffff00;
+  }
+
+  .footer-built-with {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.2);
+    text-align: right;
+    line-height: 1.8;
+    overflow-wrap: break-word;
+  }
+
+  .fbw-sep {
+    display: inline;
+    white-space: pre;
+  }
+</style>
+
+<style>
+  .error-404-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+    padding: clamp(5rem, 10vw, 8rem) 1.5rem 4rem;
+    box-sizing: border-box;
+  }
+
+  .error-404-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 48rem;
+  }
+
+  .error-404-code {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(5rem, 15vw, 10rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+  }
+
+  .error-404-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 42rem;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: 0.5rem;
+  }
+
+  .error-404-ascii {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(0.6rem, 1.5vw, 0.9rem);
+    line-height: 1.1;
+    color: #ffffff;
+    white-space: pre;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+
+  .error-404-tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(251, 191, 36, 0.3));
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .error-404-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(currentColor 1.2px, transparent 1.2px);
+    background-size: 4px 4px;
+    pointer-events: none;
+    color: #6366f1;
+    opacity: 0.3;
+  }
+
+  .error-404-status {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #dc2626;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .error-404-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #dc2626;
+    text-align: center;
+    margin: 1rem 0 0 0;
+  }
+</style>

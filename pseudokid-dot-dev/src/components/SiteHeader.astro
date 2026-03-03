@@ -1,0 +1,160 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+---
+
+<nav class="site-nav">
+  <div>
+    <a href="/" class="brand-link">
+      <div class="brand-text">
+        pseudokid<span class="brand-dot">.</span>dev
+      </div>
+    </a>
+
+    <nav>
+      <a href="/#about">About</a>
+      <a href="/#who-i-work-with">Who I Work With</a>
+      <a href="/#what-i-build">Services</a>
+      <a href="/#portfolio">Portfolio</a>
+      <a href="/#pricing">Pricing</a>
+    </nav>
+
+    <a class="top-cta" href="/#contact">Contact</a>
+
+    <button
+      class="hamburger-btn"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .site-nav.compact {
+    padding: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .site-nav {
+      padding: 2.5rem;
+    }
+
+    .site-nav.compact {
+      padding: 1.5rem;
+    }
+  }
+
+  .site-nav > div {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(0.85rem, 1.6vw, 2rem);
+    width: 100%;
+  }
+
+  .brand-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+  }
+
+  .brand-dot {
+    color: #3b82f6;
+  }
+
+  nav {
+    display: flex;
+    gap: clamp(1rem, 2.2vw, 2rem);
+  }
+
+  @media (min-width: 768px) {
+    nav {
+      gap: clamp(1.25rem, 2.6vw, 3rem);
+    }
+  }
+
+  nav a {
+    font-size: clamp(0.8125rem, 0.95vw, 0.875rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: clamp(0.12em, 0.35vw, 0.2em);
+    color: var(--muted);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    color: #3b82f6;
+  }
+
+  .top-cta {
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.66rem 1.18rem;
+    background: var(--brand);
+    color: #ffffff;
+    font: 700 0.73rem/1 "Manrope", sans-serif;
+    letter-spacing: 0.04em;
+  }
+
+  .hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .hamburger-line {
+    width: 1.5rem;
+    height: 2px;
+    background: var(--text);
+    transition: transform 0.3s;
+  }
+
+  @media (max-width: 767px) {
+    .hamburger-btn {
+      display: flex;
+    }
+
+    nav {
+      display: none;
+    }
+
+    .top-cta {
+      display: none;
+    }
+  }
+</style>

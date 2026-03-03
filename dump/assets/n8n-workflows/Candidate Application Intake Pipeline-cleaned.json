@@ -1,0 +1,227 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Candidate Recruitment Workflow\n\nThis workflow automates the process of handling new candidate submissions:\n\n1.  **Typeform Webhook**: Listens for new candidate applications.\n2.  **Clean Form Data**: Standardizes candidate information.\n3.  **Add Candidate to Airtable**: Stores the cleaned data.\n4.  **Notify Recruitment on Slack**: Sends an alert to the recruitment team.\n\nDouble-click to edit this note.",
+        "height": 280,
+        "width": 450
+      },
+      "name": "Workflow Explanation",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        160,
+        -96
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Error Handling\n\nThis section manages failures during the Airtable submission:\n\n1.  **Error Handler**: Catches errors from the Airtable node.\n2.  **Log Failed Submission**: Records the error details.\n3.  **Alert Automation Channel**: Notifies the team about failures.\n\nEnsure the Airtable node is configured to continue on error.",
+        "height": 250,
+        "width": 450,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        704,
+        272
+      ],
+      "name": "Error Handling Explanation",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook",
+        "options": {
+          "allowedOrigins": "*",
+          "binaryPropertyName": "data",
+          "ignoreBots": false,
+          "ipWhitelist": "",
+          "noResponseBody": false,
+          "rawBody": false,
+          "responseData": "",
+          "responseHeaders": {
+            "values": []
+          }
+        }
+      },
+      "name": "Typeform Webhook",
+      "position": [
+        416,
+        240
+      ],
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "functionCode": "// Clean form data\nfunction cleanFormData(items) {\n  // Simplified cleaning logic\n  return items.map(item => {\n    if (item.json && item.json.form_response && item.json.form_response.answers) {\n      const answers = item.json.form_response.answers;\n      const cleaned = {};\n      \n      answers.forEach(answer => {\n        if (answer.field && answer.field.title) {\n          const title = answer.field.title;\n          if (answer.text) {\n            cleaned[title.toLowerCase()] = answer.text;\n          } else if (answer.email) {\n            cleaned[title.toLowerCase()] = answer.email;\n          } else if (answer.url) {\n            cleaned[title.toLowerCase()] = answer.url;\n          }\n        }\n      });\n      \n      item.json = cleaned;\n    }\n    return item;\n  });\n}\n\nreturn cleanFormData($input.all());"
+      },
+      "position": [
+        704,
+        112
+      ],
+      "name": "Clean Form Data",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "mode": "url",
+          "value": "https://airtable.com/app..."
+        },
+        "table": {
+          "mode": "url",
+          "value": "https://airtable.com/app..."
+        },
+        "columns": {
+          "attemptToConvertTypes": true,
+          "mappingMode": "autoMapInputData",
+          "matchingColumns": [],
+          "value": {},
+          "schema": [],
+          "convertFieldsToString": true
+        },
+        "options": {
+          "typecast": false
+        }
+      },
+      "name": "Add Candidate to Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1008,
+        112
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": "recruitment-channel",
+        "text": "New Candidate Submission:\\nName: {{$json.name}}\\nRole: {{$json.role}}\\nEmail: {{$json.email}}\\nResume: {{$json.resume}}",
+        "otherOptions": {
+          "includeLinkToWorkflow": true,
+          "link_names": false,
+          "mrkdwn": true,
+          "unfurl_links": false,
+          "unfurl_media": true
+        }
+      },
+      "name": "Notify Recruitment on Slack",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        1312,
+        112
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "name": "Error Handler",
+      "position": [
+        1008,
+        400
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": "sheet-id",
+        "sheetName": "Errors",
+        "options": {}
+      },
+      "name": "Log Failed Submission",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1312,
+        400
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": "automation-alerts",
+        "text": "Failed to add candidate to Airtable. Details: {{$json.errorMessage}}",
+        "otherOptions": {
+          "includeLinkToWorkflow": true,
+          "link_names": false,
+          "mrkdwn": true,
+          "unfurl_links": false,
+          "unfurl_media": true
+        }
+      },
+      "position": [
+        1600,
+        400
+      ],
+      "type": "n8n-nodes-base.slack",
+      "name": "Alert Automation Channel",
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Typeform Webhook": {
+      "main": [
+        [
+          {
+            "node": "Clean Form Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Form Data": {
+      "main": [
+        [
+          {
+            "node": "Add Candidate to Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Candidate to Airtable": {
+      "main": [
+        [
+          {
+            "node": "Notify Recruitment on Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Handler": {
+      "main": [
+        [
+          {
+            "node": "Log Failed Submission",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Failed Submission": {
+      "main": [
+        [
+          {
+            "node": "Alert Automation Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

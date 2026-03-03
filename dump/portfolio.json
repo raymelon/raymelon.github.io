@@ -1,0 +1,551 @@
+{
+  "name": "Raymel Francisco",
+  "initials": "DV",
+  "url": "https://raymelon.com",
+  "location": "Manila, PH",
+  "avatarUrl": "/me.jpg",
+  "skills": [
+    "React",
+    "Next.js",
+    "Typescript",
+    "Node.js",
+    "Python",
+    "Go",
+    "Postgres",
+    "Docker",
+    "Kubernetes",
+    "Java",
+    "C++"
+  ],
+  "contact": {
+    "email": "pseudokid.dev@gmail.com",
+    "social": {
+      "email": {
+        "name": "Send Email",
+        "url": "#",
+        "navbar": false
+      }
+    }
+  },
+  "work": [
+    {
+      "company": "Level Up! Founders",
+      "href": "https://levelup.news",
+      "badges": [
+        "Active"
+      ],
+      "location": "Remote",
+      "title": "Founder / Writer",
+      "start": "Feb 2024",
+      "end": "",
+      "description": "Level Up! Founders is a newsletter containing curated community news within the indie maker and startup community."
+    },
+    {
+      "company": "recaps.fyi",
+      "href": "https://recaps.fyi",
+      "badges": [
+        "Active"
+      ],
+      "location": "Remote",
+      "title": "Chief Maker",
+      "start": "Jan 2024",
+      "end": "",
+      "description": "Recaps.fyi aims to help anyone make videos.. with little effort. My first product as indie maker."
+    },
+    {
+      "company": "To Be Announced",
+      "href": "https://www.whatisanindiemaker.com/",
+      "badges": [
+        "Active"
+      ],
+      "location": "Remote",
+      "title": "Bootstrapper / Indie Maker",
+      "start": "Jan 2024",
+      "end": "",
+      "description": "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources."
+    },
+    {
+      "company": "Punla",
+      "href": "https://nvidia.com/",
+      "badges": [],
+      "location": "Manila, PH",
+      "title": "Co-Founder",
+      "start": "Jul 2020",
+      "end": "Sep 2020",
+      "description": "Punla aims to connect farmers to buyers. My second attempt to building a startup. Discontinued."
+    },
+    {
+      "company": "Nababaha",
+      "href": "",
+      "badges": [
+        ""
+      ],
+      "location": "Manila, PH",
+      "title": "Founder",
+      "start": "Mar 2019",
+      "end": "May 2019",
+      "description": "Nababaha aims to make weather data accessible to every Filipino. My first attempt to build a startup."
+    },
+    {
+      "company": "Raymelon Does Keyboards",
+      "href": "https://www.facebook.com/raymelon.keyboards/",
+      "badges": [
+        ""
+      ],
+      "location": "Manila, PH",
+      "title": "Content Creator",
+      "start": "Sep 2019",
+      "end": "",
+      "description": "A hobby page where I share tech (mostly keyboards) content."
+    },
+    {
+      "company": "Orangefix",
+      "href": "https://orangefix.xyz/",
+      "badges": [],
+      "location": "Toronto, ON",
+      "title": "Software Engineer",
+      "start": "May 2017",
+      "end": "Sep 2023",
+      "description": "Full-time problem solver"
+    }
+  ],
+  "education": [
+    {
+      "school": "Polytechnic University of the Philippines",
+      "href": "https://www.linkedin.com/school/polytechnic-university-of-the-philippines",
+      "degree": "Bachelor of Science in Computer Science, Computer Science Research",
+      "start": "2014",
+      "end": "2018"
+    },
+    {
+      "school": "Marikina Science High School",
+      "href": "https://www.linkedin.com/company/marikina-science-high-school",
+      "degree": "High School / Secondary Diplomas and Certificates",
+      "start": "2010",
+      "end": "2014"
+    }
+  ],
+  "portfolio": [
+    {
+      "title": "02AI.DEV",
+      "imageUrl": "https://res.cloudinary.com/dxsornfee/image/upload/v1744972218/02ai.dev_hero_wwacbd.png",
+      "description": "Building AI workflows for your business.",
+      "url": "https://02ai.dev?ref=raymelonportfolio",
+      "tags": [
+        "ai-agency",
+        "ai",
+        "2025"
+      ]
+    },
+    {
+      "title": "Pixel Post 2D",
+      "imageUrl": "https://res.cloudinary.com/dxsornfee/image/upload/v1752451896/pixel_post_as_inspo_jlaeqv.png",
+      "description": "Pixel Post 2D - Hackathon 3rd Placer in Orange Vibe Jam",
+      "url": "https://x.com/pseudokid/status/1930738134070837658",
+      "tags": [
+        "Orange Web3 Vibe Jam",
+        "ai",
+        "2025"
+      ]
+    },
+    {
+      "title": "Vibe coded 9 games in 3 weeks",
+      "imageUrl": "https://res.cloudinary.com/dxsornfee/image/upload/v1752451852/top_games_ybdvs6.png",
+      "description": "Vibe coded 9 games in 3 weeks.",
+      "url": "https://x.com/pseudokid/status/1923473371880358177",
+      "tags": [
+        "Orange Web3 Vibe Jam",
+        "ai",
+        "2025"
+      ]
+    },
+    {
+      "title": "Cyber Vibe 2025",
+      "videoUrl": "https://res.cloudinary.com/dxsornfee/video/upload/v1744354160/ioMxNPSbhYMDjSEz_vbqpwl.mp4",
+      "description": "Cyberpunk inspired vibe-coded game",
+      "url": "https://cybervibe.raymelon.com/",
+      "tags": [
+        "2025 Vibe Coding Game Jam",
+        "vibe coding",
+        "2025"
+      ]
+    },
+    {
+      "title": "Cowboy Shooter",
+      "videoUrl": "https://res.cloudinary.com/dxsornfee/video/upload/v1744355240/aaIp7ipELMRFarnw_idtwri.mp4",
+      "description": "Wild west inspired vibe-coded game",
+      "url": "https://x.com/pseudokid/status/1897981468862996910",
+      "tags": [
+        "2025 Vibe Coding Game Jam",
+        "vibe coding",
+        "2025"
+      ]
+    },
+    {
+      "title": "2025 Vibe Coding Game Jam Landing Page Entry",
+      "videoUrl": "https://res.cloudinary.com/dxsornfee/video/upload/v1744355179/-LNr2te0Y7TxMskw_ocmagq.mp4",
+      "description": "2025 Vibe Coding Game Jam Landing Page Entry",
+      "url": "https://x.com/pseudokid/status/1904570854660514268",
+      "tags": [
+        "2025 Vibe Coding Game Jam",
+        "vibe coding",
+        "2025"
+      ]
+    },
+    {
+      "title": "Trading View AI Agent",
+      "videoUrl": "https://res.cloudinary.com/dxsornfee/video/upload/v1738791292/video_3_ympe6m.mp4",
+      "description": "Trading View AI Agent",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7347874514304737280/",
+      "tags": [
+        "browser-automation",
+        "ai",
+        "2025"
+      ]
+    },
+    {
+      "title": "Document Chat AI Assistant",
+      "imageUrl": "https://pbs.twimg.com/ext_tw_video_thumb/1861889348955979776/pu/img/2xmojdicvXxLTePy.jpg",
+      "description": "Document Chat AI Assistant",
+      "url": "https://twitter.com/pseudokid/status/1861895287855624617",
+      "tags": [
+        "desktop",
+        "streamlit",
+        "ai",
+        "2024"
+      ]
+    },
+    {
+      "title": "Card",
+      "videoUrl": "https://video.twimg.com/ext_tw_video/1828424822340112384/pu/vid/avc1/720x1280/FBRzb30zFRQQwHC6.mp4?tag=12",
+      "description": "AI agent that mimics Twitter Feed Algorithm",
+      "url": "https://x.com/pseudokid/status/1828448886723395623",
+      "tags": [
+        "twitter",
+        "backend",
+        "ai",
+        "telegram",
+        "2024"
+      ]
+    },
+    {
+      "title": "Tokwa AI Chat",
+      "videoUrl": "https://res.cloudinary.com/dxsornfee/video/upload/v1738790655/video_89_hk6nza.mp4",
+      "description": "Tokwa AI Chat",
+      "url": "https://x.com/02AIDEV/status/1939276659711967478",
+      "tags": [
+        "full-stack",
+        "nextjs",
+        "ai",
+        "2024"
+      ]
+    },
+    {
+      "title": "Twitter Unfollower Agent",
+      "description": "AI Agent that tracks Twitter Unfollowers",
+      "url": "https://github.com/raymelon/ai6z-twitter-agents",
+      "tags": [
+        "twitter",
+        "python",
+        "js",
+        "ai",
+        "2025"
+      ]
+    },
+    {
+      "title": "ChatGPT clone built in 3 hours",
+      "videoUrl": "https://video.twimg.com/ext_tw_video/1806998259489222657/pu/vid/avc1/1920x1080/z3mz1fMMppqL24KB.mp4?tag=14",
+      "description": "ChatGPT clone built in 3 hours",
+      "url": "https://x.com/pseudokid/status/1806998353571713320",
+      "tags": [
+        "frontend",
+        "react",
+        "ai",
+        "2024"
+      ]
+    },
+    {
+      "title": "This Portfolio",
+      "imageUrl": "https://pbs.twimg.com/ext_tw_video_thumb/1835589451977797632/pu/img/qCEtn7ylmHDeISza.jpg",
+      "description": "this portfolio, literally",
+      "url": "https://twitter.com/pseudokid/status/1835589504125591861",
+      "tags": [
+        "frontend",
+        "full-stack",
+        "nextjs",
+        "2024"
+      ]
+    },
+    {
+      "title": "Level Up! Founders",
+      "imageUrl": "https://pbs.twimg.com/ext_tw_video_thumb/1795045702663630848/pu/img/xKbxqhBSlV-KMcMJ.jpg",
+      "description": "Level Up! Founders",
+      "url": "https://x.com/pseudokid/status/1795046078414295340",
+      "tags": [
+        "frontend",
+        "ai",
+        "astrojs",
+        "2024"
+      ]
+    },
+    {
+      "title": "First App in 2012",
+      "imageUrl": "https://pbs.twimg.com/media/GVDoN4taEAEJ2hN?format=jpg&name=small",
+      "description": "First App in 2012",
+      "url": "https://x.com/pseudokid/status/1825559056985260518",
+      "tags": [
+        "desktop",
+        "visual basic",
+        "C#",
+        "2012"
+      ]
+    },
+    {
+      "title": "recaps.fyi - text to video",
+      "videoUrl": "https://res.cloudinary.com/dxsornfee/video/upload/v1738792064/1708578272992_4_kckjur.mp4",
+      "description": "recaps.fyi - text to video",
+      "url": "https://www.linkedin.com/in/raymelfrancisco/details/experience/edit/forms/2425422872/",
+      "tags": [
+        "full-stack",
+        "remotion",
+        "nextjs",
+        "2024"
+      ]
+    },
+    {
+      "title": "Frontend Grid Shuffle",
+      "videoUrl": "https://video.twimg.com/ext_tw_video/1712953781024063488/pu/vid/avc1/1280x720/k9YKgvF2v5kOsnLa.mp4?tag=12",
+      "description": "Frontend Grid Shuffle",
+      "url": "https://x.com/pseudokid/status/1712955695300260318",
+      "tags": [
+        "frontend",
+        "tailwind",
+        "2023"
+      ]
+    },
+    {
+      "title": "Ta'allam Learners App",
+      "imageUrl": "https://res.cloudinary.com/dxsornfee/image/upload/v1738792234/1602323347376_btp2eb.jpg",
+      "description": "Ta'allam Learners App",
+      "url": "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
+      "tags": [
+        "mobile",
+        "android",
+        "ios",
+        "2017"
+      ]
+    },
+    {
+      "title": "Katatagan In A Box",
+      "imageUrls": [
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1752452448/katataganmay202020fastforward-ezgif.com-video-to-gif-converter_ff4y5m.gif",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924982/portfolio2025-rest-of-assets/katatagan-1_pwelcx.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924984/portfolio2025-rest-of-assets/katatagan-3_fkj07o.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-4_edsxvh.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-5_ygao5s.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-6_kjrdyj.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-7_qxw7gd.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924985/portfolio2025-rest-of-assets/katatagan-8_n7wdhk.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924982/portfolio2025-rest-of-assets/katatagan-2_cm1txe.jpg"
+      ],
+      "description": "Business Continuity App for MSMEs",
+      "url": "https://play.google.com/store/apps/details?id=xyz.orangefix.katatagan",
+      "tags": [
+        "mobile",
+        "react-native",
+        "android",
+        "ios",
+        "2019"
+      ]
+    },
+    {
+      "title": "Matigsalug Learners App",
+      "imageUrls": [
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1738792238/1601667424678_mvo3uc.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-1_ib66cs.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-2_ieqigy.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924975/portfolio2025-rest-of-assets/matigsalug-3_qi9x6z.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924976/portfolio2025-rest-of-assets/matigsalug-4_ufeezm.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924976/portfolio2025-rest-of-assets/matigsalug-5_c5eep2.webp"
+      ],
+      "description": "Matigsalug Learners App",
+      "url": "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
+      "tags": [
+        "mobile",
+        "react-native",
+        "android",
+        "ios",
+        "2018"
+      ]
+    },
+    {
+      "title": "Kaalam Cebuano App",
+      "imageUrls": [
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1738792241/1602522448880_rtrk1b.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924978/portfolio2025-rest-of-assets/kaalam-1_tq50kz.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-2_lsuadw.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-3_jmilbw.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-4_wtjbll.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924981/portfolio2025-rest-of-assets/kaalam-5_nuyatg.webp"
+      ],
+      "description": "Kaalam Cebuano App",
+      "url": "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
+      "tags": [
+        "mobile",
+        "android",
+        "ios",
+        "2018"
+      ]
+    },
+    {
+      "title": "Sanut Ilokano App",
+      "imageUrl": "https://res.cloudinary.com/dxsornfee/image/upload/v1738792243/1599205837166_bv4zcn.jpg",
+      "description": "Sanut Ilokano App",
+      "url": "https://www.linkedin.com/in/raymelfrancisco/details/experience/urn:li:fsd_profilePosition:(ACoAABvJbyEBkRxqlRRzs9jmLOK2Pk1004fyro8,1314964216)/treasury/",
+      "tags": [
+        "mobile",
+        "android",
+        "ios",
+        "2018"
+      ]
+    },
+    {
+      "title": "Educo Learners App",
+      "imageUrls": [
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1738927546/1YZva9yKdCmhCkDP-unnamed_2520_1_jirfjy.jpg",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-1_zcdguw.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-2_vnrnin.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-3_arblje.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-4_sexapr.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-5_eamvfh.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924977/portfolio2025-rest-of-assets/educo-app-6_rdlgmq.webp",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757924978/portfolio2025-rest-of-assets/educo-screenshot_g5egqf.png"
+      ],
+      "description": "Educo Learners App",
+      "url": "https://play.google.com/store/apps/details?id=com.Educo.educocwdpardo&hl=en_US&gl=US",
+      "tags": [
+        "full-stack",
+        "mobile",
+        "nodejs",
+        "2020"
+      ]
+    },
+    {
+      "title": "Yazi",
+      "imageUrls": [
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1738927509/ajckHzGuoDvb7Qr3-1024x500_kv7fjp.png",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yazi01_zvpp5c.png",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757942022/portfolio2025-rest-of-assets/yazi02_iaf0ud.png",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yazi03_qd3yqg.png"
+      ],
+      "description": "Yazi",
+      "url": "https://play.google.com/store/apps/details?id=com.yazi.app.user&hl=en&gl=US",
+      "tags": [
+        "mobile",
+        "firebase",
+        "react-native",
+        "2020"
+      ]
+    },
+    {
+      "title": "Yazi Guide",
+      "imageUrls": [
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1738927515/8D9o8QA87DSxk7os-guide-1024x500_20banner_go4icv.png",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yaziguide01_ncxu53.png",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yaziguide04_m7cvrk.png",
+        "https://res.cloudinary.com/dxsornfee/image/upload/v1757942021/portfolio2025-rest-of-assets/yaziguide02_luzs7j.png"
+      ],
+      "description": "Yazi Guide",
+      "url": "https://play.google.com/store/apps/details?id=com.yazi.app.guide",
+      "tags": [
+        "mobile",
+        "firebase",
+        "react-native",
+        "2020"
+      ]
+    },
+    {
+      "title": "Dash Widget",
+      "imageUrl": "https://res.cloudinary.com/dxsornfee/image/upload/v1738927556/kgylLkDHKTHQjaRn-dash-widget_logo_var2_COLORED_miz0hi.png",
+      "description": "Dash Widget",
+      "url": "https://orangefix.xyz/portfolio/",
+      "tags": [
+        "wordpress plugin",
+        "php",
+        "facebook-api",
+        "2022"
+      ]
+    },
+    {
+      "title": "Tagalog Dictionary Scraper",
+      "description": "Collects 42,723 Tagalog words from tagalog.pinoydictionary.com",
+      "url": "https://github.com/raymelon/tagalog-dictionary-scraper",
+      "tags": [
+        "github",
+        "scraping",
+        "python",
+        "2016"
+      ]
+    },
+    {
+      "title": "Traffic Light Neural Network",
+      "imageUrl": "https://raw.githubusercontent.com/raymelon/TrafficLightNeuralNetwork/master/misc/demo.gif",
+      "description": "Traffic Light Neural Network",
+      "url": "https://github.com/raymelon/TrafficLightNeuralNetwork",
+      "tags": [
+        "github",
+        "ai",
+        "c#",
+        "2017"
+      ]
+    },
+    {
+      "title": "DiskSim",
+      "imageUrl": "https://raw.githubusercontent.com/raymelon/DiskSim/master/screencap/Capture%20SSTF.JPG",
+      "description": "Disk Scheduling Algorithms Simulator",
+      "url": "https://github.com/raymelon/DiskSim",
+      "tags": [
+        "github",
+        "simulator",
+        "java",
+        "2016"
+      ]
+    },
+    {
+      "title": "VolPI",
+      "imageUrl": "https://raw.githubusercontent.com/raymelon/VolPI/refs/heads/master/screenshots/v1/volpi_v1_unmuted.jpg",
+      "description": "Volπ: Volume Percent Indicator",
+      "url": "https://github.com/raymelon/VolPI",
+      "tags": [
+        "github",
+        "simulator",
+        "c#",
+        "2016"
+      ]
+    }
+  ],
+  "blog": [
+    {
+      "slug": "magic-ui-is-cool",
+      "title": "Magic UI is Cool",
+      "publishedAt": "2024-01-01",
+      "summary": "Blog post about Magic UI"
+    },
+    {
+      "slug": "hello-world",
+      "title": "Hello World",
+      "publishedAt": "2024-01-01",
+      "summary": "Hello World blog post"
+    }
+  ],
+  "socialLinks": {
+    "twitter": "https://x.com/pseudokid",
+    "github": "https://github.com/raymelon",
+    "linkedin": "https://www.linkedin.com/in/raymelfrancisco/",
+    "devto": "https://dev.to/raymelon",
+    "hashnode": "https://raymel.hashnode.dev/",
+    "stackoverflow": "https://stackoverflow.com/users/4895040/raymelfrancisco",
+    "threads": "https://www.threads.net/@raymelfrancisco",
+    "readcv": "https://read.cv/raymel"
+  }
+}

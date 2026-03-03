@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {
+      "name": "Workflow-Created",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        512,
+        369
+      ],
+      "parameters": {
+        "path": "webhook",
+        "httpMethod": "POST"
+      },
+      "typeVersion": 1
+    }
+  ],
+  "connections": {}
+}

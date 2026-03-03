@@ -1,0 +1,230 @@
+---
+export interface TickerImage {
+  src: string;
+  alt: string;
+  type?: "single" | "collage";
+  collageImages?: string[];
+  isMobile?: boolean;
+}
+
+export interface Props {
+  images: TickerImage[];
+  speed?: number;
+}
+
+const { images, speed = 500 } = Astro.props;
+
+const videoThumbnails: Record<string, string> = {
+  "aaIp7ipELMRFarnw_idtwri.mp4":
+    "/assets/portfolio/videoframe_27084_rwy6qt.png",
+  "ioMxNPSbhYMDjSEz_vbqpwl.mp4":
+    "/assets/portfolio/videoframe_18991_qjyn9q.png",
+};
+
+function resolveAssetUrl(asset: string): string {
+  if (asset in videoThumbnails) {
+    return videoThumbnails[asset];
+  }
+  return `/assets/portfolio/${encodeURIComponent(asset)}`;
+}
+
+const processedImages = images.map((img) => ({
+  ...img,
+  src: resolveAssetUrl(img.src),
+  collageImages: img.collageImages?.map((src) => resolveAssetUrl(src)),
+}));
+---
+
+<div class="ticker-wrapper" data-images={JSON.stringify(processedImages)} data-speed={speed}>
+  <div class="ticker-container" style={`--ticker-speed: ${speed}s; animation-duration: ${speed}s;`}>
+    <div class="ticker-track" id="ticker-track-1"></div>
+    <div class="ticker-track" aria-hidden="true" id="ticker-track-2"></div>
+  </div>
+</div>
+
+<script>
+  // Fisher-Yates shuffle algorithm
+  function shuffleArray<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  function renderTickerItem(image: any): string {
+    const classes = `ticker-item ${image.type === "collage" ? "collage" : ""} ${image.isMobile ? "mobile" : ""}`;
+    
+    if (image.type === "collage" && image.collageImages) {
+      const collageImagesHtml = image.collageImages.map((collageSrc: string, idx: number) => `
+        <img
+          src="${collageSrc}"
+          alt="${image.alt} ${idx + 1}"
+          loading="eager"
+          decoding="async"
+        />
+      `).join('');
+      
+      return `
+        <div class="${classes}">
+          <div class="collage-container" style="--collage-columns: ${image.collageImages.length};">
+            ${collageImagesHtml}
+          </div>
+        </div>
+      `;
+    }
+    
+    return `
+      <div class="${classes}">
+        <img
+          src="${image.src}"
+          alt="${image.alt}"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    `;
+  }
+
+  // Initialize ticker with shuffled images
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrappers = Array.from(document.querySelectorAll<HTMLElement>('.ticker-wrapper[data-images]'));
+
+    wrappers.forEach((wrapper) => {
+      const imagesData = wrapper.getAttribute('data-images');
+      if (!imagesData) return;
+
+      const images = JSON.parse(imagesData);
+      const shuffledImages = shuffleArray(images);
+      const track1 = wrapper.querySelector<HTMLElement>('#ticker-track-1');
+      const track2 = wrapper.querySelector<HTMLElement>('#ticker-track-2');
+
+      if (!track1 || !track2) return;
+
+      const html = shuffledImages.map(renderTickerItem).join('');
+      track1.innerHTML = html;
+      track2.innerHTML = html;
+    });
+  });
+</script>
+
+<style is:global>
+  .ticker-wrapper {
+    --ticker-height-desktop: 400px;
+    --ticker-height-mobile: 320px;
+    --ticker-height: var(--ticker-height-desktop);
+    --ticker-item-height: var(--ticker-height);
+    --ticker-item-min-width: 240px;
+    --ticker-item-max-width: 560px;
+    width: 100%;
+    height: var(--ticker-height);
+    max-height: var(--ticker-height);
+    overflow: clip;
+    padding-block: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+
+  .ticker-wrapper:hover {
+    opacity: 1;
+  }
+
+  .ticker-container {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    will-change: transform;
+    animation: ticker-scroll var(--ticker-speed, 240s) linear infinite;
+  }
+
+  .ticker-container:hover {
+    animation-play-state: paused;
+  }
+
+  .ticker-track {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    gap: 1rem;
+    padding-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  .ticker-item {
+    height: var(--ticker-item-height);
+    width: auto;
+    min-width: var(--ticker-item-min-width);
+    max-width: none;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
+    filter: grayscale(100%);
+  }
+
+  .ticker-item:hover {
+    filter: grayscale(0%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .ticker-item.mobile {
+    min-width: 180px;
+    max-width: none;
+  }
+
+  .ticker-item img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+  }
+
+  .collage-container {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+  }
+
+  .collage-container img {
+    flex: 0 0 auto;
+    min-width: 0;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 0.35rem;
+  }
+
+  @keyframes ticker-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .ticker-wrapper {
+      --ticker-height: var(--ticker-height-mobile);
+      --ticker-item-height: var(--ticker-height-mobile);
+      --ticker-item-min-width: 180px;
+      --ticker-item-max-width: 300px;
+    }
+
+    .ticker-item.mobile {
+      min-width: 160px;
+      max-width: none;
+    }
+  }
+</style>

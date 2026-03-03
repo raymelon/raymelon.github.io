@@ -1,0 +1,1643 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MediaCarousel from '../../components/MediaCarousel.astro';
+import MediaMasonry from '../../components/MediaMasonry.astro';
+import {
+  assertInclusionParity,
+  getAllProjects,
+  getPortfolioContent,
+  getProjectAssets,
+  getProjectGroup,
+  getProjectMetricItems,
+  getProjectSlug,
+  getProjectTheme,
+  getStatusLabel,
+  usesMasonryMediaLayout
+} from '../../lib/portfolio';
+
+export function getStaticPaths() {
+  const projects = getAllProjects();
+  assertInclusionParity(projects.length, 'brief routes');
+
+  return projects.map((project) => ({
+    params: { slug: getProjectSlug(project) },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+const { ctaSlide } = getPortfolioContent();
+const group = getProjectGroup(project);
+const theme = getProjectTheme(project);
+const assets = getProjectAssets(project);
+const statusLabel = getStatusLabel(project.status);
+const metricItems = getProjectMetricItems(project);
+const contactUrl = ctaSlide?.url ?? 'https://x.com/pseudokid';
+const hasMedia = assets.length > 0;
+const hasYear = Boolean(project.year?.trim());
+const useMasonry = usesMasonryMediaLayout(project.name);
+const fallbackDeckHref = `/deck/${group.id}`;
+---
+
+<Layout title={`${project.name} | pseudokid.dev`} description={project.description ?? project.tagline ?? 'Product brief'}>
+  <nav class="site-nav compact">
+    <div>
+      <a href="/#top" class="brand-link">
+        <div class="brand-text">
+          pseudokid<span class="brand-dot">.</span>dev
+        </div>
+      </a>
+
+      <nav>
+        <a href="/#about">About</a>
+        <a href="/#who-i-work-with">Who I Work With</a>
+        <a href="/#what-i-build">Services</a>
+        <a href="/#portfolio">Portfolio</a>
+        <a href="/#pricing">Pricing</a>
+      </nav>
+
+      <button class="top-cta" id="header-contact-btn">Contact</button>
+
+      <button
+        class="hamburger-btn"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <a href="/#top" class="mobile-menu-brand">
+        pseudokid<span class="brand-dot">.</span>dev
+      </a>
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <nav class="mobile-menu-nav">
+        <a href="/#about" class="mobile-menu-link">About</a>
+        <a href="/#who-i-work-with" class="mobile-menu-link">Who I Work With</a>
+        <a href="/#what-i-build" class="mobile-menu-link">Services</a>
+        <a href="/#portfolio" class="mobile-menu-link">Portfolio</a>
+        <a href="/#pricing" class="mobile-menu-link">Pricing</a>
+        <button class="mobile-menu-link" id="mobile-contact-btn">Contact</button>
+      </nav>
+    </div>
+  </div>
+
+  <main class="brief-overlay" style={`--card:${theme.card};--tint:${theme.tint};--accent:${theme.accent};--surface:${theme.surface};`}>
+    <div class="brief-backdrop" aria-hidden="true"></div>
+
+    <div class="brief-page" role="dialog" aria-modal="true" aria-label={`${project.name} brief`}>
+      <a class="back-link" href={fallbackDeckHref} data-history-back>Back to project deck</a>
+
+    <section class="brief-hero">
+      <div>
+        <p class="group-pill">{group.title}</p>
+        <h1>{project.name}</h1>
+        <p class="tagline">{project.tagline ?? project.description ?? 'Product brief from portfolio studio.'}</p>
+      </div>
+
+      <dl class="meta-grid">
+        {hasYear ? (
+          <div>
+            <dt>Year</dt>
+            <dd>{project.year}</dd>
+          </div>
+        ) : null}
+        <div>
+          <dt>Project deck</dt>
+          <dd>{group.title}</dd>
+        </div>
+      </dl>
+    </section>
+
+    {metricItems.length > 0 ? (
+      <section class="metric-panel" aria-label={`${project.name} metrics`}>
+        {metricItems.map((item) => (
+          <article class="metric-card">
+            {item.value ? <p class="metric-card-value">{item.value}</p> : null}
+            <p class="metric-card-label">{item.label}</p>
+          </article>
+        ))}
+      </section>
+    ) : null}
+
+    <section class={`brief-body ${hasMedia ? 'has-media' : 'no-media'} ${hasMedia ? (useMasonry ? 'media-vertical' : 'media-horizontal') : ''}`}>
+      <article class="brief-copy">
+        <h2>The Brief</h2>
+        <p>
+          {project.description ?? project.tagline ??
+            'A practical product exploration focused on real user outcomes, lean delivery, and measurable momentum.'}
+        </p>
+
+        <div class="actions">
+          {project.url ? (
+            <a href={project.url} target="_blank" rel="noreferrer noopener">Visit project</a>
+          ) : null}
+          <button class="brief-contact-btn" id="brief-contact-btn">Get in touch</button>
+        </div>
+      </article>
+
+       {hasMedia ? (
+        <article class="brief-media">
+          <h2>Media</h2>
+
+          <div class="brief-carousel-shell">
+            {useMasonry ? (
+              <MediaMasonry assets={assets} projectName={project.name} label={`${project.name} media masonry`} videoControls={true} />
+            ) : (
+              <MediaCarousel
+                assets={assets}
+                projectName={project.name}
+                label={`${project.name} media carousel`}
+                showControls={assets.length > 1}
+                videoControls={true}
+              />
+            )}
+          </div>
+        </article>
+      ) : null}
+    </section>
+    </div>
+  </main>
+
+  <div class="contact-modal" id="brief-contact-modal">
+    <div class="contact-modal-backdrop" id="brief-contact-modal-backdrop"></div>
+    <div class="contact-modal-content">
+      <button class="contact-modal-close" id="brief-contact-modal-close">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="contact-modal-status">
+        <span class="status-dot"></span>
+        <span>Available for new projects</span>
+      </div>
+      <h3 class="contact-modal-title">get in<br/>touch</h3>
+      <button
+        class="contact-modal-brief-btn"
+        data-tally-open="jaBv6Y"
+        data-tally-layout="modal"
+        data-tally-width="800"
+        data-tally-align-left="1"
+        data-tally-overlay="1"
+        data-tally-form-events-forwarding="1"
+       >
+         Open Inquiry Form
+      </button>
+      <div class="contact-modal-divider">
+        <span class="contact-modal-divider-text">or, contact directly</span>
+      </div>
+      <div class="contact-modal-list">
+        <div class="contact-modal-row">
+          <div class="contact-modal-row-left">
+            <span class="material-symbols-outlined contact-modal-icon">mail</span>
+            <div class="contact-modal-info">
+              <span class="contact-modal-label">Email</span>
+              <span class="contact-modal-value">raymel@pseudokid.dev</span>
+            </div>
+          </div>
+          <div class="contact-modal-actions">
+            <button class="contact-modal-copy-btn contact-modal-copy-icon" title="Copy">
+              <span class="material-symbols-outlined">content_copy</span>
+            </button>
+            <a class="contact-modal-url-btn" href="mailto:raymel@pseudokid.dev" target="_blank" rel="noreferrer noopener">Send Email</a>
+          </div>
+        </div>
+        <div class="contact-modal-row">
+          <div class="contact-modal-row-left">
+            <span class="material-symbols-outlined contact-modal-icon">work</span>
+            <div class="contact-modal-info">
+              <span class="contact-modal-label">LinkedIn</span>
+              <span class="contact-modal-value">raymelfrancisco</span>
+            </div>
+          </div>
+          <div class="contact-modal-actions">
+            <button class="contact-modal-copy-btn contact-modal-copy-icon" title="Copy">
+              <span class="material-symbols-outlined">content_copy</span>
+            </button>
+            <a class="contact-modal-url-btn" href="https://www.linkedin.com/messaging/compose/?recipient=raymelfrancisco" target="_blank" rel="noreferrer noopener">Send DM</a>
+          </div>
+        </div>
+        <div class="contact-modal-row">
+          <div class="contact-modal-row-left">
+            <span class="material-symbols-outlined contact-modal-icon">alternate_email</span>
+            <div class="contact-modal-info">
+              <span class="contact-modal-label">X / Twitter</span>
+              <span class="contact-modal-value">@pseudokid</span>
+            </div>
+          </div>
+          <div class="contact-modal-actions">
+            <button class="contact-modal-copy-btn contact-modal-copy-icon" title="Copy">
+              <span class="material-symbols-outlined">content_copy</span>
+            </button>
+            <a class="contact-modal-url-btn" href="https://x.com/messages/compose?recipient_id=1698759945129541632" target="_blank" rel="noreferrer noopener">Send DM</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" aria-hidden="true" aria-label="Footer navigation">
+    <div class="footer-content">
+      <div class="footer-status">
+        <span class="status-dot"></span>
+        <span>Available for new projects</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/raymelon" target="_blank" rel="noreferrer noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+        <a href="https://x.com/pseudokid" target="_blank" rel="noreferrer noopener">X/Twitter</a>
+        <a href="mailto:raymel@pseudokid.dev">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <footer class="site-footer-embedded" aria-label="Site footer">
+    <div class="footer-embedded-content">
+      <div class="footer-brand-col">
+        <a href="/#top" class="footer-brand-link">
+          <div class="brand-text">
+            pseudokid<span class="brand-dot">.</span>dev
+          </div>
+        </a>
+        <div class="footer-status footer-embedded-status">
+          <span class="status-dot"></span>
+          <span>Available for new projects</span>
+        </div>
+      </div>
+      <div class="footer-right-col">
+        <div class="footer-links">
+          <a href="https://github.com/raymelon" target="_blank" rel="noreferrer noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/raymelfrancisco/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          <a href="https://x.com/pseudokid" target="_blank" rel="noreferrer noopener">X/Twitter</a>
+          <a href="mailto:raymel@pseudokid.dev">Email</a>
+        </div>
+        <div class="footer-built-with">
+          <span>Built with Astro</span><span class="fbw-sep">&nbsp;•&nbsp;</span><wbr/><span>Birthed with OpenCode</span><span class="fbw-sep">&nbsp;•&nbsp;</span><wbr /><span>Stitched with Stitch</span><span class="fbw-sep">&nbsp;•&nbsp;</span><wbr /><span>© 2026</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-to-top" aria-label="Scroll to top" hidden>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18,15 12,9 6,15"></polyline>
+    </svg>
+  </button>
+</Layout>
+
+<script is:inline>
+  (() => {
+    const fallbackHref =
+      document.querySelector('.back-link')?.getAttribute('href') ?? '/';
+
+    const goBack = () => {
+      const fromSameSite = document.referrer && new URL(document.referrer).origin === window.location.origin;
+      if (fromSameSite) {
+        window.history.back();
+        return;
+      }
+
+      window.location.assign(fallbackHref);
+    };
+
+    const handles = document.querySelectorAll('[data-history-back]');
+    handles.forEach((handle) => {
+      handle.addEventListener('click', (event) => {
+        if (!(event instanceof MouseEvent)) {
+          return;
+        }
+
+        event.preventDefault();
+        goBack();
+      });
+    });
+  })();
+
+  // Mobile menu functionality
+  const hamburgerBtn = document.querySelector('.hamburger-btn');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileMenuClose = document.querySelector('.mobile-menu-close');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+  function openMobileMenu() {
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileMenu() {
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', () => {
+      const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+  }
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+  }
+
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Close menu when clicking on brand logo
+  const mobileMenuBrand = document.querySelector('.mobile-menu-brand');
+  if (mobileMenuBrand) {
+    mobileMenuBrand.addEventListener('click', closeMobileMenu);
+  }
+
+  if (mobileMenu) {
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        closeMobileMenu();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (
+      e.key === 'Escape' &&
+      mobileMenu?.getAttribute('aria-hidden') === 'false'
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  // Handle mobile contact button - opens modal and closes menu
+  const mobileContactBtn = document.getElementById('mobile-contact-btn');
+  if (mobileContactBtn) {
+    mobileContactBtn.addEventListener('click', () => {
+      closeMobileMenu();
+      const contactModal = document.getElementById('brief-contact-modal');
+      if (contactModal) {
+        contactModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+
+  // Scroll handler for floating footer
+  const footer = document.querySelector('.site-footer');
+  const embeddedFooter = document.querySelector('.site-footer-embedded');
+
+  function handleScroll() {
+    // Check if we're near the bottom (within 100px of the embedded footer)
+    const embeddedFooterRect = embeddedFooter?.getBoundingClientRect();
+    const isNearBottom = embeddedFooterRect && embeddedFooterRect.top < window.innerHeight + 100;
+
+    // Show floating footer always, except when near bottom
+    if (!isNearBottom) {
+      footer?.classList.add('visible');
+      footer?.setAttribute('aria-hidden', 'false');
+    } else {
+      footer?.classList.remove('visible');
+      footer?.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  // Scroll to Top Button functionality
+  const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+  if (scrollToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+        scrollToTopBtn.removeAttribute('hidden');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+        scrollToTopBtn.setAttribute('hidden', 'true');
+      }
+
+      // Move scroll-to-top button up when scrolled past 10%
+      if (window.scrollY > window.innerHeight * 0.1) {
+        scrollToTopBtn.classList.add('footer-visible');
+      } else {
+        scrollToTopBtn.classList.remove('footer-visible');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Contact modal
+  const contactBtn = document.getElementById('brief-contact-btn');
+  const headerContactBtn = document.getElementById('header-contact-btn');
+  const contactModal = document.getElementById('brief-contact-modal');
+  const contactBackdrop = document.getElementById('brief-contact-modal-backdrop');
+  const contactClose = document.getElementById('brief-contact-modal-close');
+
+  if (contactBtn && contactModal && contactBackdrop && contactClose) {
+    function openContactModal() {
+      contactModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeContactModal() {
+      contactModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    contactBtn.addEventListener('click', openContactModal);
+    if (headerContactBtn) headerContactBtn.addEventListener('click', openContactModal);
+    contactBackdrop.addEventListener('click', closeContactModal);
+    contactClose.addEventListener('click', closeContactModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+        closeContactModal();
+      }
+    });
+
+    // Copy functionality
+    const copyIcons = contactModal.querySelectorAll('.contact-modal-copy-icon');
+    copyIcons.forEach(icon => {
+      icon.addEventListener('click', async () => {
+        const row = icon.closest('.contact-modal-row');
+        const valueEl = row ? row.querySelector('.contact-modal-value') : null;
+        const value = valueEl ? valueEl.textContent?.trim() : null;
+        if (!value) return;
+
+        try {
+          await navigator.clipboard.writeText(value);
+          const iconSpan = icon.querySelector('.material-symbols-outlined') || icon;
+          const originalText = iconSpan.textContent;
+          iconSpan.textContent = 'check';
+          setTimeout(() => {
+            iconSpan.textContent = originalText ?? 'content_copy';
+          }, 1500);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+  }
+</script>
+
+<style>
+  .brief-overlay {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    padding: clamp(4.5rem, 7vw, 6rem) clamp(1rem, 3vw, 2.6rem) clamp(1rem, 3vw, 2.6rem);
+    display: grid;
+    place-items: start center;
+  }
+
+  .brief-backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background:
+      radial-gradient(circle at 16% 0%, color-mix(in oklab, var(--tint) 28%, transparent), transparent 44%),
+      rgba(7, 8, 10, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .brief-page {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+    width: min(1180px, 100%);
+    border-radius: clamp(1rem, 2vw, 1.6rem);
+    border: 1px solid color-mix(in oklab, var(--line) 74%, transparent);
+    background: color-mix(in oklab, #090a0c 72%, var(--card) 28%);
+    box-shadow:
+      0 1.4rem 3.4rem rgba(0, 0, 0, 0.45),
+      inset 0 0 0 1px color-mix(in oklab, var(--surface) 74%, transparent);
+    padding: clamp(0.95rem, 2.8vw, 2rem);
+  }
+
+  .back-link {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    text-transform: none;
+    font: 700 0.8rem/1 'Inter', sans-serif;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+  }
+
+  .brief-hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1rem;
+    background: var(--card);
+    border-radius: 1.7rem;
+    padding: clamp(1rem, 2.5vw, 1.8rem);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--card) 75%, #000 25%);
+  }
+
+  .group-pill {
+    display: inline-flex;
+    padding: 0.32rem 0.66rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font: 700 0.52rem/1 'Inter', sans-serif;
+    margin: 0 0 0.65rem;
+  }
+
+  h1,
+  h2 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 5.4rem);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .tagline {
+    margin: 0.75rem 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.82);
+    font: 700 0.66rem/1.6 'Inter', sans-serif;
+    max-width: 42ch;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .meta-grid {
+    margin: 0;
+    display: grid;
+    gap: 0.55rem;
+    align-content: start;
+  }
+
+  .meta-grid div {
+    border-radius: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: color-mix(in oklab, var(--surface) 74%, transparent);
+    padding: 0.65rem 0.72rem;
+  }
+
+  .meta-grid dt {
+    margin: 0 0 0.25rem;
+    text-transform: none;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.62);
+    font: 650 0.64rem/1 'Inter', sans-serif;
+  }
+
+  .meta-grid dd {
+    margin: 0;
+    font: 700 0.95rem/1.4 'Inter', sans-serif;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .metric-panel {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 0.7rem;
+  }
+
+  .metric-card {
+    margin: 0;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: color-mix(in oklab, var(--surface) 84%, transparent);
+    padding: 0.75rem 0.85rem;
+    min-width: 0;
+    display: grid;
+    gap: 0.28rem;
+  }
+
+  .metric-card-value {
+    margin: 0;
+    color: #ffffff;
+    font: 700 1.78rem/1 'Oswald', sans-serif;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    overflow-wrap: anywhere;
+  }
+
+  .metric-card-label {
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.82);
+    font: 650 0.82rem/1.45 'Inter', sans-serif;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .brief-body {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 1rem;
+  }
+
+  .brief-body.no-media {
+    grid-template-columns: 1fr;
+  }
+
+  .brief-copy,
+  .brief-media {
+    border-radius: 1.3rem;
+    border: 1px solid var(--line);
+    padding: clamp(1rem, 2.3vw, 1.4rem);
+    background: color-mix(in oklab, var(--surface) 88%, transparent);
+  }
+
+  .brief-copy h2,
+  .brief-media h2 {
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .brief-copy p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+  }
+
+  .actions a {
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 1rem 2rem;
+    text-transform: none;
+    font: 700 0.9rem/1 'Manrope', sans-serif;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background: transparent;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .actions a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .actions .brief-contact-btn {
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 1rem 2rem;
+    text-transform: none;
+    font: 700 0.9rem/1 'Manrope', sans-serif;
+    letter-spacing: 0.04em;
+    border: none;
+    background: #f7f7f7;
+    color: #0a0a0a;
+    cursor: pointer;
+  }
+
+  .actions .brief-contact-btn:hover {
+    opacity: 0.9;
+  }
+
+  .brief-carousel-shell {
+    border-radius: 0.9rem;
+    overflow: hidden;
+    height: auto;
+    min-height: 0;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: color-mix(in oklab, var(--surface) 90%, transparent);
+  }
+
+  .brief-body.media-horizontal {
+    grid-template-columns: 1fr;
+  }
+
+  .brief-body.media-horizontal .brief-media {
+    order: -1;
+  }
+
+  .brief-body.media-horizontal .brief-carousel-shell {
+    aspect-ratio: 16 / 9;
+  }
+
+  .brief-body.media-vertical .brief-carousel-shell {
+    height: clamp(15rem, 44vw, 24rem);
+    min-height: clamp(15rem, 44vw, 24rem);
+  }
+
+  .brief-carousel-shell :global(.media-masonry) {
+    min-height: inherit;
+    background: color-mix(in oklab, var(--surface) 92%, transparent);
+  }
+
+  .brief-carousel-shell :global(.media-masonry-grid) {
+    background: transparent;
+  }
+
+  .brief-carousel-shell :global(.masonry-item) {
+    background: color-mix(in oklab, var(--surface) 88%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .brief-carousel-shell :global(.masonry-frame),
+  .brief-carousel-shell :global(.masonry-frame img),
+  .brief-carousel-shell :global(.masonry-frame video),
+  .brief-carousel-shell :global(.media-empty) {
+    background: color-mix(in oklab, var(--surface) 94%, transparent);
+  }
+
+  .brief-carousel-shell :global(.media-carousel-controls) {
+    right: 0.7rem;
+    bottom: 0.7rem;
+  }
+
+  @media (max-width: 920px) {
+    .brief-hero,
+    .brief-body {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .brief-overlay {
+      padding: 6.25rem 0.9rem 1.5rem;
+    }
+
+    .brief-page {
+      border-radius: 0;
+      border-inline: 0;
+    }
+
+    .brief-body.media-vertical .brief-carousel-shell {
+      height: clamp(13rem, 62vw, 18rem);
+      min-height: clamp(13rem, 62vw, 18rem);
+    }
+  }
+
+  /* Floating Footer */
+  .site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    padding: 1rem 1.5rem;
+    background: color-mix(in oklab, var(--bg, #000) 92%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .site-footer.visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (min-width: 768px) {
+    .site-footer {
+      padding: 1.25rem 2.5rem;
+    }
+  }
+
+  .footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 761px) {
+    .footer-content {
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-status,
+    .footer-links {
+      width: 100%;
+    }
+
+    .footer-links {
+      justify-content: flex-start;
+    }
+  }
+
+  .footer-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #3b82f6;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .footer-links a {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #ffff00;
+  }
+
+  /* Embedded Footer */
+  .site-footer-embedded {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  @media (min-width: 761px) {
+    .site-footer-embedded {
+      padding: 3rem 2.5rem 4.5rem;
+    }
+  }
+
+  .footer-embedded-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-brand-link {
+    text-decoration: none;
+  }
+
+  .footer-brand-link .brand-text {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .footer-brand-link .brand-dot {
+    color: #3b82f6;
+  }
+
+  .footer-embedded-status {
+    gap: 0.6rem !important;
+  }
+
+  .footer-right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+
+  .footer-right-col .footer-links {
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .footer-built-with {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.2);
+    text-align: right;
+    line-height: 1.8;
+    overflow-wrap: break-word;
+  }
+
+  .fbw-sep {
+    display: inline;
+    white-space: pre;
+  }
+
+  /* Scroll to Top Button */
+  .scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    z-index: 60;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease, transform 0.2s ease, bottom 0.3s ease;
+  }
+
+  @media (min-width: 761px) {
+    .scroll-to-top {
+      bottom: 7rem;
+    }
+  }
+
+  .scroll-to-top:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .scroll-to-top.visible {
+    display: flex;
+  }
+
+  .scroll-to-top.footer-visible {
+    bottom: 7rem;
+  }
+
+  @media (min-width: 761px) {
+    .scroll-to-top.footer-visible {
+      bottom: 9rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .scroll-to-top.visible {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 761px) {
+    .scroll-to-top {
+      display: none !important;
+    }
+  }
+
+  /* Site Navigation */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: color-mix(in oklab, var(--bg, #000) 88%, transparent);
+    backdrop-filter: blur(14px);
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .site-nav.compact {
+    padding: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .site-nav {
+      padding: 2.5rem;
+    }
+
+    .site-nav.compact {
+      padding: 1.5rem;
+    }
+  }
+
+  .site-nav > div {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(0.85rem, 1.6vw, 2rem);
+    width: 100%;
+  }
+
+  .brand-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+  }
+
+  .brand-dot {
+    color: #3b82f6;
+  }
+
+  .site-nav nav {
+    display: flex;
+    gap: clamp(1rem, 2.2vw, 2rem);
+  }
+
+  @media (min-width: 768px) {
+    .site-nav nav {
+      gap: clamp(1.25rem, 2.6vw, 3rem);
+    }
+  }
+
+  .site-nav nav a {
+    font-size: clamp(0.8125rem, 0.95vw, 0.875rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: clamp(0.12em, 0.35vw, 0.2em);
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+
+  .site-nav nav a:hover {
+    color: #3b82f6;
+  }
+
+  .top-cta {
+    text-decoration: none;
+    border: none;
+    border-radius: 999px;
+    padding: 0.66rem 1.18rem;
+    background: #3b82f6;
+    color: #ffffff;
+    font: 700 0.73rem/1 "Manrope", sans-serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  /* Hamburger Menu Button */
+  .hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 60;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 28px;
+    height: 2.5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: color-mix(in oklab, var(--bg, #000) 95%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-content {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: -3rem;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-menu[aria-hidden="false"] .mobile-menu-close {
+    display: flex;
+  }
+
+  .mobile-menu-close:hover {
+    color: #3b82f6;
+  }
+
+  .mobile-menu-brand {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    text-decoration: none;
+  }
+
+  .mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu-link {
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  #mobile-contact-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .mobile-menu-link:hover {
+    color: #3b82f6;
+  }
+
+  @media (max-width: 420px) {
+    .mobile-menu-link {
+      font-size: clamp(1.6rem, 7.2vw, 2.2rem);
+      letter-spacing: 0.03em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hamburger-btn {
+      display: flex;
+    }
+
+    .site-nav nav {
+      display: none;
+    }
+
+    .top-cta {
+      display: none;
+    }
+  }
+
+  /* Brief Contact Button - homepage Get in touch style but with Visit project font */
+  .brief-contact-btn {
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.52rem 0.82rem;
+    text-transform: none;
+    font: 700 0.54rem/1 'Inter', sans-serif;
+    letter-spacing: 0.17em;
+    border: none;
+    background: #f7f7f7;
+    color: #0a0a0a;
+    cursor: pointer;
+  }
+
+  .brief-contact-btn:hover {
+    opacity: 0.9;
+  }
+
+  /* Contact Modal - Clean Typography */
+  .contact-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-modal.active {
+    display: flex;
+  }
+
+  .contact-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+  }
+
+  .contact-modal-content {
+    position: relative;
+    background: var(--surface);
+    padding: 2.5rem 2rem 2rem;
+    max-width: 640px;
+    width: 90%;
+    border: 1px solid rgba(30, 41, 59, 0.8);
+  }
+
+  .contact-modal-close {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.25rem;
+    transition: color 0.2s;
+  }
+
+  .contact-modal-close:hover {
+    color: #f9f506;
+  }
+
+  .contact-modal-status {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .contact-modal-title {
+    margin: 0 0 2.5rem;
+    text-align: left;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    color: var(--text);
+  }
+
+  .contact-modal-title br {
+    display: block;
+  }
+
+  .contact-modal-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-modal-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(30, 41, 59, 0.6);
+    gap: 1rem;
+  }
+
+  .contact-modal-row:first-child {
+    border-top: none;
+  }
+
+  .contact-modal-row:last-child {
+    border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+  }
+
+  .contact-modal-row-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .contact-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .contact-modal-icon {
+    flex-shrink: 0;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--muted);
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .contact-modal-label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #475569;
+  }
+
+  .contact-modal-value {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .contact-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .contact-modal-copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: transparent;
+    border: 1px solid #475569;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+  }
+
+  .contact-modal-copy-btn .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  .contact-modal-copy-btn:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+
+  .contact-modal-url-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.9rem;
+    background: #ffffff;
+    color: #000000;
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .contact-modal-url-btn:hover {
+    background: #f9f506;
+    color: #000;
+  }
+
+  .contact-modal-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3.5rem 0;
+  }
+
+  .contact-modal-divider::before,
+  .contact-modal-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(30, 41, 59, 0.6);
+  }
+
+  .contact-modal-divider-text {
+    font-family: "Inter", sans-serif;
+    font-size: 0.625rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #475569;
+    white-space: nowrap;
+  }
+
+  .contact-modal-brief-btn {
+    display: block;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: #f9f506;
+    border: none;
+    color: #000;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 0px 0px #2E5BFF;
+  }
+
+  .contact-modal-brief-btn:hover {
+    background: #fffb00;
+  }
+
+  .contact-modal-brief-btn:active {
+    transform: translateY(1px);
+  }
+
+  @media (max-width: 520px) {
+    .contact-modal-content {
+      padding: 1.85rem 1.15rem 1.25rem;
+      width: calc(100% - 2rem);
+      max-height: calc(100svh - 2rem);
+      overflow-y: auto;
+    }
+
+    .contact-modal-close {
+      top: 1.75rem;
+      right: 1.75rem;
+    }
+
+    .contact-modal-status {
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-modal-title {
+      font-size: clamp(1.7rem, 8.6vw, 2.45rem);
+      line-height: 0.84;
+      margin: 0 0 0.9rem;
+    }
+
+    .contact-modal-title br {
+      display: none;
+    }
+
+    .contact-modal-brief-btn {
+      padding: 0.75rem 1.125rem;
+      font-size: 0.99rem;
+      letter-spacing: 0.13em;
+      box-shadow: 1px 1px 0px 0px #2E5BFF;
+      margin: 0.6rem 0;
+    }
+
+    .contact-modal-divider {
+      margin: 1rem 0;
+      gap: 0.75rem;
+    }
+
+    .contact-modal-divider-text {
+      font-size: 0.55rem;
+      letter-spacing: 0.13em;
+    }
+
+    .contact-modal-row {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 0.95rem 0;
+      gap: 0.85rem;
+    }
+
+    .contact-modal-row-left {
+      flex: 1 1 100%;
+    }
+
+    .contact-modal-actions {
+      width: 100%;
+      justify-content: flex-start;
+      min-width: 0;
+    }
+
+    .contact-modal-icon {
+      width: 1.6rem;
+      font-size: 1.35rem;
+    }
+
+    .contact-modal-url-btn {
+      flex: 0 0 auto;
+      min-width: 0;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.66rem;
+      letter-spacing: 0.07em;
+    }
+  }
+</style>

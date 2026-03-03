@@ -1,0 +1,130 @@
+Hero subheading copy options (from this session)
+
+Picks to refine (as selected)
+
+A3 (Direct balance)
+"You need something built, or something fixed. I bring the technical depth to make it happen. You keep moving."
+
+A2 (Punchier)
+"Technical expertise on tap. New builds or existing problems — I handle the complexity so you don't have to."
+
+Variant A (Capacity + Partnership)
+"I bring technical capacity when you need it — whether that's building your MVP from scratch or solving the complex challenges blocking your growth. You drive, I execute."
+
+Variant A (same, with broader term than "growth")
+"I bring technical capacity when you need it — whether that's building your MVP from scratch or solving the complex challenges blocking your objectives. You drive, I execute."
+
+Option 4 (Capability expansion)
+"Technical capacity when you need it. I build MVPs, solve complex challenges, or embed as your technical partner."
+
+Option 3 (Integration focus)
+"I integrate with your workflow: building MVPs, solving technical bottlenecks, or augmenting your team. You lead, I execute."
+
+All other options (keep)
+
+First set (tighter options)
+
+Option 1 (Direct)
+"I build your ambitious projects. You bring the vision, I bring the technical expertise. Let's build something extraordinary."
+
+Option 2 (Collaborative)
+"Your vision + my technical expertise = extraordinary things. Let's build it."
+
+Option 3 (Action-focused)
+"You focus on what you do best. I'll handle the technical complexity. Together, we build extraordinary things."
+
+Option 4 (Shortest)
+"Your vision, my technical expertise. Let's build extraordinary things."
+
+Balanced framing between ambitious projects and technical challenges
+
+Option 1 (Parallel balance)
+"I tackle ambitious projects. I solve technical challenges. Together, we build extraordinary things."
+
+Option 2 (You/I balance)
+"You bring ambitious projects. I bring technical expertise. Together, we build extraordinary things."
+
+Option 3 (Merged)
+"Big ambitions, complex challenges — I handle the build. Let's create something extraordinary."
+
+Option 4 (Direct)
+"Your ambitious projects. My technical solutions. Extraordinary results."
+
+Process-oriented framing
+
+Option 1 (Partnership process)
+"You bring the vision and ambition. I bring the technical execution. We ship together."
+
+Option 2 (Friction removal)
+"You focus on the product and users. I handle the technical complexity. From idea to shipped."
+
+Option 3 (Collaborative build)
+"Your domain expertise + my technical build. Together, we turn ideas into working products."
+
+Option 4 (Journey framing)
+"From concept to code to launch — I handle the technical journey so you can focus on growth."
+
+Option 5 (Shortest process)
+"I build the tech. You build the business. Together we ship."
+
+Process-oriented framing for both Type 1 and Type 2
+
+Option 1 (Technical partnership)
+"I embed technical expertise into your vision — whether that's building from zero or leveling up what you have. We architect, build, and ship together."
+
+Option 2 (Flexible process)
+"From first prototype to production-ready systems — I meet you where you are and handle the technical execution."
+
+Option 3 (Integration focus)
+"I integrate with your workflow: building MVPs, solving technical bottlenecks, or augmenting your team. You lead, I execute."
+
+Option 4 (Capability expansion)
+"Technical capacity when you need it. I build MVPs, solve complex challenges, or embed as your technical partner."
+
+Option 5 (Stage-agnostic)
+"Whatever stage you're at — idea, prototype, or scale — I bring the technical firepower to move you forward."
+
+Improved variants of Option 4
+
+Variant A (Capacity + Partnership)
+"I bring technical capacity when you need it — whether that's building your MVP from scratch or solving the complex challenges blocking your growth. You drive, I execute."
+
+Variant B (Firepower + Flexibility)
+"Technical firepower on demand. I can architect your first product or untangle the technical debt slowing you down. Either way, we move fast."
+
+Variant C (Execution Partner)
+"Your technical execution partner. From zero-to-one builds to rescuing stuck projects — I handle the code so you can focus on the business."
+
+Variant D (Build + Unblock)
+"I help you build what doesn't exist yet, and fix what's broken. MVPs, refactors, or complex integrations — I bring the technical depth you need."
+
+Variant E (Shortest, sharpest)
+"Build new things. Fix broken things. I bring the technical expertise to make either happen fast."
+
+Follow-up A1-A4 set
+
+A1 (Sharper Variant A)
+"I bring technical capacity when you need it — building from zero or solving what's blocking you. Either way, you stay focused on the business."
+
+A2 (Punchier)
+"Technical expertise on tap. New builds or existing problems — I handle the complexity so you don't have to."
+
+A3 (Direct balance)
+"You need something built, or something fixed. I bring the technical depth to make it happen. You keep moving."
+
+A4 (Process clarity)
+"I integrate technical execution into your workflow — whether that's launching version one or unblocking version two."
+
+Refinements offered after A2/A3 picks
+
+Refined A2
+"Technical expertise on tap. Launching something new or untangling complexity — I handle the build so you keep momentum."
+
+Refined A3
+"Building from scratch or fixing what's stuck — I bring the technical depth. You keep the vision moving forward."
+
+Hybrid (Best of both)
+"I handle the technical work — whether that's building your first product or fixing what's blocking growth. You stay in charge of direction."
+
+Tightest version
+"New builds, complex problems — I bring technical execution. You keep building the business."

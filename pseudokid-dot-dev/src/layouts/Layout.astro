@@ -1,0 +1,106 @@
+---
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from '@vercel/analytics/astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Raymel Francisco - Indie Hacker Portfolio',
+  description = 'Presentation-style portfolio of products, experiments, and collaborations.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" type="image/png" href="/asciified-rocket.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content="https://pseudokid.dev/asciified-rocket.png" />
+    <meta property="og:site_name" content="pseudokid.dev" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://pseudokid.dev/asciified-rocket.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800;900&family=Oswald:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </head>
+  <body>
+    <slot />
+    <SpeedInsights />
+    <Analytics />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #000000;
+    --surface: #0a0a0a;
+    --surface-soft: #141414;
+    --text: #f7f7f7;
+    --muted: #6b7280;
+    --line: rgba(255, 255, 255, 0.12);
+    --line-strong: rgba(255, 255, 255, 0.28);
+    --brand: #3b82f6;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+</style>
+
+<script type="module">
+  import mixpanel from "mixpanel-browser";
+  
+  // Exact code from Mixpanel docs - DO NOT MODIFY
+  mixpanel.init('0bb46e22a0b741698c110eb22108e2ef', {
+    autocapture: true,
+    record_sessions_percent: 10,
+    api_host: 'https://api-eu.mixpanel.com',
+  });
+</script>

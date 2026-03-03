@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>High-Legibility Brutalist Hero | Portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brutalist: {
+                            navy: "#0a0a1a",
+                            yellow: "#ffff00",
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        .text-outline-black {
+            -webkit-text-stroke: 2px black;
+            color: transparent;
+        }
+        .text-outline-white {
+            -webkit-text-stroke: 1.5px white;
+            color: transparent;
+        }.headline-line {
+            line-height: 1.4;
+            letter-spacing: -0.02em;
+        }
+    </style>
+</head>
+<body class="bg-brutalist-navy font-sans antialiased text-white">
+<nav class="fixed top-0 w-full z-50 p-8">
+<div class="max-w-screen-2xl mx-auto flex justify-between items-center">
+<div class="text-2xl font-black uppercase tracking-tighter">
+                Studio<span class="text-brutalist-yellow">.</span>Alex
+            </div>
+<div class="flex gap-12 text-sm font-bold uppercase tracking-widest">
+<a class="hover:text-brutalist-yellow transition-colors" href="#">Work</a>
+<a class="hover:text-brutalist-yellow transition-colors" href="#">Process</a>
+<a class="hover:text-brutalist-yellow transition-colors" href="#">Contact</a>
+</div>
+</div>
+</nav>
+<main class="min-h-screen flex flex-col justify-center px-8 md:px-20 py-32">
+<div class="max-w-screen-2xl mx-auto w-full">
+<h1 class="flex flex-col gap-4">
+<span class="headline-line text-6xl md:text-8xl lg:text-[10rem] font-black uppercase italic text-white">
+                    Engineering
+                </span>
+<span class="headline-line text-6xl md:text-8xl lg:text-[10rem] font-black uppercase text-outline-white">
+                    High-Impact
+                </span>
+<span class="headline-line text-6xl md:text-8xl lg:text-[10rem] font-black uppercase text-white">
+                    Solutions
+                </span>
+</h1>
+<div class="mt-24 flex flex-col md:flex-row md:items-end justify-between gap-12">
+<div class="max-w-xl">
+<p class="text-xl md:text-2xl font-medium leading-relaxed text-slate-400">
+                        A focused approach to building digital communities and technical infrastructure with uncompromising legibility and brutalist precision.
+                    </p>
+</div>
+<div class="flex-shrink-0">
+<a class="inline-block px-16 py-8 bg-brutalist-yellow text-black font-black text-2xl uppercase tracking-tighter hover:bg-white hover:-translate-y-1 hover:-translate-x-1 transition-all duration-200 active:translate-y-0 active:translate-x-0 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-[12px_12px_0px_0px_rgba(255,255,255,1)]" href="#">
+                        View Work
+                    </a>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-8 left-8 hidden lg:block">
+<div class="flex flex-col gap-2">
+<div class="w-1 h-12 bg-white/20"></div>
+<div class="text-xs font-black uppercase vertical-rl text-white/40 tracking-widest">Scroll to explore</div>
+</div>
+</div>
+<footer class="p-8 border-t border-white/5 bg-black/20">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-xs font-bold uppercase tracking-widest text-slate-500">
+                © 2024 Typographic Brutalist Edition
+            </p>
+<div class="flex gap-8">
+<a class="text-xs font-black uppercase tracking-widest hover:text-brutalist-yellow" href="#">GitHub</a>
+<a class="text-xs font-black uppercase tracking-widest hover:text-brutalist-yellow" href="#">LinkedIn</a>
+<a class="text-xs font-black uppercase tracking-widest hover:text-brutalist-yellow" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+
+</body></html>

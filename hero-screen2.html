@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vibrant Typographic Brutalist Hero | Portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brutalist: {
+                            navy: "#050515",
+                            blue: "#3b82f6",
+                            yellow: "#ffff00",
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        .text-outline-blue {
+            -webkit-text-stroke: 3px #3b82f6;
+            color: transparent;
+        }
+        @media (max-width: 768px) {
+            .text-outline-blue {
+                -webkit-text-stroke: 1.5px #3b82f6;
+            }
+        }
+        .headline-line {
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+        }
+        .bg-navy-gradient {
+            background: radial-gradient(circle at center, #0a0a2a 0%, #050515 100%);
+        }
+    </style>
+</head>
+<body class="bg-brutalist-navy bg-navy-gradient font-sans antialiased text-white min-h-screen">
+<nav class="fixed top-0 w-full z-50 p-6 md:p-10">
+<div class="max-w-screen-2xl mx-auto flex justify-between items-center">
+<div class="text-2xl font-black uppercase tracking-tighter">
+                Studio<span class="text-brutalist-yellow">.</span>Alex
+            </div>
+<div class="flex gap-8 md:gap-12 text-sm font-bold uppercase tracking-[0.2em]">
+<a class="hover:text-brutalist-yellow transition-colors" href="#">Work</a>
+<a class="hover:text-brutalist-yellow transition-colors" href="#">Process</a>
+<a class="hover:text-brutalist-yellow transition-colors" href="#">Contact</a>
+</div>
+</div>
+</nav>
+<main class="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 py-32">
+<div class="max-w-screen-2xl mx-auto w-full">
+<h1 class="flex flex-col">
+<span class="headline-line text-[clamp(3rem,12vw,12rem)] font-black uppercase text-white mb-2">
+                    Engineering
+                </span>
+<span class="headline-line text-[clamp(3rem,12vw,12rem)] font-black uppercase text-outline-blue mb-2">
+                    High-Impact
+                </span>
+<span class="headline-line text-[clamp(3rem,12vw,12rem)] font-black uppercase text-brutalist-yellow">
+                    Solutions
+                </span>
+</h1>
+<div class="mt-16 md:mt-24 flex flex-col md:flex-row md:items-end justify-between gap-12">
+<div class="max-w-2xl">
+<p class="text-xl md:text-3xl font-medium leading-tight text-white/80 max-w-xl">
+                        Building the next generation of digital infrastructure with brutalist precision and high-performance engineering.
+                    </p>
+</div>
+<div class="flex-shrink-0">
+<a class="inline-block px-12 py-6 md:px-20 md:py-10 bg-brutalist-yellow text-black font-black text-2xl md:text-3xl uppercase tracking-tighter hover:bg-white hover:-translate-y-2 hover:-translate-x-2 transition-all duration-200 active:translate-y-0 active:translate-x-0 shadow-[8px_8px_0px_0px_rgba(59,130,246,0.5)] hover:shadow-[14px_14px_0px_0px_rgba(59,130,246,1)]" href="#">
+                        View Work
+                    </a>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-10 left-10 hidden xl:block">
+<div class="flex flex-col items-center gap-4">
+<div class="text-[10px] font-black uppercase vertical-rl text-white/30 tracking-[0.5em] mb-4">Explore More</div>
+<div class="w-[2px] h-24 bg-gradient-to-b from-brutalist-blue to-transparent"></div>
+</div>
+</div>
+<footer class="p-10 border-t border-white/5 relative z-10">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4">
+<span class="w-2 h-2 bg-brutalist-blue rounded-full animate-pulse"></span>
+<p class="text-xs font-bold uppercase tracking-widest text-white/40">
+                    Available for new projects
+                </p>
+</div>
+<div class="flex gap-12">
+<a class="text-xs font-black uppercase tracking-widest hover:text-brutalist-yellow transition-colors" href="#">GitHub</a>
+<a class="text-xs font-black uppercase tracking-widest hover:text-brutalist-yellow transition-colors" href="#">LinkedIn</a>
+<a class="text-xs font-black uppercase tracking-widest hover:text-brutalist-yellow transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+
+</body></html>
